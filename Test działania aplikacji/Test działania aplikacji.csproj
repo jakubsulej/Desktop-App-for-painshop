@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42BA3895-87CB-4351-AB39-322A4EF53476}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Test_działania_aplikacji</RootNamespace>
+    <AssemblyName>Test działania aplikacji</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CancelRobienieLaku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancelRobienieLaku.Designer.cs">
+      <DependentUpon>CancelRobienieLaku.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExitWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExitWindow.Designer.cs">
+      <DependentUpon>ExitWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaForm.Designer.cs">
+      <DependentUpon>HistoriaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LackQuantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LackQuantity.Designer.cs">
+      <DependentUpon>LackQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuGlowne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuGlowne.Designer.cs">
+      <DependentUpon>MenuGlowne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RobienieLaku.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RobienieLaku.Designer.cs">
+      <DependentUpon>RobienieLaku.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SipiolObliczanie.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SipiolObliczanie.Designer.cs">
+      <DependentUpon>SipiolObliczanie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UstawieniaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UstawieniaForm.Designer.cs">
+      <DependentUpon>UstawieniaForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CancelRobienieLaku.resx">
+      <DependentUpon>CancelRobienieLaku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExitWindow.resx">
+      <DependentUpon>ExitWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaForm.resx">
+      <DependentUpon>HistoriaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LackQuantity.resx">
+      <DependentUpon>LackQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuGlowne.resx">
+      <DependentUpon>MenuGlowne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RobienieLaku.resx">
+      <DependentUpon>RobienieLaku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SipiolObliczanie.resx">
+      <DependentUpon>SipiolObliczanie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UstawieniaForm.resx">
+      <DependentUpon>UstawieniaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
