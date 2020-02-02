@@ -39,7 +39,6 @@
             this.closeButton = new System.Windows.Forms.Button();
             this.buttonSipiolQuantity = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.sipiolObliczanie1 = new Test_działania_aplikacji.SipiolObliczanie();
             this.labelGodzina = new System.Windows.Forms.Label();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.buttonWyjscie = new System.Windows.Forms.Button();
@@ -49,6 +48,7 @@
             this.buttonRobienieLaku = new System.Windows.Forms.Button();
             this.toppanel2 = new System.Windows.Forms.Panel();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.sipiolObliczanie1 = new Test_działania_aplikacji.SipiolObliczanie();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toppanel2.SuspendLayout();
@@ -151,13 +151,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(758, 539);
             this.panel4.TabIndex = 8;
-            // 
-            // sipiolObliczanie1
-            // 
-            this.sipiolObliczanie1.Location = new System.Drawing.Point(0, 0);
-            this.sipiolObliczanie1.Name = "sipiolObliczanie1";
-            this.sipiolObliczanie1.Size = new System.Drawing.Size(758, 539);
-            this.sipiolObliczanie1.TabIndex = 17;
             // 
             // labelGodzina
             // 
@@ -277,6 +270,13 @@
             // timer
             // 
             this.timer.Enabled = true;
+            // 
+            // sipiolObliczanie1
+            // 
+            this.sipiolObliczanie1.Location = new System.Drawing.Point(0, 0);
+            this.sipiolObliczanie1.Name = "sipiolObliczanie1";
+            this.sipiolObliczanie1.Size = new System.Drawing.Size(758, 539);
+            this.sipiolObliczanie1.TabIndex = 17;
             // 
             // LackQuantity
             // 
