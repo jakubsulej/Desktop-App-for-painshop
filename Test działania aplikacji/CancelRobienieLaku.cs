@@ -25,13 +25,9 @@ namespace Test_działania_aplikacji
 
         private void buttonExitCancelRobienieLaku_Click(object sender, EventArgs e)
         {
-            this.Hide();
             var form2 = new MenuGlowne();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
-            this.Hide();
-            //this.Close();
-            //new MenuGlowne().Show();
         }
 
         private void closeButton_Click(object sender, EventArgs e)

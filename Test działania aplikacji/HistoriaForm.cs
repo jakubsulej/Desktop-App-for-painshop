@@ -42,6 +42,34 @@ namespace Test_działania_aplikacji
             }
         }
 
+        private void usuwanieDanychTabela(object sender, EventArgs e) //USUWANIE ZAZNACZONYCH DANYCH
+        {
+            string dataTabela = listViewHistoria.SelectedItems[0].SubItems[4].Text; ;
+            string godzinaTabela = listViewHistoria.SelectedItems[0].SubItems[1].Text;
+
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+
+            string sql = "Delete from HISTORIAROBIENIALAKU where Godzina=@Godzina AND Data=@Data";
+
+            {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        cmd.Parameters.AddWithValue("@Godzina", godzinaTabela);
+                        cmd.Parameters.AddWithValue("@Data", dataTabela);
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("BŁĄD:" + ex.Message);
+                }
+            }
+        }
+
         private void closeButton_Click(object sender, EventArgs e) //Krzyżyk wyjście z programu
         {
             new ExitWindow().Show();
@@ -91,6 +119,14 @@ namespace Test_działania_aplikacji
         {
             labelGodzina.Text = DateTime.Now.ToLongTimeString();
             timer.Start();
+        }
+
+        private void buttonUsuwanieHistorii_Click(object sender, EventArgs e)
+        {
+            usuwanieDanychTabela(null, null);
+            listViewHistoria.Items.Clear();
+            listViewHistoria.Refresh();
+            WczytywanieListView(null, null);
         }
     }
 }

@@ -47,6 +47,8 @@
             this.buttonHistoria = new System.Windows.Forms.Button();
             this.buttonRobienieLaku = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.labelTestListy = new System.Windows.Forms.Label();
+            this.buttonUsuwanieWierszaHistorii = new System.Windows.Forms.Button();
             this.toppanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -239,11 +241,32 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // labelTestListy
+            // 
+            this.labelTestListy.AutoSize = true;
+            this.labelTestListy.Location = new System.Drawing.Point(295, 485);
+            this.labelTestListy.Name = "labelTestListy";
+            this.labelTestListy.Size = new System.Drawing.Size(35, 13);
+            this.labelTestListy.TabIndex = 9;
+            this.labelTestListy.Text = "label1";
+            // 
+            // buttonUsuwanieWierszaHistorii
+            // 
+            this.buttonUsuwanieWierszaHistorii.Location = new System.Drawing.Point(244, 427);
+            this.buttonUsuwanieWierszaHistorii.Name = "buttonUsuwanieWierszaHistorii";
+            this.buttonUsuwanieWierszaHistorii.Size = new System.Drawing.Size(105, 31);
+            this.buttonUsuwanieWierszaHistorii.TabIndex = 10;
+            this.buttonUsuwanieWierszaHistorii.Text = "Usuń wiersz";
+            this.buttonUsuwanieWierszaHistorii.UseVisualStyleBackColor = true;
+            this.buttonUsuwanieWierszaHistorii.Click += new System.EventHandler(this.buttonUsuwanieHistorii_Click);
+            // 
             // HistoriaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(988, 570);
+            this.Controls.Add(this.buttonUsuwanieWierszaHistorii);
+            this.Controls.Add(this.labelTestListy);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toppanel2);
             this.Controls.Add(this.listViewHistoria);
@@ -256,6 +279,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -278,5 +302,7 @@
         private System.Windows.Forms.ColumnHeader RodzajLakieru;
         private System.Windows.Forms.ColumnHeader Data;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label labelTestListy;
+        private System.Windows.Forms.Button buttonUsuwanieWierszaHistorii;
     }
 }

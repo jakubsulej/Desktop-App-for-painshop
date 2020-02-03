@@ -270,6 +270,7 @@
             // timer
             // 
             this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // sipiolObliczanie1
             // 
@@ -290,6 +291,7 @@
             this.Name = "LackQuantity";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LackQuantity";
+            this.Load += new System.EventHandler(this.LackQuantity_Load);
             this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -46,5 +46,17 @@ namespace Test_działania_aplikacji
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            labelGodzina.Text = DateTime.Now.ToLongTimeString();
+            timer.Start();
+        }
+
+        private void LackQuantity_Load(object sender, EventArgs e)
+        {
+            timer.Start();
+            labelGodzina.Text = DateTime.Now.ToLongTimeString();
+        }
     }
 }

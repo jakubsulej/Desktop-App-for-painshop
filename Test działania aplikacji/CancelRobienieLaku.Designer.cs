@@ -34,6 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Button();
+            this.labelCancelRobienieLaku = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +62,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.panel1.Controls.Add(this.labelCancelRobienieLaku);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.buttonCancelCancelRobienieLaku);
             this.panel1.Controls.Add(this.buttonExitCancelRobienieLaku);
@@ -95,6 +97,18 @@
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // labelCancelRobienieLaku
+            // 
+            this.labelCancelRobienieLaku.AutoSize = true;
+            this.labelCancelRobienieLaku.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelCancelRobienieLaku.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelCancelRobienieLaku.Location = new System.Drawing.Point(37, 69);
+            this.labelCancelRobienieLaku.Name = "labelCancelRobienieLaku";
+            this.labelCancelRobienieLaku.Size = new System.Drawing.Size(278, 30);
+            this.labelCancelRobienieLaku.TabIndex = 3;
+            this.labelCancelRobienieLaku.Text = "Czy na pewno chcesz zakończyć robienie lakieru?\r\nNiezapisane postęy zostaną utrac" +
+    "one.";
+            // 
             // CancelRobienieLaku
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,6 +120,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CancelRobienieLaku";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -118,5 +133,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Label labelCancelRobienieLaku;
     }
 }
