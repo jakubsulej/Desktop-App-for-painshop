@@ -21,6 +21,7 @@ namespace Test_działania_aplikacji
 
         string dataWsteczna;
 
+
         public void WczytywanieListView(object sender, EventArgs e)
         {
             listViewHistoria.GridLines = true;
@@ -46,30 +47,39 @@ namespace Test_działania_aplikacji
 
         private void usuwanieWierszaTabela(object sender, EventArgs e) //USUWANIE ZAZNACZONYCH DANYCH
         {
-            string dataTabela = listViewHistoria.SelectedItems[0].SubItems[4].Text; ;
-            string godzinaTabela = listViewHistoria.SelectedItems[0].SubItems[1].Text;
-
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
-
-            string sql = "Delete from HISTORIAROBIENIALAKU where Godzina=@Godzina AND Data=@Data";
-
+            if (listViewHistoria.SelectedItems.Count > 0)
             {
-                try
-                {
-                    using (SqlCommand cmd = new SqlCommand(sql, con))
-                    {
-                        cmd.Parameters.AddWithValue("@Godzina", godzinaTabela);
-                        cmd.Parameters.AddWithValue("@Data", dataTabela);
+                string dataTabela = listViewHistoria.SelectedItems[0].SubItems[4].Text;
+                string godzinaTabela = listViewHistoria.SelectedItems[0].SubItems[1].Text;
 
-                        con.Open();
-                        cmd.ExecuteNonQuery();
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+
+                string sql = "Delete from HISTORIAROBIENIALAKU where Godzina=@Godzina AND Data=@Data";
+
+                {
+                    try
+                    {
+                        using (SqlCommand cmd = new SqlCommand(sql, con))
+                        {
+                            cmd.Parameters.AddWithValue("@Godzina", godzinaTabela);
+                            cmd.Parameters.AddWithValue("@Data", dataTabela);
+
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("BŁĄD:" + ex.Message);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("BŁĄD:" + ex.Message);
-                }
             }
+            else
+            {
+                MessageBox.Show("Nie wybrano wiersza do usunięcia!");
+            }
+
+
         }
         private void usuwanie7DniTabela(object sender, EventArgs e) //NIE DZIAŁA!!!!! <====Dodaje tylko aktualną datę minus siedem
         {
@@ -80,7 +90,7 @@ namespace Test_działania_aplikacji
             for (int i = 0; i < 7; i++)
             {
                 aktualnaData = aktualnaData.AddDays(-1);
-                dataWsteczna = aktualnaData.Date.ToShortDateString();
+                dataWsteczna = aktualnaData.ToString();
             }
 
             //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
