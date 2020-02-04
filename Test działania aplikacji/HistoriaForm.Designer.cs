@@ -47,8 +47,9 @@
             this.buttonHistoria = new System.Windows.Forms.Button();
             this.buttonRobienieLaku = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.labelTestListy = new System.Windows.Forms.Label();
             this.buttonUsuwanieWierszaHistorii = new System.Windows.Forms.Button();
+            this.buttonUsun7Dni = new System.Windows.Forms.Button();
+            this.labelDataWsteczna = new System.Windows.Forms.Label();
             this.toppanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +65,7 @@
             this.listViewHistoria.HideSelection = false;
             this.listViewHistoria.Location = new System.Drawing.Point(244, 49);
             this.listViewHistoria.Name = "listViewHistoria";
-            this.listViewHistoria.Size = new System.Drawing.Size(700, 354);
+            this.listViewHistoria.Size = new System.Drawing.Size(732, 354);
             this.listViewHistoria.TabIndex = 0;
             this.listViewHistoria.UseCompatibleStateImageBehavior = false;
             this.listViewHistoria.View = System.Windows.Forms.View.Details;
@@ -241,15 +242,6 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // labelTestListy
-            // 
-            this.labelTestListy.AutoSize = true;
-            this.labelTestListy.Location = new System.Drawing.Point(295, 485);
-            this.labelTestListy.Name = "labelTestListy";
-            this.labelTestListy.Size = new System.Drawing.Size(35, 13);
-            this.labelTestListy.TabIndex = 9;
-            this.labelTestListy.Text = "label1";
-            // 
             // buttonUsuwanieWierszaHistorii
             // 
             this.buttonUsuwanieWierszaHistorii.Location = new System.Drawing.Point(244, 427);
@@ -260,13 +252,33 @@
             this.buttonUsuwanieWierszaHistorii.UseVisualStyleBackColor = true;
             this.buttonUsuwanieWierszaHistorii.Click += new System.EventHandler(this.buttonUsuwanieHistorii_Click);
             // 
+            // buttonUsun7Dni
+            // 
+            this.buttonUsun7Dni.Location = new System.Drawing.Point(366, 427);
+            this.buttonUsun7Dni.Name = "buttonUsun7Dni";
+            this.buttonUsun7Dni.Size = new System.Drawing.Size(136, 31);
+            this.buttonUsun7Dni.TabIndex = 11;
+            this.buttonUsun7Dni.Text = "Usuń ostatnie 7 dni";
+            this.buttonUsun7Dni.UseVisualStyleBackColor = true;
+            this.buttonUsun7Dni.Click += new System.EventHandler(this.buttonUsun7Dni_Click);
+            // 
+            // labelDataWsteczna
+            // 
+            this.labelDataWsteczna.AutoSize = true;
+            this.labelDataWsteczna.Location = new System.Drawing.Point(366, 488);
+            this.labelDataWsteczna.Name = "labelDataWsteczna";
+            this.labelDataWsteczna.Size = new System.Drawing.Size(35, 13);
+            this.labelDataWsteczna.TabIndex = 12;
+            this.labelDataWsteczna.Text = "label1";
+            // 
             // HistoriaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(988, 570);
+            this.Controls.Add(this.labelDataWsteczna);
+            this.Controls.Add(this.buttonUsun7Dni);
             this.Controls.Add(this.buttonUsuwanieWierszaHistorii);
-            this.Controls.Add(this.labelTestListy);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toppanel2);
             this.Controls.Add(this.listViewHistoria);
@@ -302,7 +314,8 @@
         private System.Windows.Forms.ColumnHeader RodzajLakieru;
         private System.Windows.Forms.ColumnHeader Data;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Label labelTestListy;
         private System.Windows.Forms.Button buttonUsuwanieWierszaHistorii;
+        private System.Windows.Forms.Button buttonUsun7Dni;
+        private System.Windows.Forms.Label labelDataWsteczna;
     }
 }

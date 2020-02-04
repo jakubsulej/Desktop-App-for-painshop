@@ -19,6 +19,8 @@ namespace Test_działania_aplikacji
             InitializeComponent();
         }
 
+        string dataWsteczna;
+
         public void WczytywanieListView(object sender, EventArgs e)
         {
             listViewHistoria.GridLines = true;
@@ -42,7 +44,7 @@ namespace Test_działania_aplikacji
             }
         }
 
-        private void usuwanieDanychTabela(object sender, EventArgs e) //USUWANIE ZAZNACZONYCH DANYCH
+        private void usuwanieWierszaTabela(object sender, EventArgs e) //USUWANIE ZAZNACZONYCH DANYCH
         {
             string dataTabela = listViewHistoria.SelectedItems[0].SubItems[4].Text; ;
             string godzinaTabela = listViewHistoria.SelectedItems[0].SubItems[1].Text;
@@ -68,6 +70,40 @@ namespace Test_działania_aplikacji
                     MessageBox.Show("BŁĄD:" + ex.Message);
                 }
             }
+        }
+        private void usuwanie7DniTabela(object sender, EventArgs e) //NIE DZIAŁA!!!!! <====Dodaje tylko aktualną datę minus siedem
+        {
+            
+            
+            DateTime aktualnaData = DateTime.Now;
+
+            for (int i = 0; i < 7; i++)
+            {
+                aktualnaData = aktualnaData.AddDays(-1);
+                dataWsteczna = aktualnaData.Date.ToShortDateString();
+            }
+
+            //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+
+            //string sql = "Delete from HISTORIAROBIENIALAKU where DATA=@Data Order By DATA";
+
+            //{
+            //    try
+            //    {
+            //        using (SqlCommand cmd = new SqlCommand(sql, con))
+            //        {
+            //            cmd.Parameters.AddWithValue("@Godzina", godzinaTabela);
+            //            cmd.Parameters.AddWithValue("@Data", dataTabela);
+
+            //            con.Open();
+            //            cmd.ExecuteNonQuery();
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show("BŁĄD:" + ex.Message);
+            //    }
+            //}
         }
 
         private void closeButton_Click(object sender, EventArgs e) //Krzyżyk wyjście z programu
@@ -123,10 +159,16 @@ namespace Test_działania_aplikacji
 
         private void buttonUsuwanieHistorii_Click(object sender, EventArgs e)
         {
-            usuwanieDanychTabela(null, null);
+            usuwanieWierszaTabela(null, null);
             listViewHistoria.Items.Clear();
             listViewHistoria.Refresh();
             WczytywanieListView(null, null);
+        }
+
+        private void buttonUsun7Dni_Click(object sender, EventArgs e)
+        {
+            usuwanie7DniTabela(null, null);
+            labelDataWsteczna.Text = dataWsteczna;
         }
     }
 }
