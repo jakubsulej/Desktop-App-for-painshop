@@ -38,6 +38,7 @@
             this.panelLoginTop = new System.Windows.Forms.Panel();
             this.minimalizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelLoginTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,12 +138,22 @@
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(251, 335);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "label1";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 389);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panelLoginTop);
             this.Controls.Add(this.buttonLoginCancel);
             this.Controls.Add(this.labelHaslo);
@@ -155,6 +166,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panelLoginTop.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -172,5 +184,6 @@
         private System.Windows.Forms.Panel panelLoginTop;
         private System.Windows.Forms.Button minimalizeButton;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Label label1;
     }
 }

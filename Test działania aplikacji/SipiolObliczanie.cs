@@ -76,7 +76,7 @@ namespace Test_działania_aplikacji
 
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
-            //ODCZYT AKTUALNIE ZALOGOWANEGO UŻYTKOWNIKA <====Przerobić w metodę
+            //ODCZYT AKTUALNIE ZALOGOWANEGO UŻYTKOWNIKA
 
             SqlCommand command = new SqlCommand("Select * From ZALOGOWANYUZYTKOWNIK", con);
 

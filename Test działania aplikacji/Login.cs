@@ -19,7 +19,7 @@ namespace Test_działania_aplikacji
             textBox2.PasswordChar = '*';
         }
 
-        string zalogowanyUzytkownik;
+        string aktualnieZalogowanyUser;
 
         //---------------Sterowanie oknem-------------------
         private void buttonLoginCancel_Click(object sender, EventArgs e) //Zamknięcie okna
@@ -37,47 +37,85 @@ namespace Test_działania_aplikacji
             Close();
         }
 
+        private void checkCurrentUser(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+
+            {
+                SqlCommand cmd = new SqlCommand("select * from ZALOGOWANYUZYTKOWNIK", con);
+                con.Open();
+
+                SqlDataReader read = cmd.ExecuteReader();
+
+                while (read.Read())
+                {
+                    aktualnieZalogowanyUser = (read["ADMIN"].ToString().Trim());
+                }
+                read.Close();
+            }
+        }
+
         private void buttonLogin_Click(object sender, EventArgs e) //Logowanie do menu głównego - Do ogarnięcia uporządkowanie w metody
         {
-
-            //Pobieranie danych z pliku bazy SQL "LOGIN"
             SqlConnection polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
-            String query = "Select Role from Login Where Uzytkownik = '" + textBox1.Text.Trim() + "' and Haslo = '" + textBox2.Text.Trim() + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(query, polaczenie);
-            DataTable tabelaDanych = new DataTable();
-            sda.Fill(tabelaDanych);
 
-            if (tabelaDanych.Rows.Count == 1)
+            if (aktualnieZalogowanyUser == null) //Sprawdzanie czy tabela Zalogowanyuzytkownik jest pusta
             {
-                MenuGlowne objMenuGlowne = new MenuGlowne();
-                this.Hide();
-                objMenuGlowne.Show();
-                /*MessageBox.Show("Jesteś " + tabelaDanych.Rows[0][0] + "em!");*/ //Wiadomość o roli podczas logowania
+                String query = "Select Role from Login Where Uzytkownik = '" + textBox1.Text.Trim() + "' and Haslo = '" + textBox2.Text.Trim() + "'";
+                SqlDataAdapter sda = new SqlDataAdapter(query, polaczenie);
+                DataTable tabelaDanych = new DataTable();
+                sda.Fill(tabelaDanych);
+
+                if (tabelaDanych.Rows.Count == 1)
+                {
+                    MenuGlowne objMenuGlowne = new MenuGlowne();
+                    this.Hide();
+                    objMenuGlowne.Show();
+                    /*MessageBox.Show("Jesteś " + tabelaDanych.Rows[0][0] + "em!");*/ //Wiadomość o roli podczas logowania
+                }
+                else
+                {
+                    MessageBox.Show("Sprawdź nazwę użytkownika i hasło");
+                }
+
+                String zalogowanyUzytkownik = (tabelaDanych.Rows[0][0]).ToString(); //String pobierający dane z kolumny Role z tabeli Login
+
+                // -------------ZAPISYWANIE TYMCZASOWYCH DANYCH O ZALOGOWANYM UZYTKOWNIKU----------------
+                string sql = "Insert into Zalogowanyuzytkownik ([UZYTKOWNIK], [ADMIN]) values(@Uzytkownik,@Admin)";
+                {
+                    try
+                    {
+                        using (SqlCommand cmd = new SqlCommand(sql, polaczenie))
+                        {
+                            cmd.Parameters.AddWithValue("@Uzytkownik", textBox1.Text);
+                            cmd.Parameters.AddWithValue("@Admin", zalogowanyUzytkownik);
+
+                            polaczenie.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("BŁĄD:" + ex.Message);
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Sprawdź nazwę użytkownika i hasło");
-            }
-
-            String zalogowanyUzytkownik = (tabelaDanych.Rows[0][0]).ToString(); //String pobierający dane z kolumny Role z tabeli Login
-
-            // -------------ZAPISYWANIE TYMCZASOWYCH DANYCH O ZALOGOWANYM UZYTKOWNIKU----------------
-            string sql = "Insert into Zalogowanyuzytkownik ([UZYTKOWNIK], [ADMIN]) values(@Uzytkownik,@Admin)";
-            {
-                try
+                string sql = "Delete from ZALOGOWANYUZYTKOWNIK";
                 {
-                    using (SqlCommand cmd = new SqlCommand(sql, polaczenie))
+                    try
                     {
-                        cmd.Parameters.AddWithValue("@Uzytkownik", textBox1.Text);
-                        cmd.Parameters.AddWithValue("@Admin", zalogowanyUzytkownik);
-
-                        polaczenie.Open();
-                        cmd.ExecuteNonQuery();
+                        using (SqlCommand cmd = new SqlCommand(sql, polaczenie))
+                        {
+                            polaczenie.Open();
+                            cmd.ExecuteNonQuery();
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("BŁĄD:" + ex.Message);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("BŁĄD:" + ex.Message);
+                    }
                 }
             }
         }
@@ -88,6 +126,11 @@ namespace Test_działania_aplikacji
             {
                 buttonLogin_Click(this, new EventArgs());
             }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            label1.Text = aktualnieZalogowanyUser;
         }
     }
 }
