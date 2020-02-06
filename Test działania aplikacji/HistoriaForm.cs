@@ -19,9 +19,6 @@ namespace Test_działania_aplikacji
             InitializeComponent();
         }
 
-        string dataWsteczna;
-
-
         public void WczytywanieListView(object sender, EventArgs e)
         {
             listViewHistoria.GridLines = true;
@@ -47,7 +44,7 @@ namespace Test_działania_aplikacji
 
         private void usuwanieWierszaTabela(object sender, EventArgs e) //USUWANIE ZAZNACZONYCH DANYCH
         {
-            if (listViewHistoria.SelectedItems.Count > 0)
+            if (listViewHistoria.SelectedItems.Count > 0) //Zabezpieczenie przed brakiem wyboru wiersza z ListView
             {
                 string dataTabela = listViewHistoria.SelectedItems[0].SubItems[4].Text;
                 string godzinaTabela = listViewHistoria.SelectedItems[0].SubItems[1].Text;
@@ -78,32 +75,49 @@ namespace Test_działania_aplikacji
             {
                 MessageBox.Show("Nie wybrano wiersza do usunięcia!");
             }
-
-
         }
         private void usuwanie7DniTabela(object sender, EventArgs e) //NIE DZIAŁA!!!!! <====Dodaje tylko aktualną datę minus siedem
         {
-            
-            
-            DateTime aktualnaData = DateTime.Now;
+            //DateTime aktualnyCzas = DateTime.Now;
 
-            for (int i = 0; i < 7; i++)
-            {
-                aktualnaData = aktualnaData.AddDays(-1);
-                dataWsteczna = aktualnaData.ToString();
-            }
+            //string aktualnaData = aktualnyCzas.ToShortDateString();
+
+            //DateTime dataWstecznaObliczanie = aktualnyCzas.AddDays(-7);
+
+            //String dataWsteczna = dataWstecznaObliczanie.ToShortDateString();
+
+            //labelDataWsteczna.Text = dataWsteczna;
+
+            //for (int i = 0; i < 7; i++)
+            //{
+            //    aktualnaData = aktualnaData.AddDays(-1);
+            //    dataWsteczna = aktualnaData.ToShortDateString();
+            //}
 
             //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
-            //string sql = "Delete from HISTORIAROBIENIALAKU where DATA=@Data Order By DATA";
+            //string sql = "Delete from HISTORIAROBIENIALAKU where DATA BETWEEN '" + dataWsteczna + "' AND '" + aktualnaData + "'";
+            
+            //try
+            //{
+            //    using (SqlCommand cmd = new SqlCommand(sql, con))
+            //    {
+            //        con.Open();
+            //        cmd.ExecuteNonQuery();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("BŁĄD:" + ex.Message);
+            //}
 
             //{
             //    try
             //    {
             //        using (SqlCommand cmd = new SqlCommand(sql, con))
             //        {
-            //            cmd.Parameters.AddWithValue("@Godzina", godzinaTabela);
-            //            cmd.Parameters.AddWithValue("@Data", dataTabela);
+            //            cmd.Parameters.AddWithValue("@DataWsteczna", dataWsteczna);
+            //            cmd.Parameters.AddWithValue("@AktualnaData", aktualnaData);
 
             //            con.Open();
             //            cmd.ExecuteNonQuery();
@@ -178,7 +192,14 @@ namespace Test_działania_aplikacji
         private void buttonUsun7Dni_Click(object sender, EventArgs e)
         {
             usuwanie7DniTabela(null, null);
-            labelDataWsteczna.Text = dataWsteczna;
+            listViewHistoria.Items.Clear();
+            listViewHistoria.Refresh();
+            WczytywanieListView(null, null);
+        }
+
+        private void buttonZapiszCSV_Click(object sender, EventArgs e) //Zaisz jako CSV
+        {
+
         }
     }
 }

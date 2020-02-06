@@ -49,7 +49,8 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.buttonUsuwanieWierszaHistorii = new System.Windows.Forms.Button();
             this.buttonUsun7Dni = new System.Windows.Forms.Button();
-            this.labelDataWsteczna = new System.Windows.Forms.Label();
+            this.buttonZapiszCSV = new System.Windows.Forms.Button();
+            this.labelSciezkaDostepu = new System.Windows.Forms.Label();
             this.toppanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -262,21 +263,35 @@
             this.buttonUsun7Dni.UseVisualStyleBackColor = true;
             this.buttonUsun7Dni.Click += new System.EventHandler(this.buttonUsun7Dni_Click);
             // 
-            // labelDataWsteczna
+            // buttonZapiszCSV
             // 
-            this.labelDataWsteczna.AutoSize = true;
-            this.labelDataWsteczna.Location = new System.Drawing.Point(366, 488);
-            this.labelDataWsteczna.Name = "labelDataWsteczna";
-            this.labelDataWsteczna.Size = new System.Drawing.Size(35, 13);
-            this.labelDataWsteczna.TabIndex = 12;
-            this.labelDataWsteczna.Text = "label1";
+            this.buttonZapiszCSV.Location = new System.Drawing.Point(523, 427);
+            this.buttonZapiszCSV.Name = "buttonZapiszCSV";
+            this.buttonZapiszCSV.Size = new System.Drawing.Size(136, 31);
+            this.buttonZapiszCSV.TabIndex = 12;
+            this.buttonZapiszCSV.Text = "Zapisz do CSV";
+            this.buttonZapiszCSV.UseVisualStyleBackColor = true;
+            this.buttonZapiszCSV.Click += new System.EventHandler(this.buttonZapiszCSV_Click);
+            // 
+            // labelSciezkaDostepu
+            // 
+            this.labelSciezkaDostepu.AutoSize = true;
+            this.labelSciezkaDostepu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelSciezkaDostepu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelSciezkaDostepu.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelSciezkaDostepu.Location = new System.Drawing.Point(533, 471);
+            this.labelSciezkaDostepu.Name = "labelSciezkaDostepu";
+            this.labelSciezkaDostepu.Size = new System.Drawing.Size(116, 13);
+            this.labelSciezkaDostepu.TabIndex = 13;
+            this.labelSciezkaDostepu.Text = "Zmień ścieżkę dostępu";
             // 
             // HistoriaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(988, 570);
-            this.Controls.Add(this.labelDataWsteczna);
+            this.Controls.Add(this.labelSciezkaDostepu);
+            this.Controls.Add(this.buttonZapiszCSV);
             this.Controls.Add(this.buttonUsun7Dni);
             this.Controls.Add(this.buttonUsuwanieWierszaHistorii);
             this.Controls.Add(this.panel1);
@@ -316,6 +331,7 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Button buttonUsuwanieWierszaHistorii;
         private System.Windows.Forms.Button buttonUsun7Dni;
-        private System.Windows.Forms.Label labelDataWsteczna;
+        private System.Windows.Forms.Button buttonZapiszCSV;
+        private System.Windows.Forms.Label labelSciezkaDostepu;
     }
 }
