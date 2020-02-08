@@ -29,32 +29,32 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxUserName = new System.Windows.Forms.TextBox();
+            this.textBoxUserPassword = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.labelNazwaUzytkownika = new System.Windows.Forms.Label();
             this.labelHaslo = new System.Windows.Forms.Label();
-            this.buttonLoginCancel = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.panelLoginTop = new System.Windows.Forms.Panel();
             this.minimalizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.panelLoginTop.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxUserName
             // 
-            this.textBox1.Location = new System.Drawing.Point(267, 118);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBoxUserName.Location = new System.Drawing.Point(267, 118);
+            this.textBoxUserName.Name = "textBoxUserName";
+            this.textBoxUserName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxUserName.TabIndex = 0;
             // 
-            // textBox2
+            // textBoxUserPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(267, 169);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
+            this.textBoxUserPassword.Location = new System.Drawing.Point(267, 169);
+            this.textBoxUserPassword.Name = "textBoxUserPassword";
+            this.textBoxUserPassword.Size = new System.Drawing.Size(100, 20);
+            this.textBoxUserPassword.TabIndex = 1;
+            this.textBoxUserPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
             // buttonLogin
             // 
@@ -85,16 +85,16 @@
             this.labelHaslo.TabIndex = 4;
             this.labelHaslo.Text = "Hasło";
             // 
-            // buttonLoginCancel
+            // buttonCancel
             // 
-            this.buttonLoginCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLoginCancel.Location = new System.Drawing.Point(117, 257);
-            this.buttonLoginCancel.Name = "buttonLoginCancel";
-            this.buttonLoginCancel.Size = new System.Drawing.Size(122, 45);
-            this.buttonLoginCancel.TabIndex = 5;
-            this.buttonLoginCancel.Text = "Anuluj";
-            this.buttonLoginCancel.UseVisualStyleBackColor = true;
-            this.buttonLoginCancel.Click += new System.EventHandler(this.buttonLoginCancel_Click);
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.Location = new System.Drawing.Point(117, 257);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(122, 45);
+            this.buttonCancel.TabIndex = 5;
+            this.buttonCancel.Text = "Anuluj";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonLoginCancel_Click);
             // 
             // panelLoginTop
             // 
@@ -144,12 +144,12 @@
             this.ClientSize = new System.Drawing.Size(523, 389);
             this.ControlBox = false;
             this.Controls.Add(this.panelLoginTop);
-            this.Controls.Add(this.buttonLoginCancel);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.labelHaslo);
             this.Controls.Add(this.labelNazwaUzytkownika);
             this.Controls.Add(this.buttonLogin);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxUserPassword);
+            this.Controls.Add(this.textBoxUserName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "LoginForm";
@@ -163,12 +163,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxUserName;
+        private System.Windows.Forms.TextBox textBoxUserPassword;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Label labelNazwaUzytkownika;
         private System.Windows.Forms.Label labelHaslo;
-        private System.Windows.Forms.Button buttonLoginCancel;
+        private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Panel panelLoginTop;
         private System.Windows.Forms.Button minimalizeButton;
         private System.Windows.Forms.Button closeButton;

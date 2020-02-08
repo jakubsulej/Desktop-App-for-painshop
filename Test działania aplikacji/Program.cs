@@ -17,7 +17,6 @@ namespace Test_działania_aplikacji
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
-            //Application.Run(new MenuGlowne());
         }
     }
 }
