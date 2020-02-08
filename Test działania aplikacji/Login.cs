@@ -19,7 +19,7 @@ namespace Test_działania_aplikacji
             textBox2.PasswordChar = '*';
         }
 
-        string aktualnieZalogowanyUser;
+        new String aktualnieZalogowanyUser;
 
         //---------------Sterowanie oknem-------------------
         private void buttonLoginCancel_Click(object sender, EventArgs e) //Zamknięcie okna
@@ -37,25 +37,34 @@ namespace Test_działania_aplikacji
             Close();
         }
 
-        private void checkCurrentUser(object sender, EventArgs e)
+        private void checkCurrentUser(object sender, EventArgs e) //Aktualny user w tabeli do String
         {
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
             {
-                SqlCommand cmd = new SqlCommand("select * from ZALOGOWANYUZYTKOWNIK", con);
+                SqlCommand cmd = new SqlCommand("select UZYTKOWNIK from ZALOGOWANYUZYTKOWNIK", con);
                 con.Open();
 
                 SqlDataReader read = cmd.ExecuteReader();
 
                 while (read.Read())
                 {
-                    aktualnieZalogowanyUser = (read["ADMIN"].ToString().Trim());
+                    aktualnieZalogowanyUser = (read["Uzytkownik"].ToString().Trim());
+                    label1.Text = "Aktualnie zalogowany: " + aktualnieZalogowanyUser;
                 }
                 read.Close();
+
             }
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e) //Logowanie do menu głównego - Do ogarnięcia uporządkowanie w metody
+        private void logowanieDoSystemu(object sender, EventArgs e)
+        {
+            SqlConnection polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+
+
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e) //Logowanie do menu głównego - Do ogarnięcia uporządkowanie w metody //DO ZROBIENIA == USUWANIE ISTNIEJACEJ BAZY JESLI ISTNIEJE
         {
             SqlConnection polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
@@ -71,33 +80,32 @@ namespace Test_działania_aplikacji
                     MenuGlowne objMenuGlowne = new MenuGlowne();
                     this.Hide();
                     objMenuGlowne.Show();
-                    /*MessageBox.Show("Jesteś " + tabelaDanych.Rows[0][0] + "em!");*/ //Wiadomość o roli podczas logowania
+
+                    String zalogowanyUzytkownik = (tabelaDanych.Rows[0][0]).ToString(); //String pobierający dane z kolumny Role z tabeli Login
+
+                    // -------------ZAPISYWANIE TYMCZASOWYCH DANYCH O ZALOGOWANYM UZYTKOWNIKU----------------
+                    string sql = "Insert into Zalogowanyuzytkownik ([UZYTKOWNIK], [ADMIN]) values(@Uzytkownik,@Admin)";
+                    {
+                        try
+                        {
+                            using (SqlCommand cmd = new SqlCommand(sql, polaczenie))
+                            {
+                                cmd.Parameters.AddWithValue("@Uzytkownik", textBox1.Text);
+                                cmd.Parameters.AddWithValue("@Admin", zalogowanyUzytkownik);
+
+                                polaczenie.Open();
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                        MessageBox.Show("BŁĄD:" + ex.Message);
+                        }
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Sprawdź nazwę użytkownika i hasło");
-                }
-
-                String zalogowanyUzytkownik = (tabelaDanych.Rows[0][0]).ToString(); //String pobierający dane z kolumny Role z tabeli Login
-
-                // -------------ZAPISYWANIE TYMCZASOWYCH DANYCH O ZALOGOWANYM UZYTKOWNIKU----------------
-                string sql = "Insert into Zalogowanyuzytkownik ([UZYTKOWNIK], [ADMIN]) values(@Uzytkownik,@Admin)";
-                {
-                    try
-                    {
-                        using (SqlCommand cmd = new SqlCommand(sql, polaczenie))
-                        {
-                            cmd.Parameters.AddWithValue("@Uzytkownik", textBox1.Text);
-                            cmd.Parameters.AddWithValue("@Admin", zalogowanyUzytkownik);
-
-                            polaczenie.Open();
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("BŁĄD:" + ex.Message);
-                    }
                 }
             }
             else
@@ -117,6 +125,7 @@ namespace Test_działania_aplikacji
                         MessageBox.Show("BŁĄD:" + ex.Message);
                     }
                 }
+
             }
         }
   
@@ -130,7 +139,7 @@ namespace Test_działania_aplikacji
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            label1.Text = aktualnieZalogowanyUser;
+            checkCurrentUser(null, null); //label do sprawdzania, czy baza danych jest pusta <=== Nie działa
         }
     }
 }
