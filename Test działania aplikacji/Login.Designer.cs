@@ -38,6 +38,7 @@
             this.panelLoginTop = new System.Windows.Forms.Panel();
             this.minimalizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
+            this.labelHiddenUser = new System.Windows.Forms.Label();
             this.panelLoginTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,12 +138,22 @@
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // labelHiddenUser
+            // 
+            this.labelHiddenUser.AutoSize = true;
+            this.labelHiddenUser.Location = new System.Drawing.Point(162, 341);
+            this.labelHiddenUser.Name = "labelHiddenUser";
+            this.labelHiddenUser.Size = new System.Drawing.Size(35, 13);
+            this.labelHiddenUser.TabIndex = 7;
+            this.labelHiddenUser.Text = "label1";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 389);
             this.ControlBox = false;
+            this.Controls.Add(this.labelHiddenUser);
             this.Controls.Add(this.panelLoginTop);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.labelHaslo);
@@ -155,6 +166,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panelLoginTop.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -172,5 +184,6 @@
         private System.Windows.Forms.Panel panelLoginTop;
         private System.Windows.Forms.Button minimalizeButton;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Label labelHiddenUser;
     }
 }

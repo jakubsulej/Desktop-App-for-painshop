@@ -27,19 +27,16 @@ namespace Test_działania_aplikacji
 
         private void buttonYesExitWindow_Click(object sender, EventArgs e) //Usuwanie tymczasowej wartości o roli użytkownika
         {
-            //-----------USUWANIE TYMCZASOWEJ INFORMACJI O ZALOGOWANYM UZYTKOWNIKU---------------
-            string connetionString = null;
-
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
             string sql = "Delete from ZALOGOWANYUZYTKOWNIK";
 
             {
                 try
                 {
-                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
-                        con.Open();
+                        connection.Open();
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -48,7 +45,7 @@ namespace Test_działania_aplikacji
                     MessageBox.Show("BŁĄD:" + ex.Message);
                 }
             }
-            Environment.Exit(0); //Zamknięcie programu
+            Environment.Exit(0);
         }
 
         private void buttonCancelExitWIndow_Click(object sender, EventArgs e)
