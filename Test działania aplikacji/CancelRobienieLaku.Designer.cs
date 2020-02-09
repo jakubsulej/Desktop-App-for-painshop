@@ -29,48 +29,60 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CancelRobienieLaku));
-            this.buttonCancelCancelRobienieLaku = new System.Windows.Forms.Button();
-            this.buttonExitCancelRobienieLaku = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelCancelRobienieLaku = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Button();
-            this.labelCancelRobienieLaku = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonCancelCancelRobienieLaku
+            // buttonCancel
             // 
-            this.buttonCancelCancelRobienieLaku.Location = new System.Drawing.Point(27, 128);
-            this.buttonCancelCancelRobienieLaku.Name = "buttonCancelCancelRobienieLaku";
-            this.buttonCancelCancelRobienieLaku.Size = new System.Drawing.Size(124, 51);
-            this.buttonCancelCancelRobienieLaku.TabIndex = 0;
-            this.buttonCancelCancelRobienieLaku.Text = "Anuluj";
-            this.buttonCancelCancelRobienieLaku.UseVisualStyleBackColor = true;
-            this.buttonCancelCancelRobienieLaku.Click += new System.EventHandler(this.buttonCancelCancelRobienieLaku_Click);
+            this.buttonCancel.Location = new System.Drawing.Point(27, 128);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(124, 51);
+            this.buttonCancel.TabIndex = 0;
+            this.buttonCancel.Text = "Anuluj";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancelCancelRobienieLaku_Click);
             // 
-            // buttonExitCancelRobienieLaku
+            // buttonExit
             // 
-            this.buttonExitCancelRobienieLaku.Location = new System.Drawing.Point(202, 128);
-            this.buttonExitCancelRobienieLaku.Name = "buttonExitCancelRobienieLaku";
-            this.buttonExitCancelRobienieLaku.Size = new System.Drawing.Size(124, 51);
-            this.buttonExitCancelRobienieLaku.TabIndex = 1;
-            this.buttonExitCancelRobienieLaku.Text = "Zakończ";
-            this.buttonExitCancelRobienieLaku.UseVisualStyleBackColor = true;
-            this.buttonExitCancelRobienieLaku.Click += new System.EventHandler(this.buttonExitCancelRobienieLaku_Click);
+            this.buttonExit.Location = new System.Drawing.Point(202, 128);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(124, 51);
+            this.buttonExit.TabIndex = 1;
+            this.buttonExit.Text = "Zakończ";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExitCancelRobienieLaku_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.panel1.Controls.Add(this.labelCancelRobienieLaku);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.buttonCancelCancelRobienieLaku);
-            this.panel1.Controls.Add(this.buttonExitCancelRobienieLaku);
+            this.panel1.Controls.Add(this.buttonCancel);
+            this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(349, 213);
             this.panel1.TabIndex = 2;
+            // 
+            // labelCancelRobienieLaku
+            // 
+            this.labelCancelRobienieLaku.AutoSize = true;
+            this.labelCancelRobienieLaku.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelCancelRobienieLaku.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelCancelRobienieLaku.Location = new System.Drawing.Point(37, 69);
+            this.labelCancelRobienieLaku.Name = "labelCancelRobienieLaku";
+            this.labelCancelRobienieLaku.Size = new System.Drawing.Size(278, 30);
+            this.labelCancelRobienieLaku.TabIndex = 3;
+            this.labelCancelRobienieLaku.Text = "Czy na pewno chcesz zakończyć robienie lakieru?\r\nNiezapisane postęy zostaną utrac" +
+    "one.";
             // 
             // panel2
             // 
@@ -97,18 +109,6 @@
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // labelCancelRobienieLaku
-            // 
-            this.labelCancelRobienieLaku.AutoSize = true;
-            this.labelCancelRobienieLaku.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelCancelRobienieLaku.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelCancelRobienieLaku.Location = new System.Drawing.Point(37, 69);
-            this.labelCancelRobienieLaku.Name = "labelCancelRobienieLaku";
-            this.labelCancelRobienieLaku.Size = new System.Drawing.Size(278, 30);
-            this.labelCancelRobienieLaku.TabIndex = 3;
-            this.labelCancelRobienieLaku.Text = "Czy na pewno chcesz zakończyć robienie lakieru?\r\nNiezapisane postęy zostaną utrac" +
-    "one.";
-            // 
             // CancelRobienieLaku
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,6 +119,7 @@
             this.Name = "CancelRobienieLaku";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CancelRobienieLaku";
+            this.Load += new System.EventHandler(this.CancelRobienieLaku_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -128,8 +129,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonCancelCancelRobienieLaku;
-        private System.Windows.Forms.Button buttonExitCancelRobienieLaku;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button closeButton;

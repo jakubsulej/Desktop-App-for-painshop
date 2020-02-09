@@ -49,14 +49,14 @@ namespace Test_działania_aplikacji
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            labelGodzina.Text = DateTime.Now.ToLongTimeString();
+            labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
             timer.Start();
         }
 
         private void LackQuantity_Load(object sender, EventArgs e)
         {
             timer.Start();
-            labelGodzina.Text = DateTime.Now.ToLongTimeString();
+            labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
         }
     }
 }

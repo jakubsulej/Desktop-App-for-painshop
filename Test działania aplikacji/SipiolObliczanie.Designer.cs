@@ -33,12 +33,12 @@
             this.numberKg = new System.Windows.Forms.NumericUpDown();
             this.comboBoxUnits = new System.Windows.Forms.ComboBox();
             this.numberG = new System.Windows.Forms.NumericUpDown();
-            this.wartoscWyjsciowaIlosciLaku = new System.Windows.Forms.Label();
+            this.labelBasicCoatQuantity = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.labelIloscSkladnikaSipiolWV = new System.Windows.Forms.Label();
+            this.labelQuantityOfComponentB = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -46,10 +46,10 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.timerLaku = new System.Windows.Forms.Timer(this.components);
+            this.timerCoat = new System.Windows.Forms.Timer(this.components);
             this.lblMin = new System.Windows.Forms.Label();
             this.lblSec = new System.Windows.Forms.Label();
-            this.timerGodzinaLaku = new System.Windows.Forms.Timer(this.components);
+            this.timerCoatFinishTime = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numberKg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberG)).BeginInit();
             this.SuspendLayout();
@@ -110,14 +110,14 @@
             this.numberG.TabIndex = 6;
             this.numberG.ValueChanged += new System.EventHandler(this.numberG_ValueChanged);
             // 
-            // wartoscWyjsciowaIlosciLaku
+            // labelBasicCoatQuantity
             // 
-            this.wartoscWyjsciowaIlosciLaku.AutoSize = true;
-            this.wartoscWyjsciowaIlosciLaku.Location = new System.Drawing.Point(93, 163);
-            this.wartoscWyjsciowaIlosciLaku.Name = "wartoscWyjsciowaIlosciLaku";
-            this.wartoscWyjsciowaIlosciLaku.Size = new System.Drawing.Size(31, 13);
-            this.wartoscWyjsciowaIlosciLaku.TabIndex = 7;
-            this.wartoscWyjsciowaIlosciLaku.Text = "0000";
+            this.labelBasicCoatQuantity.AutoSize = true;
+            this.labelBasicCoatQuantity.Location = new System.Drawing.Point(93, 163);
+            this.labelBasicCoatQuantity.Name = "labelBasicCoatQuantity";
+            this.labelBasicCoatQuantity.Size = new System.Drawing.Size(31, 13);
+            this.labelBasicCoatQuantity.TabIndex = 7;
+            this.labelBasicCoatQuantity.Text = "0000";
             // 
             // label2
             // 
@@ -155,14 +155,14 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "gram składnika Sipiol VW do lakieru w wiadrze.";
             // 
-            // labelIloscSkladnikaSipiolWV
+            // labelQuantityOfComponentB
             // 
-            this.labelIloscSkladnikaSipiolWV.AutoSize = true;
-            this.labelIloscSkladnikaSipiolWV.Location = new System.Drawing.Point(102, 194);
-            this.labelIloscSkladnikaSipiolWV.Name = "labelIloscSkladnikaSipiolWV";
-            this.labelIloscSkladnikaSipiolWV.Size = new System.Drawing.Size(25, 13);
-            this.labelIloscSkladnikaSipiolWV.TabIndex = 7;
-            this.labelIloscSkladnikaSipiolWV.Text = "000";
+            this.labelQuantityOfComponentB.AutoSize = true;
+            this.labelQuantityOfComponentB.Location = new System.Drawing.Point(102, 194);
+            this.labelQuantityOfComponentB.Name = "labelQuantityOfComponentB";
+            this.labelQuantityOfComponentB.Size = new System.Drawing.Size(25, 13);
+            this.labelQuantityOfComponentB.TabIndex = 7;
+            this.labelQuantityOfComponentB.Text = "000";
             // 
             // label6
             // 
@@ -235,10 +235,10 @@
             this.checkBox4.UseVisualStyleBackColor = true;
             this.checkBox4.CheckStateChanged += new System.EventHandler(this.checkBox4_CheckStateChanged);
             // 
-            // timerLaku
+            // timerCoat
             // 
-            this.timerLaku.Interval = 1000;
-            this.timerLaku.Tick += new System.EventHandler(this.timerLaku_Tick);
+            this.timerCoat.Interval = 1000;
+            this.timerCoat.Tick += new System.EventHandler(this.timerLaku_Tick);
             // 
             // lblMin
             // 
@@ -258,12 +258,12 @@
             this.lblSec.TabIndex = 12;
             this.lblSec.Text = "00 s";
             // 
-            // timerGodzinaLaku
+            // timerCoatFinishTime
             // 
-            this.timerGodzinaLaku.Enabled = true;
-            this.timerGodzinaLaku.Tick += new System.EventHandler(this.timerGodzinaLaku_Tick);
+            this.timerCoatFinishTime.Enabled = true;
+            this.timerCoatFinishTime.Tick += new System.EventHandler(this.timerGodzinaLaku_Tick);
             // 
-            // SipiolObliczanie1
+            // SipiolObliczanie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -280,13 +280,13 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.labelIloscSkladnikaSipiolWV);
-            this.Controls.Add(this.wartoscWyjsciowaIlosciLaku);
+            this.Controls.Add(this.labelQuantityOfComponentB);
+            this.Controls.Add(this.labelBasicCoatQuantity);
             this.Controls.Add(this.comboBoxUnits);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numberG);
             this.Controls.Add(this.numberKg);
-            this.Name = "SipiolObliczanie1";
+            this.Name = "SipiolObliczanie";
             this.Size = new System.Drawing.Size(758, 539);
             this.Load += new System.EventHandler(this.SipiolObliczanie1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numberKg)).EndInit();
@@ -302,12 +302,12 @@
         private System.Windows.Forms.NumericUpDown numberKg;
         private System.Windows.Forms.ComboBox comboBoxUnits;
         private System.Windows.Forms.NumericUpDown numberG;
-        private System.Windows.Forms.Label wartoscWyjsciowaIlosciLaku;
+        private System.Windows.Forms.Label labelBasicCoatQuantity;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label labelIloscSkladnikaSipiolWV;
+        private System.Windows.Forms.Label labelQuantityOfComponentB;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -315,9 +315,9 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.Timer timerLaku;
+        private System.Windows.Forms.Timer timerCoat;
         private System.Windows.Forms.Label lblMin;
         private System.Windows.Forms.Label lblSec;
-        private System.Windows.Forms.Timer timerGodzinaLaku;
+        private System.Windows.Forms.Timer timerCoatFinishTime;
     }
 }

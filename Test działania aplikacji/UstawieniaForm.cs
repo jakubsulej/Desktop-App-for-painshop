@@ -96,7 +96,7 @@ namespace Test_działania_aplikacji
             labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
         }
 
-        private void buttonWczytajBaze_Click(object sender, EventArgs e) //Przycisk wymuszenie aktualizacji ListView
+        private void buttonForceUpdateListView_Click(object sender, EventArgs e) //Przycisk wymuszenie aktualizacji ListView
         {
             listViewUsers.Items.Clear();
             listViewUsers.Refresh();
@@ -122,7 +122,7 @@ namespace Test_działania_aplikacji
             }
         }
 
-        private void listViewUzytkownicy_MouseClick(object sender, MouseEventArgs e) //Wybór użytkownika i string do textBox z bazy w ListView
+        private void listViewUsers_MouseClick(object sender, MouseEventArgs e) //Wybór użytkownika i string do textBox z bazy w ListView
         {
             String user = listViewUsers.SelectedItems[0].SubItems[0].Text;
             String password = listViewUsers.SelectedItems[0].SubItems[1].Text;
@@ -145,7 +145,7 @@ namespace Test_działania_aplikacji
             }
         }
 
-        private void buttonUsun_Click(object sender, EventArgs e) //Usuwanie użytkownika.
+        private void buttonDeleteUser_Click(object sender, EventArgs e) //Usuwanie użytkownika.
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
@@ -182,12 +182,12 @@ namespace Test_działania_aplikacji
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void buttonWyjscie_Click(object sender, EventArgs e) //Przycisk bocznego menu Wyjście z programu.
+        private void ButtonExit_Click(object sender, EventArgs e) //Przycisk bocznego menu Wyjście z programu.
         {
             new ExitWindow().Show();
         }
 
-        private void buttonHistoria_Click(object sender, EventArgs e)
+        private void ButtonHistory_Click(object sender, EventArgs e)
         {
             SidePanel.Height = buttonHistory.Height;
             SidePanel.Top = buttonHistory.Top;
@@ -198,7 +198,7 @@ namespace Test_działania_aplikacji
             form2.Show();
         }
 
-        private void buttonRobienieLaku_Click(object sender, EventArgs e)
+        private void ButtonMakeCoat_Click(object sender, EventArgs e)
         {
             this.Hide();
             var form2 = new MenuGlowne();

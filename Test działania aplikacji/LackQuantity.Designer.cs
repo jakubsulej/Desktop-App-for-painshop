@@ -30,65 +30,65 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LackQuantity));
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonMetakustikQuantity = new System.Windows.Forms.Button();
+            this.buttonCanandaQuantity = new System.Windows.Forms.Button();
+            this.buttonResilonPlusQuantity = new System.Windows.Forms.Button();
+            this.buttonResilonQuantity = new System.Windows.Forms.Button();
             this.buttonPermutexQuantity = new System.Windows.Forms.Button();
             this.minimalizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.buttonSipiolQuantity = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.labelGodzina = new System.Windows.Forms.Label();
+            this.sipiolObliczanie1 = new Test_działania_aplikacji.SipiolObliczanie();
+            this.labelCurrentTime = new System.Windows.Forms.Label();
             this.SidePanel = new System.Windows.Forms.Panel();
-            this.buttonWyjscie = new System.Windows.Forms.Button();
-            this.buttonUstawienia = new System.Windows.Forms.Button();
-            this.buttonHistoria = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.buttonSettings = new System.Windows.Forms.Button();
+            this.buttonHistory = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonRobienieLaku = new System.Windows.Forms.Button();
+            this.buttonMakeCoat = new System.Windows.Forms.Button();
             this.toppanel2 = new System.Windows.Forms.Panel();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.sipiolObliczanie1 = new Test_działania_aplikacji.SipiolObliczanie();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toppanel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button6
+            // buttonMetakustikQuantity
             // 
-            this.button6.Location = new System.Drawing.Point(599, 41);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(106, 95);
-            this.button6.TabIndex = 16;
-            this.button6.Text = "Metakustik";
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonMetakustikQuantity.Location = new System.Drawing.Point(599, 41);
+            this.buttonMetakustikQuantity.Name = "buttonMetakustikQuantity";
+            this.buttonMetakustikQuantity.Size = new System.Drawing.Size(106, 95);
+            this.buttonMetakustikQuantity.TabIndex = 16;
+            this.buttonMetakustikQuantity.Text = "Metakustik";
+            this.buttonMetakustikQuantity.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // buttonCanandaQuantity
             // 
-            this.button5.Location = new System.Drawing.Point(487, 41);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(106, 95);
-            this.button5.TabIndex = 15;
-            this.button5.Text = "Canada";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonCanandaQuantity.Location = new System.Drawing.Point(487, 41);
+            this.buttonCanandaQuantity.Name = "buttonCanandaQuantity";
+            this.buttonCanandaQuantity.Size = new System.Drawing.Size(106, 95);
+            this.buttonCanandaQuantity.TabIndex = 15;
+            this.buttonCanandaQuantity.Text = "Canada";
+            this.buttonCanandaQuantity.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // buttonResilonPlusQuantity
             // 
-            this.button4.Location = new System.Drawing.Point(375, 41);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(106, 95);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Resilon Plus Matt";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonResilonPlusQuantity.Location = new System.Drawing.Point(375, 41);
+            this.buttonResilonPlusQuantity.Name = "buttonResilonPlusQuantity";
+            this.buttonResilonPlusQuantity.Size = new System.Drawing.Size(106, 95);
+            this.buttonResilonPlusQuantity.TabIndex = 14;
+            this.buttonResilonPlusQuantity.Text = "Resilon Plus Matt";
+            this.buttonResilonPlusQuantity.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonResilonQuantity
             // 
-            this.button3.Location = new System.Drawing.Point(263, 41);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 95);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Resilon";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonResilonQuantity.Location = new System.Drawing.Point(263, 41);
+            this.buttonResilonQuantity.Name = "buttonResilonQuantity";
+            this.buttonResilonQuantity.Size = new System.Drawing.Size(106, 95);
+            this.buttonResilonQuantity.TabIndex = 13;
+            this.buttonResilonQuantity.Text = "Resilon";
+            this.buttonResilonQuantity.UseVisualStyleBackColor = true;
             // 
             // buttonPermutexQuantity
             // 
@@ -140,10 +140,10 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.sipiolObliczanie1);
-            this.panel4.Controls.Add(this.button6);
-            this.panel4.Controls.Add(this.button5);
-            this.panel4.Controls.Add(this.button4);
-            this.panel4.Controls.Add(this.button3);
+            this.panel4.Controls.Add(this.buttonMetakustikQuantity);
+            this.panel4.Controls.Add(this.buttonCanandaQuantity);
+            this.panel4.Controls.Add(this.buttonResilonPlusQuantity);
+            this.panel4.Controls.Add(this.buttonResilonQuantity);
             this.panel4.Controls.Add(this.buttonPermutexQuantity);
             this.panel4.Controls.Add(this.buttonSipiolQuantity);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -152,17 +152,24 @@
             this.panel4.Size = new System.Drawing.Size(758, 539);
             this.panel4.TabIndex = 8;
             // 
-            // labelGodzina
+            // sipiolObliczanie1
             // 
-            this.labelGodzina.AutoSize = true;
-            this.labelGodzina.BackColor = System.Drawing.Color.Transparent;
-            this.labelGodzina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelGodzina.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelGodzina.Location = new System.Drawing.Point(37, 497);
-            this.labelGodzina.Name = "labelGodzina";
-            this.labelGodzina.Size = new System.Drawing.Size(61, 17);
-            this.labelGodzina.TabIndex = 7;
-            this.labelGodzina.Text = "Godzina";
+            this.sipiolObliczanie1.Location = new System.Drawing.Point(0, 0);
+            this.sipiolObliczanie1.Name = "sipiolObliczanie1";
+            this.sipiolObliczanie1.Size = new System.Drawing.Size(758, 539);
+            this.sipiolObliczanie1.TabIndex = 17;
+            // 
+            // labelCurrentTime
+            // 
+            this.labelCurrentTime.AutoSize = true;
+            this.labelCurrentTime.BackColor = System.Drawing.Color.Transparent;
+            this.labelCurrentTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelCurrentTime.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelCurrentTime.Location = new System.Drawing.Point(37, 497);
+            this.labelCurrentTime.Name = "labelCurrentTime";
+            this.labelCurrentTime.Size = new System.Drawing.Size(61, 17);
+            this.labelCurrentTime.TabIndex = 7;
+            this.labelCurrentTime.Text = "Godzina";
             // 
             // SidePanel
             // 
@@ -172,88 +179,88 @@
             this.SidePanel.Size = new System.Drawing.Size(10, 55);
             this.SidePanel.TabIndex = 4;
             // 
-            // buttonWyjscie
+            // buttonExit
             // 
-            this.buttonWyjscie.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonWyjscie.FlatAppearance.BorderSize = 0;
-            this.buttonWyjscie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonWyjscie.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.buttonWyjscie.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonWyjscie.Location = new System.Drawing.Point(13, 201);
-            this.buttonWyjscie.Name = "buttonWyjscie";
-            this.buttonWyjscie.Size = new System.Drawing.Size(217, 55);
-            this.buttonWyjscie.TabIndex = 3;
-            this.buttonWyjscie.Text = "          Wyjście";
-            this.buttonWyjscie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonWyjscie.UseVisualStyleBackColor = true;
-            this.buttonWyjscie.Click += new System.EventHandler(this.buttonWyjscie_Click);
+            this.buttonExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonExit.FlatAppearance.BorderSize = 0;
+            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExit.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.buttonExit.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonExit.Location = new System.Drawing.Point(13, 201);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(217, 55);
+            this.buttonExit.TabIndex = 3;
+            this.buttonExit.Text = "          Wyjście";
+            this.buttonExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonWyjscie_Click);
             // 
-            // buttonUstawienia
+            // buttonSettings
             // 
-            this.buttonUstawienia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.buttonUstawienia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonUstawienia.FlatAppearance.BorderSize = 0;
-            this.buttonUstawienia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUstawienia.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.buttonUstawienia.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonUstawienia.Location = new System.Drawing.Point(13, 140);
-            this.buttonUstawienia.Name = "buttonUstawienia";
-            this.buttonUstawienia.Size = new System.Drawing.Size(217, 55);
-            this.buttonUstawienia.TabIndex = 2;
-            this.buttonUstawienia.Text = "          Ustawienia";
-            this.buttonUstawienia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUstawienia.UseVisualStyleBackColor = false;
-            this.buttonUstawienia.Click += new System.EventHandler(this.buttonUstawienia_Click);
+            this.buttonSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.buttonSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSettings.FlatAppearance.BorderSize = 0;
+            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSettings.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.buttonSettings.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonSettings.Location = new System.Drawing.Point(13, 140);
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(217, 55);
+            this.buttonSettings.TabIndex = 2;
+            this.buttonSettings.Text = "          Ustawienia";
+            this.buttonSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSettings.UseVisualStyleBackColor = false;
+            this.buttonSettings.Click += new System.EventHandler(this.buttonUstawienia_Click);
             // 
-            // buttonHistoria
+            // buttonHistory
             // 
-            this.buttonHistoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonHistoria.FlatAppearance.BorderSize = 0;
-            this.buttonHistoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHistoria.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.buttonHistoria.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonHistoria.Location = new System.Drawing.Point(13, 79);
-            this.buttonHistoria.Name = "buttonHistoria";
-            this.buttonHistoria.Size = new System.Drawing.Size(217, 55);
-            this.buttonHistoria.TabIndex = 1;
-            this.buttonHistoria.Text = "          Historia";
-            this.buttonHistoria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonHistoria.UseVisualStyleBackColor = true;
-            this.buttonHistoria.Click += new System.EventHandler(this.buttonHistoria_Click);
+            this.buttonHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonHistory.FlatAppearance.BorderSize = 0;
+            this.buttonHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonHistory.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.buttonHistory.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonHistory.Location = new System.Drawing.Point(13, 79);
+            this.buttonHistory.Name = "buttonHistory";
+            this.buttonHistory.Size = new System.Drawing.Size(217, 55);
+            this.buttonHistory.TabIndex = 1;
+            this.buttonHistory.Text = "          Historia";
+            this.buttonHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonHistory.UseVisualStyleBackColor = true;
+            this.buttonHistory.Click += new System.EventHandler(this.buttonHistoria_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.panel1.Controls.Add(this.labelGodzina);
+            this.panel1.Controls.Add(this.labelCurrentTime);
             this.panel1.Controls.Add(this.SidePanel);
-            this.panel1.Controls.Add(this.buttonWyjscie);
-            this.panel1.Controls.Add(this.buttonUstawienia);
-            this.panel1.Controls.Add(this.buttonHistoria);
-            this.panel1.Controls.Add(this.buttonRobienieLaku);
+            this.panel1.Controls.Add(this.buttonExit);
+            this.panel1.Controls.Add(this.buttonSettings);
+            this.panel1.Controls.Add(this.buttonHistory);
+            this.panel1.Controls.Add(this.buttonMakeCoat);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 539);
             this.panel1.TabIndex = 6;
             // 
-            // buttonRobienieLaku
+            // buttonMakeCoat
             // 
-            this.buttonRobienieLaku.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.buttonRobienieLaku.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRobienieLaku.FlatAppearance.BorderSize = 0;
-            this.buttonRobienieLaku.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRobienieLaku.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRobienieLaku.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonRobienieLaku.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRobienieLaku.Location = new System.Drawing.Point(13, 18);
-            this.buttonRobienieLaku.Name = "buttonRobienieLaku";
-            this.buttonRobienieLaku.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonRobienieLaku.Size = new System.Drawing.Size(217, 55);
-            this.buttonRobienieLaku.TabIndex = 0;
-            this.buttonRobienieLaku.Text = "          Zrób lakier";
-            this.buttonRobienieLaku.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRobienieLaku.UseVisualStyleBackColor = false;
-            this.buttonRobienieLaku.Click += new System.EventHandler(this.buttonRobienieLaku_Click);
+            this.buttonMakeCoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.buttonMakeCoat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonMakeCoat.FlatAppearance.BorderSize = 0;
+            this.buttonMakeCoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMakeCoat.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMakeCoat.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonMakeCoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonMakeCoat.Location = new System.Drawing.Point(13, 18);
+            this.buttonMakeCoat.Name = "buttonMakeCoat";
+            this.buttonMakeCoat.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonMakeCoat.Size = new System.Drawing.Size(217, 55);
+            this.buttonMakeCoat.TabIndex = 0;
+            this.buttonMakeCoat.Text = "          Zrób lakier";
+            this.buttonMakeCoat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonMakeCoat.UseVisualStyleBackColor = false;
+            this.buttonMakeCoat.Click += new System.EventHandler(this.buttonRobienieLaku_Click);
             // 
             // toppanel2
             // 
@@ -271,13 +278,6 @@
             // 
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // sipiolObliczanie1
-            // 
-            this.sipiolObliczanie1.Location = new System.Drawing.Point(0, 0);
-            this.sipiolObliczanie1.Name = "sipiolObliczanie1";
-            this.sipiolObliczanie1.Size = new System.Drawing.Size(758, 539);
-            this.sipiolObliczanie1.TabIndex = 17;
             // 
             // LackQuantity
             // 
@@ -301,22 +301,22 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonMetakustikQuantity;
+        private System.Windows.Forms.Button buttonCanandaQuantity;
+        private System.Windows.Forms.Button buttonResilonPlusQuantity;
+        private System.Windows.Forms.Button buttonResilonQuantity;
         private System.Windows.Forms.Button buttonPermutexQuantity;
         private System.Windows.Forms.Button minimalizeButton;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Button buttonSipiolQuantity;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label labelGodzina;
+        private System.Windows.Forms.Label labelCurrentTime;
         private System.Windows.Forms.Panel SidePanel;
-        private System.Windows.Forms.Button buttonWyjscie;
-        private System.Windows.Forms.Button buttonUstawienia;
-        private System.Windows.Forms.Button buttonHistoria;
+        private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Button buttonSettings;
+        private System.Windows.Forms.Button buttonHistory;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonRobienieLaku;
+        private System.Windows.Forms.Button buttonMakeCoat;
         private System.Windows.Forms.Panel toppanel2;
         private System.Windows.Forms.Timer timer;
         private SipiolObliczanie sipiolObliczanie1;

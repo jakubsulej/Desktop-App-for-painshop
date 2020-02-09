@@ -23,11 +23,11 @@ namespace Test_działania_aplikacji
             InitializeComponent();
         }
 
-        private int godziny, min, sek;
+        private int hours, minutes, seconds;
 
-        string godzinaLakuText;
-        string informacjaOIlosciLaku;
-        string zalogowanyUzytkownik;
+        string coatFinnishTime;
+        string coatQuantity;
+        string currentlyLoggedUser;
 
         private void comboBoxUnits_SelectedIndexChanged(object sender, EventArgs e) //Wybór jednostki wagi
         {
@@ -45,86 +45,80 @@ namespace Test_działania_aplikacji
         private void numberKg_ValueChanged(object sender, EventArgs e) //Pobieranie wartości z numericUpDown dla KG i obliczanie
         {
             decimal iloscLaku = numberKg.Value * 1000; //Oblicza kg na g
-            wartoscWyjsciowaIlosciLaku.Text = iloscLaku.ToString(); //Wyrzuca wynik
+            labelBasicCoatQuantity.Text = iloscLaku.ToString(); //Wyrzuca wynik
 
-            double konwersjaIloscLaku = (double)iloscLaku;
+            double k = (double)iloscLaku;
 
-            double obliczanie = (konwersjaIloscLaku * 0.03) + 12;
+            double quantityOfComponentB = (k * 0.03) + 12;
 
-            labelIloscSkladnikaSipiolWV.Text = obliczanie.ToString(); //WARTOSC WYJSCIOWA DLA WLEWANEGO SKLADNIKA
+            labelQuantityOfComponentB.Text = quantityOfComponentB.ToString(); //WARTOSC WYJSCIOWA DLA WLEWANEGO SKLADNIKA
 
-            informacjaOIlosciLaku = wartoscWyjsciowaIlosciLaku.Text;
+            coatQuantity = labelBasicCoatQuantity.Text;
         }
 
         private void numberG_ValueChanged(object sender, EventArgs e) //obieranie wartości numericUpDown dla G i obliczanie
         {
             decimal iloscLaku = numberG.Value;
-            wartoscWyjsciowaIlosciLaku.Text = iloscLaku.ToString(); //WARTOSC DLA WLEWANEGO LAKU
+            labelBasicCoatQuantity.Text = iloscLaku.ToString(); //WARTOSC DLA WLEWANEGO LAKU
 
             double konwersjaIloscLaku = (double)iloscLaku;
 
             double obliczanie = (konwersjaIloscLaku * 0.03)+12;
 
-            labelIloscSkladnikaSipiolWV.Text = obliczanie.ToString(); //WARTOSC WYJSCIOWA DLA WLEWANEGO SKLADNIKA
+            labelQuantityOfComponentB.Text = obliczanie.ToString(); //WARTOSC WYJSCIOWA DLA WLEWANEGO SKLADNIKA
 
-            informacjaOIlosciLaku = wartoscWyjsciowaIlosciLaku.Text;
+            coatQuantity = labelBasicCoatQuantity.Text;
         }
 
         public void zapisInformacjiWBazieDanych(object sender, EventArgs e) //Metoda zapisu informacji o lakierze w bazie danych
         {
-            string sqlHistoria = null;
-
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
             //ODCZYT AKTUALNIE ZALOGOWANEGO UŻYTKOWNIKA
 
-            SqlCommand command = new SqlCommand("Select * From ZALOGOWANYUZYTKOWNIK", con);
+            SqlCommand command = new SqlCommand("Select * From ZALOGOWANYUZYTKOWNIK", connection);
 
-            con.Open();
+            connection.Open();
 
             SqlDataReader read = command.ExecuteReader();
 
             while (read.Read())
             {
-                zalogowanyUzytkownik = (read["UZYTKOWNIK"].ToString().Trim());
+                currentlyLoggedUser = (read["UZYTKOWNIK"].ToString().Trim());
             }
 
             read.Close();
 
-            con.Close();
+            connection.Close();
 
             //ZAPIS W BAZIE DANYCH HISTORIAROBIENIA LAKU WSZYSTKICH INFORMACJI
 
-            sqlHistoria = "Insert into Historiarobienialaku ([ILOSCLAKU], [GODZINA], [USER], [RODZAJLAKU], [DATA]) values(@Ilosclaku, @Godzina, @User, @Rodzajlaku, @Data)";
+            string sqlCoatHistory = "Insert into Historiarobienialaku ([ILOSCLAKU], [GODZINA], [USER], [RODZAJLAKU], [DATA]) values(@Ilosclaku, @Godzina, @User, @Rodzajlaku, @Data)";
 
-            string nazwaLakieru = "Sipiol";
-            DateTime obecnaData = DateTime.Now;
-            string tylkoData = obecnaData.ToShortDateString();
+            string coatName = "Sipiol";
+            DateTime currentDate = DateTime.Now;
+            string tylkoData = currentDate.ToShortDateString();
 
-            // Tworzenie połączenia z bazą danych
             {
                 try
                 {
-                    // Otwarcie bazy danych
-                    con.Open();
+                    connection.Open();
 
-                    using (SqlCommand cmd = new SqlCommand(sqlHistoria, con))
+                    using (SqlCommand cmd = new SqlCommand(sqlCoatHistory, connection))
                     {
-                        // Dodawanie wartości do bazy danych
-                        cmd.Parameters.AddWithValue("@Ilosclaku", informacjaOIlosciLaku);
-                        cmd.Parameters.AddWithValue("@Godzina", godzinaLakuText);
-                        cmd.Parameters.AddWithValue("@User", zalogowanyUzytkownik);
-                        cmd.Parameters.AddWithValue("@Rodzajlaku", nazwaLakieru);
+                        cmd.Parameters.AddWithValue("@Ilosclaku", coatQuantity);
+                        cmd.Parameters.AddWithValue("@Godzina", coatFinnishTime);
+                        cmd.Parameters.AddWithValue("@User", currentlyLoggedUser);
+                        cmd.Parameters.AddWithValue("@Rodzajlaku", coatName);
                         cmd.Parameters.AddWithValue("@Data", tylkoData);
 
                         int rowsAdded = cmd.ExecuteNonQuery();
                     }
                     
-                    con.Close();
+                    connection.Close();
                 }
                 catch (Exception ex)
                 {
-                    // Wyświetlanie błędów
                     MessageBox.Show("BŁĄD:" + ex.Message);
                 }
             }
@@ -135,49 +129,46 @@ namespace Test_działania_aplikacji
             if (checkBox1.Checked)
             {
                 label2.ForeColor = Color.FromArgb(167, 167, 167);
-                wartoscWyjsciowaIlosciLaku.ForeColor = Color.FromArgb(167, 167, 167);
+                labelBasicCoatQuantity.ForeColor = Color.FromArgb(167, 167, 167);
                 label3.ForeColor = Color.FromArgb(167, 167, 167);
                 checkBox2.Enabled = true;
-
-                numberG.Enabled = false; //<======= blokowanie ustawień ilości lakieru
+                numberG.Enabled = false;
                 comboBoxUnits.Enabled = false;
             }
             else
             {
                 label2.ForeColor = Color.FromArgb(0, 0, 0);
-                wartoscWyjsciowaIlosciLaku.ForeColor = Color.FromArgb(0, 0, 0);
+                labelBasicCoatQuantity.ForeColor = Color.FromArgb(0, 0, 0);
                 label3.ForeColor = Color.FromArgb(0, 0, 0);
                 checkBox2.Enabled = false;
-                checkBox2.Checked = false;
-                
-                numberG.Enabled = true; // <====== blokowanie ustawień ilości lakieru
+                checkBox2.Checked = false;     
+                numberG.Enabled = true;
                 comboBoxUnits.Enabled = true;
             }
         }
 
         private void checkBox2_CheckStateChanged(object sender, EventArgs e) //Drugi CheckBox do zaznadania gotowych zadań + Uruchomienie timera
         {
-            if (checkBox2.Checked) //zmiana koloru fontu
+            if (checkBox2.Checked)
             {
                 label4.ForeColor = Color.FromArgb(167, 167, 167);
-                labelIloscSkladnikaSipiolWV.ForeColor = Color.FromArgb(167, 167, 167);
+                labelQuantityOfComponentB.ForeColor = Color.FromArgb(167, 167, 167);
                 label5.ForeColor = Color.FromArgb(167, 167, 167);
 
                 //Uruchomienie timera
-
-                timerLaku.Start();
-                min = 0;
-                sek = 5;
+                timerCoat.Start();
+                minutes = 0;
+                seconds = 5;
             }
             else
             {
                 label4.ForeColor = Color.FromArgb(0, 0, 0);
-                labelIloscSkladnikaSipiolWV.ForeColor = Color.FromArgb(0, 0, 0);
+                labelQuantityOfComponentB.ForeColor = Color.FromArgb(0, 0, 0);
                 label5.ForeColor = Color.FromArgb(0, 0, 0);
                 checkBox3.Enabled = false;
                 checkBox3.Checked = false;
 
-                timerLaku.Stop(); //Zatrzymanie timera
+                timerCoat.Stop(); //Zatrzymanie timera
             }
         }
 
@@ -201,17 +192,15 @@ namespace Test_działania_aplikacji
                 checkBox4.Enabled = false;
                 checkBox4.Checked = false;
 
-                timerLaku.Stop();
+                timerCoat.Stop();
             }
         }
 
         private void checkBox4_CheckStateChanged(object sender, EventArgs e)
         {
-            
-
             if (checkBox4.Checked)
             {
-                MessageBox.Show(informacjaOIlosciLaku + "g zostało wykonane o godzinie: " + godzinaLakuText); //Popup informacyjny o ilości oraz godzinie wykonania lakieru
+                MessageBox.Show(coatQuantity + "g zostało wykonane o godzinie: " + coatFinnishTime); //Popup informacyjny o ilości oraz godzinie wykonania lakieru
                 label8.ForeColor = Color.FromArgb(167, 167, 167);
 
                 checkBox1.Enabled = false;
@@ -235,15 +224,15 @@ namespace Test_działania_aplikacji
 
         private void timerGodzinaLaku_Tick(object sender, EventArgs e) //Timer aktualnej godziny
         {
-            timerGodzinaLaku.Start();
-            godzinaLakuText = DateTime.Now.ToLongTimeString();
+            timerCoatFinishTime.Start();
+            coatFinnishTime = DateTime.Now.ToLongTimeString();
         }
 
         private void timerLaku_Tick(object sender, EventArgs e) //Odliczanie w dół timera
         {
-            if (godziny == 0 && min == 0 && sek == 0)// sprawdzenie zakończenia odliczania timera
+            if (hours == 0 && minutes == 0 && seconds == 0)// sprawdzenie zakończenia odliczania timera
             {
-                timerLaku.Stop();
+                timerCoat.Stop();
                 MessageBox.Show("Lakier jest rozmieszany i gotowy do użycia");
 
                 lblMin.Text = "00 min";
@@ -252,31 +241,31 @@ namespace Test_działania_aplikacji
             }
             else
             {
-                if (sek < 1)// Sprawdzenie czy sekundy są mniejsze niż 1
+                if (seconds < 1)// Sprawdzenie czy sekundy są mniejsze niż 1
                 {
-                    sek = 59;// Zmiana sekund na 59 jeśli jest mniejsza od 1
-                    if (min < 1)// Sprawdzenie czy minuty są mniejsze niz 1
+                    seconds = 59;// Zmiana sekund na 59 jeśli jest mniejsza od 1
+                    if (minutes < 1)// Sprawdzenie czy minuty są mniejsze niz 1
                     {
-                        min = 59;// Zamiana minut na 59 jeśli jest mniejsze od 1
-                        if (godziny != 0)// Sprawdzenie czy godziny są różne od 0
-                            godziny -= 1;// on here we remove from the current hour the number 1. its the same if we write hours = hours - 1;
+                        minutes = 59;// Zamiana minut na 59 jeśli jest mniejsze od 1
+                        if (hours != 0)// Sprawdzenie czy godziny są różne od 0
+                            hours -= 1;// on here we remove from the current hour the number 1. its the same if we write hours = hours - 1;
                     }
-                    else min -= 1;// odejmowanie z obecnych minut 1
+                    else minutes -= 1;// odejmowanie z obecnych minut 1
                 }
-                else sek -= 1;// to samo dla sekund
+                else seconds -= 1;// to samo dla sekund
 
-                if (min > 9)
-                    lblMin.Text = min.ToString() + " min";
-                else lblMin.Text = "0" + min.ToString() + " min";
-                if (sek > 9)
-                    lblSec.Text = sek.ToString() + " s";
-                else lblSec.Text = "0" + sek.ToString() + " s";
+                if (minutes > 9)
+                    lblMin.Text = minutes.ToString() + " min";
+                else lblMin.Text = "0" + minutes.ToString() + " min";
+                if (seconds > 9)
+                    lblSec.Text = seconds.ToString() + " s";
+                else lblSec.Text = "0" + seconds.ToString() + " s";
             }
         }
         
         private void SipiolObliczanie1_Load(object sender, EventArgs e)//Domyślne ustawienia okna 
         {
-            if (wartoscWyjsciowaIlosciLaku.Text == "000")
+            if (labelBasicCoatQuantity.Text == "000")
             {
                 checkBox1.Enabled = false;
             }
@@ -292,8 +281,8 @@ namespace Test_działania_aplikacji
             comboBoxUnits.SelectedIndex = 0; //Definiowanie wybranej domyślnej jednostki
             numberKg.Show();
 
-            godzinaLakuText =  DateTime.Now.ToLongTimeString(); //Pobieranie aktualnej godziny
-            timerGodzinaLaku.Start(); //Start odliczania godzinowego
+            coatFinnishTime =  DateTime.Now.ToLongTimeString(); //Pobieranie aktualnej godziny
+            timerCoatFinishTime.Start(); //Start odliczania godzinowego
         }
     }
 }

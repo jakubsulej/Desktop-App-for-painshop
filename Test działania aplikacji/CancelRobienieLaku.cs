@@ -15,7 +15,6 @@ namespace Test_działania_aplikacji
         public CancelRobienieLaku()
         {
             InitializeComponent();
-            System.Media.SystemSounds.Beep.Play();
         }
 
         private void buttonCancelCancelRobienieLaku_Click(object sender, EventArgs e)
@@ -33,6 +32,11 @@ namespace Test_działania_aplikacji
         private void closeButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void CancelRobienieLaku_Load(object sender, EventArgs e)
+        {
+            System.Media.SystemSounds.Beep.Play();
         }
     }
 }

@@ -132,7 +132,7 @@
             this.buttonLoadDataBase.TabIndex = 17;
             this.buttonLoadDataBase.Text = "Zaktualizuj bazę danych";
             this.buttonLoadDataBase.UseVisualStyleBackColor = true;
-            this.buttonLoadDataBase.Click += new System.EventHandler(this.buttonWczytajBaze_Click);
+            this.buttonLoadDataBase.Click += new System.EventHandler(this.buttonForceUpdateListView_Click);
             // 
             // buttonDeleteUser
             // 
@@ -142,7 +142,7 @@
             this.buttonDeleteUser.TabIndex = 16;
             this.buttonDeleteUser.Text = "Usun użytkownika";
             this.buttonDeleteUser.UseVisualStyleBackColor = true;
-            this.buttonDeleteUser.Click += new System.EventHandler(this.buttonUsun_Click);
+            this.buttonDeleteUser.Click += new System.EventHandler(this.buttonDeleteUser_Click);
             // 
             // listViewUsers
             // 
@@ -158,7 +158,7 @@
             this.listViewUsers.TabIndex = 15;
             this.listViewUsers.UseCompatibleStateImageBehavior = false;
             this.listViewUsers.View = System.Windows.Forms.View.Details;
-            this.listViewUsers.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewUzytkownicy_MouseClick);
+            this.listViewUsers.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewUsers_MouseClick);
             // 
             // Uzytkownik
             // 
@@ -629,7 +629,7 @@
             this.buttonExit.Text = "          Wyjście";
             this.buttonExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonExit.UseVisualStyleBackColor = true;
-            this.buttonExit.Click += new System.EventHandler(this.buttonWyjscie_Click);
+            this.buttonExit.Click += new System.EventHandler(this.ButtonExit_Click);
             // 
             // buttonSettings
             // 
@@ -661,7 +661,7 @@
             this.buttonHistory.Text = "          Historia";
             this.buttonHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonHistory.UseVisualStyleBackColor = true;
-            this.buttonHistory.Click += new System.EventHandler(this.buttonHistoria_Click);
+            this.buttonHistory.Click += new System.EventHandler(this.ButtonHistory_Click);
             // 
             // buttonMakeCoat
             // 
@@ -680,7 +680,7 @@
             this.buttonMakeCoat.Text = "          Zrób lakier";
             this.buttonMakeCoat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonMakeCoat.UseVisualStyleBackColor = false;
-            this.buttonMakeCoat.Click += new System.EventHandler(this.buttonRobienieLaku_Click);
+            this.buttonMakeCoat.Click += new System.EventHandler(this.ButtonMakeCoat_Click);
             // 
             // timer
             // 
