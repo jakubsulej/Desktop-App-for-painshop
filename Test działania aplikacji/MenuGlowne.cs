@@ -25,26 +25,87 @@ namespace Test_działania_aplikacji
 
         string adminString;
 
-        private void ButtonRobienieLaku_Click(object sender, EventArgs e)
+        public void checkCurrentUserAdminStatusHistoryForm(object sender, EventArgs e) //Metoda Odczyt aktualnie zalogowanego użytkownika dla przycisku Historia
         {
-            SidePanel.Height = buttonRobienieLaku.Height;
-            SidePanel.Top = buttonRobienieLaku.Top;
+
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+
+            {
+                SqlCommand cmd = new SqlCommand("select * from ZALOGOWANYUZYTKOWNIK", connection);
+                connection.Open();
+
+                SqlDataReader read = cmd.ExecuteReader();
+
+                while (read.Read())
+                {
+                    adminString = (read["ADMIN"].ToString().Trim());
+                }
+                read.Close();
+            }
+
+            if (adminString == "admin")
+            {
+                this.Hide();
+                var form2 = new HistoriaForm();
+                form2.Closed += (s, args) => this.Close();
+                form2.Show();
+            }
+            else
+            {
+                MessageBox.Show("Brak dostępu! Wymaga uprawnień administratora.");
+            }
+        }
+
+        public void checkCurrentUserAdminStatusSettingsForm(object sender, EventArgs e) //Metoda Odczyt aktualnie zalogowanego użytkownika dla przycisku Ustawienia
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            
+            {
+                SqlCommand cmd = new SqlCommand("select * from ZALOGOWANYUZYTKOWNIK", connection);
+                connection.Open();
+
+                SqlDataReader read = cmd.ExecuteReader();
+
+                while (read.Read())
+                {
+                    adminString = (read["UZYTKOWNIK"].ToString().Trim());
+                }
+                read.Close();
+            }
+
+            if (adminString == "admin")
+            {
+                this.Hide();
+                var form2 = new UstawieniaForm();
+                form2.Closed += (s, args) => this.Close();
+                form2.Show();
+            }
+            else
+            {
+                MessageBox.Show("Brak dostępu! Wymaga uprawnień administratora.");
+            }
         }
 
         private void ButtonHistoria_Click(object sender, EventArgs e)
         {
-            SidePanel.Height = buttonHistoria.Height;
-            SidePanel.Top = buttonHistoria.Top;
-
-            odczytZalogowanegoUzytkownikaHistoria(null, null); //Otwarcie nowego okna logowania jeśli USER nie jest adminem
+            checkCurrentUserAdminStatusHistoryForm(null, null); //Otwarcie okna jeśli USER jest adminem
         }
 
         private void ButtonUstawienia_Click(object sender, EventArgs e)
         {
-            SidePanel.Height = buttonUstawienia.Height;
-            SidePanel.Top = buttonUstawienia.Top;
+            checkCurrentUserAdminStatusSettingsForm(null, null); //Otwarcie okna jeśli USER jest adminem
+        }
 
-            odczytZalogowanegoUzytkownikaUstawienia(null, null); //Otwarcie nowego okna logowania jeśli USER nie jest adminem
+        private void MenuGlowne_Load(object sender, EventArgs e) //AKTUALNY CZAS
+        {
+            timer.Start();
+            labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void timer_Tick(object sender, EventArgs e) //ODLICZANIE ZEGARA
+        {
+            labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
+            timer.Start();
         }
 
         private void ButtonWyjscie_Click(object sender, EventArgs e)
@@ -116,82 +177,6 @@ namespace Test_działania_aplikacji
         private void toppanel3_MouseUp(object sender, MouseEventArgs e)
         {
             mov = 0;
-        }
-
-        private void MenuGlowne_Load(object sender, EventArgs e) //AKTUALNY CZAS
-        {
-            timer.Start();
-            labelGodzina.Text = DateTime.Now.ToLongTimeString();
-
-        }
-
-        private void timer_Tick(object sender, EventArgs e) //ODLICZANIE ZEGARA
-        {
-            labelGodzina.Text = DateTime.Now.ToLongTimeString();
-            timer.Start();
-        }
-
-        public void odczytZalogowanegoUzytkownikaHistoria(object sender, EventArgs e) //Metoda Odczyt aktualnie zalogowanego użytkownika dla przycisku Historia
-        {
-
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
-
-            {
-                SqlCommand cmd = new SqlCommand("select * from ZALOGOWANYUZYTKOWNIK", con);
-                con.Open();
-
-                SqlDataReader read = cmd.ExecuteReader();
-
-                while (read.Read())
-                {
-                    adminString = (read["ADMIN"].ToString().Trim());
-                }
-                read.Close();
-            }
-
-            if (adminString == "admin")
-            {
-                this.Hide();
-                var form2 = new HistoriaForm();
-                form2.Closed += (s, args) => this.Close();
-                form2.Show();
-            }
-            else
-            {
-                MessageBox.Show("Brak dostępu! Wymaga uprawnień administratora.");
-            }
-        }
-
-        public void odczytZalogowanegoUzytkownikaUstawienia(object sender, EventArgs e) //Metoda Odczyt aktualnie zalogowanego użytkownika dla przycisku Ustawienia
-        {
-
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
-
-            {
-                SqlCommand cmd = new SqlCommand("select * from ZALOGOWANYUZYTKOWNIK", con);
-                con.Open();
-
-                SqlDataReader read = cmd.ExecuteReader();
-
-                while (read.Read())
-                {
-                    adminString = (read["UZYTKOWNIK"].ToString().Trim());
-                }
-                read.Close();
-            }
-
-            if (adminString == "admin")
-            {
-                this.Hide();
-                var form2 = new UstawieniaForm();
-                form2.Closed += (s, args) => this.Close();
-                form2.Show();
-            }
-            else
-            {
-                MessageBox.Show("Brak dostępu! Wymaga uprawnień administratora.");
-            }
-
         }
     }
 }

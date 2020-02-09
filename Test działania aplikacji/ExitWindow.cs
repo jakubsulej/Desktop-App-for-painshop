@@ -25,7 +25,7 @@ namespace Test_działania_aplikacji
             System.Media.SystemSounds.Beep.Play();
         }
 
-        private void buttonYesExitWindow_Click(object sender, EventArgs e) //Usuwanie tymczasowej wartości o roli użytkownika
+        private void buttonYesExitWindow_Click(object sender, EventArgs e) //Usuwanie danych o statusie admina usera z tabeli
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
@@ -58,7 +58,6 @@ namespace Test_działania_aplikacji
             Close();
         }
 
-        //Przesuwanie okna za pomocą myszy
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             mov = 1;
