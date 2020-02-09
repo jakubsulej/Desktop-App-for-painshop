@@ -21,31 +21,15 @@ namespace Test_działania_aplikacji
 
         private int isOldUserInDatabase;
 
-        //---------------Sterowanie oknem-------------------
-        private void buttonLoginCancel_Click(object sender, EventArgs e) //Zamknięcie okna
-        {
-            Close();
-        }
 
-        private void minimalizeButton_Click(object sender, EventArgs e) //Minimalizacja okna
+        private void checkCurrentUser(object sender, EventArgs e) //Sprawdzanie czy tabela z zalogowanymi użytkownikami jest pusta
         {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void closeButton_Click(object sender, EventArgs e) //Zamknięcie okna
-        {
-            Close();
-        }
-
-        private void checkCurrentUser(object sender, EventArgs e) //Aktualny user w tabeli do String
-        {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
-
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
             string aktualnieZalogowanyUser;
 
             {
-                SqlCommand cmd = new SqlCommand("select UZYTKOWNIK from ZALOGOWANYUZYTKOWNIK", con);
-                con.Open();
+                SqlCommand cmd = new SqlCommand("select UZYTKOWNIK from ZALOGOWANYUZYTKOWNIK", connection);
+                connection.Open();
 
                 SqlDataReader read = cmd.ExecuteReader();
 
@@ -62,38 +46,37 @@ namespace Test_działania_aplikacji
                     }
                 }
                 read.Close();
-
             }
         }
 
         private void logowanieDoSystemu(object sender, EventArgs e) //Metoda logowania usera do systemu
         {
-            SqlConnection polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
-            String query = "Select Role from Login Where Uzytkownik = '" + textBoxUserName.Text.Trim() + "' and Haslo = '" + textBoxUserPassword.Text.Trim() + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(query, polaczenie);
-            DataTable tabelaDanych = new DataTable();
-            sda.Fill(tabelaDanych);
+            String sqlQuerry = "Select Role from Login Where Uzytkownik = '" + textBoxUserName.Text.Trim() + "' and Haslo = '" + textBoxUserPassword.Text.Trim() + "'";
+            SqlDataAdapter sda = new SqlDataAdapter(sqlQuerry, connection);
+            DataTable userDataTable = new DataTable();
+            sda.Fill(userDataTable);
 
-            if (tabelaDanych.Rows.Count == 1)
+            if (userDataTable.Rows.Count == 1)
             {
                 MenuGlowne objMenuGlowne = new MenuGlowne();
                 this.Hide();
                 objMenuGlowne.Show();
 
-                String zalogowanyUzytkownik = (tabelaDanych.Rows[0][0]).ToString(); //String pobierający dane z kolumny Role z tabeli Login
+                String loggedUserAdminStatus = (userDataTable.Rows[0][0]).ToString(); //String pobierający dane z kolumny Role z tabeli Login
 
-                // -------------ZAPISYWANIE TYMCZASOWYCH DANYCH O ZALOGOWANYM UZYTKOWNIKU----------------
+                //ZAPISYWANIE TYMCZASOWYCH DANYCH O ZALOGOWANYM UZYTKOWNIKU
                 string sql = "Insert into Zalogowanyuzytkownik ([UZYTKOWNIK], [ADMIN]) values(@Uzytkownik,@Admin)";
                 {
                     try
                     {
-                        using (SqlCommand cmd = new SqlCommand(sql, polaczenie))
+                        using (SqlCommand cmd = new SqlCommand(sql, connection))
                         {
                             cmd.Parameters.AddWithValue("@Uzytkownik", textBoxUserName.Text);
-                            cmd.Parameters.AddWithValue("@Admin", zalogowanyUzytkownik);
+                            cmd.Parameters.AddWithValue("@Admin", loggedUserAdminStatus);
 
-                            polaczenie.Open();
+                            connection.Open();
                             cmd.ExecuteNonQuery();
                         }
                     }
@@ -109,17 +92,17 @@ namespace Test_działania_aplikacji
             }
         }
 
-        private void deleteOldUserDataBase(object sender, EventArgs e)
+        private void deleteOldUserDataBase(object sender, EventArgs e) //Metoda usuwania wartości ze starej bazy użytkowników
         {
-            SqlConnection polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
             string sql = "Delete from ZALOGOWANYUZYTKOWNIK";
             {
                 try
                 {
-                    using (SqlCommand cmd = new SqlCommand(sql, polaczenie))
+                    using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
-                        polaczenie.Open();
+                        connection.Open();
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -130,10 +113,8 @@ namespace Test_działania_aplikacji
             }
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e) //Logowanie do menu głównego - Do ogarnięcia uporządkowanie w metody //DO ZROBIENIA == USUWANIE ISTNIEJACEJ BAZY JESLI ISTNIEJE
+        private void buttonLogin_Click(object sender, EventArgs e) //Logowanie do menu głównego
         {
-            SqlConnection polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
-
             if (isOldUserInDatabase == 0) //Sprawdzanie czy tabela Zalogowanyuzytkownik jest pusta
             {
                 logowanieDoSystemu(null, null);
@@ -157,6 +138,22 @@ namespace Test_działania_aplikacji
         {
             checkCurrentUser(null, null);
             labelHiddenUser.Text = isOldUserInDatabase.ToString();
+        }
+
+        //---------------Sterowanie oknem-------------------
+        private void buttonLoginCancel_Click(object sender, EventArgs e) //Zamknięcie okna
+        {
+            Close();
+        }
+
+        private void minimalizeButton_Click(object sender, EventArgs e) //Minimalizacja okna
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void closeButton_Click(object sender, EventArgs e) //Zamknięcie okna
+        {
+            Close();
         }
     }
 }
