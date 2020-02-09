@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoriaForm));
-            this.listViewHistoria = new System.Windows.Forms.ListView();
+            this.listViewHistoriy = new System.Windows.Forms.ListView();
             this.IloscLaku = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Godzina = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Uzytkownik = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -40,36 +40,36 @@
             this.closeButton = new System.Windows.Forms.Button();
             this.toppanel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelGodzina = new System.Windows.Forms.Label();
+            this.labelCurrentTime = new System.Windows.Forms.Label();
             this.SidePanel = new System.Windows.Forms.Panel();
-            this.buttonWyjscie = new System.Windows.Forms.Button();
-            this.buttonUstawienia = new System.Windows.Forms.Button();
-            this.buttonHistoria = new System.Windows.Forms.Button();
-            this.buttonRobienieLaku = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.buttonSettings = new System.Windows.Forms.Button();
+            this.buttonHistory = new System.Windows.Forms.Button();
+            this.buttonMakeCoat = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.buttonUsuwanieWierszaHistorii = new System.Windows.Forms.Button();
-            this.buttonUsun7Dni = new System.Windows.Forms.Button();
-            this.buttonZapiszCSV = new System.Windows.Forms.Button();
-            this.labelSciezkaDostepu = new System.Windows.Forms.Label();
+            this.buttonDeleteRow = new System.Windows.Forms.Button();
+            this.buttonDeleteLast7Days = new System.Windows.Forms.Button();
+            this.buttonSafeAsCSV = new System.Windows.Forms.Button();
+            this.labelAccessDirectory = new System.Windows.Forms.Label();
             this.toppanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listViewHistoria
+            // listViewHistoriy
             // 
-            this.listViewHistoria.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewHistoriy.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IloscLaku,
             this.Godzina,
             this.Uzytkownik,
             this.RodzajLakieru,
             this.Data});
-            this.listViewHistoria.HideSelection = false;
-            this.listViewHistoria.Location = new System.Drawing.Point(244, 49);
-            this.listViewHistoria.Name = "listViewHistoria";
-            this.listViewHistoria.Size = new System.Drawing.Size(732, 354);
-            this.listViewHistoria.TabIndex = 0;
-            this.listViewHistoria.UseCompatibleStateImageBehavior = false;
-            this.listViewHistoria.View = System.Windows.Forms.View.Details;
+            this.listViewHistoriy.HideSelection = false;
+            this.listViewHistoriy.Location = new System.Drawing.Point(244, 49);
+            this.listViewHistoriy.Name = "listViewHistoriy";
+            this.listViewHistoriy.Size = new System.Drawing.Size(732, 354);
+            this.listViewHistoriy.TabIndex = 0;
+            this.listViewHistoriy.UseCompatibleStateImageBehavior = false;
+            this.listViewHistoriy.View = System.Windows.Forms.View.Details;
             // 
             // IloscLaku
             // 
@@ -140,28 +140,28 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.panel1.Controls.Add(this.labelGodzina);
+            this.panel1.Controls.Add(this.labelCurrentTime);
             this.panel1.Controls.Add(this.SidePanel);
-            this.panel1.Controls.Add(this.buttonWyjscie);
-            this.panel1.Controls.Add(this.buttonUstawienia);
-            this.panel1.Controls.Add(this.buttonHistoria);
-            this.panel1.Controls.Add(this.buttonRobienieLaku);
+            this.panel1.Controls.Add(this.buttonExit);
+            this.panel1.Controls.Add(this.buttonSettings);
+            this.panel1.Controls.Add(this.buttonHistory);
+            this.panel1.Controls.Add(this.buttonMakeCoat);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 539);
             this.panel1.TabIndex = 8;
             // 
-            // labelGodzina
+            // labelCurrentTime
             // 
-            this.labelGodzina.AutoSize = true;
-            this.labelGodzina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelGodzina.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelGodzina.Location = new System.Drawing.Point(37, 497);
-            this.labelGodzina.Name = "labelGodzina";
-            this.labelGodzina.Size = new System.Drawing.Size(61, 17);
-            this.labelGodzina.TabIndex = 6;
-            this.labelGodzina.Text = "Godzina";
+            this.labelCurrentTime.AutoSize = true;
+            this.labelCurrentTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelCurrentTime.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelCurrentTime.Location = new System.Drawing.Point(37, 497);
+            this.labelCurrentTime.Name = "labelCurrentTime";
+            this.labelCurrentTime.Size = new System.Drawing.Size(61, 17);
+            this.labelCurrentTime.TabIndex = 6;
+            this.labelCurrentTime.Text = "Godzina";
             // 
             // SidePanel
             // 
@@ -171,132 +171,132 @@
             this.SidePanel.Size = new System.Drawing.Size(10, 55);
             this.SidePanel.TabIndex = 4;
             // 
-            // buttonWyjscie
+            // buttonExit
             // 
-            this.buttonWyjscie.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonWyjscie.FlatAppearance.BorderSize = 0;
-            this.buttonWyjscie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonWyjscie.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.buttonWyjscie.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonWyjscie.Location = new System.Drawing.Point(13, 201);
-            this.buttonWyjscie.Name = "buttonWyjscie";
-            this.buttonWyjscie.Size = new System.Drawing.Size(217, 55);
-            this.buttonWyjscie.TabIndex = 3;
-            this.buttonWyjscie.Text = "          Wyjście";
-            this.buttonWyjscie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonWyjscie.UseVisualStyleBackColor = true;
-            this.buttonWyjscie.Click += new System.EventHandler(this.buttonWyjscie_Click);
+            this.buttonExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonExit.FlatAppearance.BorderSize = 0;
+            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExit.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.buttonExit.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonExit.Location = new System.Drawing.Point(13, 201);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(217, 55);
+            this.buttonExit.TabIndex = 3;
+            this.buttonExit.Text = "          Wyjście";
+            this.buttonExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
-            // buttonUstawienia
+            // buttonSettings
             // 
-            this.buttonUstawienia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.buttonUstawienia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonUstawienia.FlatAppearance.BorderSize = 0;
-            this.buttonUstawienia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUstawienia.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.buttonUstawienia.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonUstawienia.Location = new System.Drawing.Point(13, 140);
-            this.buttonUstawienia.Name = "buttonUstawienia";
-            this.buttonUstawienia.Size = new System.Drawing.Size(217, 55);
-            this.buttonUstawienia.TabIndex = 2;
-            this.buttonUstawienia.Text = "          Ustawienia";
-            this.buttonUstawienia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUstawienia.UseVisualStyleBackColor = false;
-            this.buttonUstawienia.Click += new System.EventHandler(this.buttonUstawienia_Click);
+            this.buttonSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.buttonSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSettings.FlatAppearance.BorderSize = 0;
+            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSettings.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.buttonSettings.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonSettings.Location = new System.Drawing.Point(13, 140);
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(217, 55);
+            this.buttonSettings.TabIndex = 2;
+            this.buttonSettings.Text = "          Ustawienia";
+            this.buttonSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSettings.UseVisualStyleBackColor = false;
+            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
             // 
-            // buttonHistoria
+            // buttonHistory
             // 
-            this.buttonHistoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonHistoria.FlatAppearance.BorderSize = 0;
-            this.buttonHistoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHistoria.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.buttonHistoria.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonHistoria.Location = new System.Drawing.Point(13, 79);
-            this.buttonHistoria.Name = "buttonHistoria";
-            this.buttonHistoria.Size = new System.Drawing.Size(217, 55);
-            this.buttonHistoria.TabIndex = 1;
-            this.buttonHistoria.Text = "          Historia";
-            this.buttonHistoria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonHistoria.UseVisualStyleBackColor = true;
+            this.buttonHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonHistory.FlatAppearance.BorderSize = 0;
+            this.buttonHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonHistory.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.buttonHistory.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonHistory.Location = new System.Drawing.Point(13, 79);
+            this.buttonHistory.Name = "buttonHistory";
+            this.buttonHistory.Size = new System.Drawing.Size(217, 55);
+            this.buttonHistory.TabIndex = 1;
+            this.buttonHistory.Text = "          Historia";
+            this.buttonHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonHistory.UseVisualStyleBackColor = true;
             // 
-            // buttonRobienieLaku
+            // buttonMakeCoat
             // 
-            this.buttonRobienieLaku.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.buttonRobienieLaku.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRobienieLaku.FlatAppearance.BorderSize = 0;
-            this.buttonRobienieLaku.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRobienieLaku.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRobienieLaku.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonRobienieLaku.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRobienieLaku.Location = new System.Drawing.Point(13, 18);
-            this.buttonRobienieLaku.Name = "buttonRobienieLaku";
-            this.buttonRobienieLaku.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonRobienieLaku.Size = new System.Drawing.Size(217, 55);
-            this.buttonRobienieLaku.TabIndex = 0;
-            this.buttonRobienieLaku.Text = "          Zrób lakier";
-            this.buttonRobienieLaku.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRobienieLaku.UseVisualStyleBackColor = false;
-            this.buttonRobienieLaku.Click += new System.EventHandler(this.buttonRobienieLaku_Click);
+            this.buttonMakeCoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.buttonMakeCoat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonMakeCoat.FlatAppearance.BorderSize = 0;
+            this.buttonMakeCoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMakeCoat.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMakeCoat.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonMakeCoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonMakeCoat.Location = new System.Drawing.Point(13, 18);
+            this.buttonMakeCoat.Name = "buttonMakeCoat";
+            this.buttonMakeCoat.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonMakeCoat.Size = new System.Drawing.Size(217, 55);
+            this.buttonMakeCoat.TabIndex = 0;
+            this.buttonMakeCoat.Text = "          Zrób lakier";
+            this.buttonMakeCoat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonMakeCoat.UseVisualStyleBackColor = false;
+            this.buttonMakeCoat.Click += new System.EventHandler(this.buttonMakeCoat_Click);
             // 
             // timer
             // 
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // buttonUsuwanieWierszaHistorii
+            // buttonDeleteRow
             // 
-            this.buttonUsuwanieWierszaHistorii.Location = new System.Drawing.Point(244, 427);
-            this.buttonUsuwanieWierszaHistorii.Name = "buttonUsuwanieWierszaHistorii";
-            this.buttonUsuwanieWierszaHistorii.Size = new System.Drawing.Size(105, 31);
-            this.buttonUsuwanieWierszaHistorii.TabIndex = 10;
-            this.buttonUsuwanieWierszaHistorii.Text = "Usuń wiersz";
-            this.buttonUsuwanieWierszaHistorii.UseVisualStyleBackColor = true;
-            this.buttonUsuwanieWierszaHistorii.Click += new System.EventHandler(this.buttonUsuwanieHistorii_Click);
+            this.buttonDeleteRow.Location = new System.Drawing.Point(244, 427);
+            this.buttonDeleteRow.Name = "buttonDeleteRow";
+            this.buttonDeleteRow.Size = new System.Drawing.Size(105, 31);
+            this.buttonDeleteRow.TabIndex = 10;
+            this.buttonDeleteRow.Text = "Usuń wiersz";
+            this.buttonDeleteRow.UseVisualStyleBackColor = true;
+            this.buttonDeleteRow.Click += new System.EventHandler(this.buttonDeleteHistory_Click);
             // 
-            // buttonUsun7Dni
+            // buttonDeleteLast7Days
             // 
-            this.buttonUsun7Dni.Location = new System.Drawing.Point(366, 427);
-            this.buttonUsun7Dni.Name = "buttonUsun7Dni";
-            this.buttonUsun7Dni.Size = new System.Drawing.Size(136, 31);
-            this.buttonUsun7Dni.TabIndex = 11;
-            this.buttonUsun7Dni.Text = "Usuń ostatnie 7 dni";
-            this.buttonUsun7Dni.UseVisualStyleBackColor = true;
-            this.buttonUsun7Dni.Click += new System.EventHandler(this.buttonUsun7Dni_Click);
+            this.buttonDeleteLast7Days.Location = new System.Drawing.Point(366, 427);
+            this.buttonDeleteLast7Days.Name = "buttonDeleteLast7Days";
+            this.buttonDeleteLast7Days.Size = new System.Drawing.Size(136, 31);
+            this.buttonDeleteLast7Days.TabIndex = 11;
+            this.buttonDeleteLast7Days.Text = "Usuń ostatnie 7 dni";
+            this.buttonDeleteLast7Days.UseVisualStyleBackColor = true;
+            this.buttonDeleteLast7Days.Click += new System.EventHandler(this.buttonUsun7Dni_Click);
             // 
-            // buttonZapiszCSV
+            // buttonSafeAsCSV
             // 
-            this.buttonZapiszCSV.Location = new System.Drawing.Point(523, 427);
-            this.buttonZapiszCSV.Name = "buttonZapiszCSV";
-            this.buttonZapiszCSV.Size = new System.Drawing.Size(136, 31);
-            this.buttonZapiszCSV.TabIndex = 12;
-            this.buttonZapiszCSV.Text = "Zapisz do CSV";
-            this.buttonZapiszCSV.UseVisualStyleBackColor = true;
-            this.buttonZapiszCSV.Click += new System.EventHandler(this.buttonZapiszCSV_Click);
+            this.buttonSafeAsCSV.Location = new System.Drawing.Point(523, 427);
+            this.buttonSafeAsCSV.Name = "buttonSafeAsCSV";
+            this.buttonSafeAsCSV.Size = new System.Drawing.Size(136, 31);
+            this.buttonSafeAsCSV.TabIndex = 12;
+            this.buttonSafeAsCSV.Text = "Zapisz do CSV";
+            this.buttonSafeAsCSV.UseVisualStyleBackColor = true;
+            this.buttonSafeAsCSV.Click += new System.EventHandler(this.buttonZapiszCSV_Click);
             // 
-            // labelSciezkaDostepu
+            // labelAccessDirectory
             // 
-            this.labelSciezkaDostepu.AutoSize = true;
-            this.labelSciezkaDostepu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelSciezkaDostepu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelSciezkaDostepu.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.labelSciezkaDostepu.Location = new System.Drawing.Point(533, 471);
-            this.labelSciezkaDostepu.Name = "labelSciezkaDostepu";
-            this.labelSciezkaDostepu.Size = new System.Drawing.Size(116, 13);
-            this.labelSciezkaDostepu.TabIndex = 13;
-            this.labelSciezkaDostepu.Text = "Zmień ścieżkę dostępu";
+            this.labelAccessDirectory.AutoSize = true;
+            this.labelAccessDirectory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelAccessDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelAccessDirectory.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelAccessDirectory.Location = new System.Drawing.Point(533, 471);
+            this.labelAccessDirectory.Name = "labelAccessDirectory";
+            this.labelAccessDirectory.Size = new System.Drawing.Size(116, 13);
+            this.labelAccessDirectory.TabIndex = 13;
+            this.labelAccessDirectory.Text = "Zmień ścieżkę dostępu";
             // 
             // HistoriaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(988, 570);
-            this.Controls.Add(this.labelSciezkaDostepu);
-            this.Controls.Add(this.buttonZapiszCSV);
-            this.Controls.Add(this.buttonUsun7Dni);
-            this.Controls.Add(this.buttonUsuwanieWierszaHistorii);
+            this.Controls.Add(this.labelAccessDirectory);
+            this.Controls.Add(this.buttonSafeAsCSV);
+            this.Controls.Add(this.buttonDeleteLast7Days);
+            this.Controls.Add(this.buttonDeleteRow);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toppanel2);
-            this.Controls.Add(this.listViewHistoria);
+            this.Controls.Add(this.listViewHistoriy);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HistoriaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -312,26 +312,26 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listViewHistoria;
+        private System.Windows.Forms.ListView listViewHistoriy;
         private System.Windows.Forms.Button minimalizeButton;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Panel toppanel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labelGodzina;
+        private System.Windows.Forms.Label labelCurrentTime;
         private System.Windows.Forms.Panel SidePanel;
-        private System.Windows.Forms.Button buttonWyjscie;
-        private System.Windows.Forms.Button buttonUstawienia;
-        private System.Windows.Forms.Button buttonHistoria;
-        private System.Windows.Forms.Button buttonRobienieLaku;
+        private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Button buttonSettings;
+        private System.Windows.Forms.Button buttonHistory;
+        private System.Windows.Forms.Button buttonMakeCoat;
         private System.Windows.Forms.ColumnHeader IloscLaku;
         private System.Windows.Forms.ColumnHeader Godzina;
         private System.Windows.Forms.ColumnHeader Uzytkownik;
         private System.Windows.Forms.ColumnHeader RodzajLakieru;
         private System.Windows.Forms.ColumnHeader Data;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Button buttonUsuwanieWierszaHistorii;
-        private System.Windows.Forms.Button buttonUsun7Dni;
-        private System.Windows.Forms.Button buttonZapiszCSV;
-        private System.Windows.Forms.Label labelSciezkaDostepu;
+        private System.Windows.Forms.Button buttonDeleteRow;
+        private System.Windows.Forms.Button buttonDeleteLast7Days;
+        private System.Windows.Forms.Button buttonSafeAsCSV;
+        private System.Windows.Forms.Label labelAccessDirectory;
     }
 }

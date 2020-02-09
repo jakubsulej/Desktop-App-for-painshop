@@ -19,14 +19,14 @@ namespace Test_działania_aplikacji
             InitializeComponent();
         }
 
-        public void WczytywanieListView(object sender, EventArgs e)
+        public void PopulateListView(object sender, EventArgs e)
         {
-            listViewHistoria.GridLines = true;
-            listViewHistoria.View = View.Details;
+            listViewHistoriy.GridLines = true;
+            listViewHistoriy.View = View.Details;
 
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
-            SqlDataAdapter sda = new SqlDataAdapter("select * from HISTORIAROBIENIALAKU", con);
+            SqlDataAdapter sda = new SqlDataAdapter("select * from HISTORIAROBIENIALAKU", connection);
             DataTable dt = new DataTable();
             sda.Fill(dt);
 
@@ -38,16 +38,16 @@ namespace Test_działania_aplikacji
                 listitem.SubItems.Add(dr["USER"].ToString());
                 listitem.SubItems.Add(dr["RODZAJLAKU"].ToString());
                 listitem.SubItems.Add(dr["DATA"].ToString());
-                listViewHistoria.Items.Add(listitem);
+                listViewHistoriy.Items.Add(listitem);
             }
         }
 
-        private void usuwanieWierszaTabela(object sender, EventArgs e) //USUWANIE ZAZNACZONYCH DANYCH
+        private void DeleteRowDataBase(object sender, EventArgs e) //USUWANIE ZAZNACZONYCH DANYCH
         {
-            if (listViewHistoria.SelectedItems.Count > 0) //Zabezpieczenie przed brakiem wyboru wiersza z ListView
+            if (listViewHistoriy.SelectedItems.Count > 0) //Zabezpieczenie przed brakiem wyboru wiersza z ListView
             {
-                string dataTabela = listViewHistoria.SelectedItems[0].SubItems[4].Text;
-                string godzinaTabela = listViewHistoria.SelectedItems[0].SubItems[1].Text;
+                string dataTabela = listViewHistoriy.SelectedItems[0].SubItems[4].Text;
+                string godzinaTabela = listViewHistoriy.SelectedItems[0].SubItems[1].Text;
 
                 SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
@@ -140,15 +140,15 @@ namespace Test_działania_aplikacji
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void buttonWyjscie_Click(object sender, EventArgs e) //Przycisk boczne menu Wyjście z programu
+        private void buttonExit_Click(object sender, EventArgs e) //Przycisk boczne menu Wyjście z programu
         {
             new ExitWindow().Show();
         }
 
-        private void buttonUstawienia_Click(object sender, EventArgs e) //Otwarcie nowego okna Ustawienia
+        private void buttonSettings_Click(object sender, EventArgs e) //Otwarcie nowego okna Ustawienia
         {
-            SidePanel.Height = buttonUstawienia.Height;
-            SidePanel.Top = buttonUstawienia.Top;
+            SidePanel.Height = buttonSettings.Height;
+            SidePanel.Top = buttonSettings.Top;
 
             this.Hide();
             var form2 = new UstawieniaForm();
@@ -158,16 +158,16 @@ namespace Test_działania_aplikacji
 
         private void HistoriaForm_Load(object sender, EventArgs e)
         {
-            WczytywanieListView (null, null);
-            listViewHistoria.View = View.Details;
-            listViewHistoria.FullRowSelect = true;
+            PopulateListView (null, null);
+            listViewHistoriy.View = View.Details;
+            listViewHistoriy.FullRowSelect = true;
 
             //URUCHOMIENIE TIMERA DLA AKTUALNEJ GODZINY
             timer.Start();
-            labelGodzina.Text = DateTime.Now.ToLongTimeString();
+            labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
         }
 
-        private void buttonRobienieLaku_Click(object sender, EventArgs e)
+        private void buttonMakeCoat_Click(object sender, EventArgs e)
         {
             this.Hide();
             var form2 = new MenuGlowne();
@@ -177,24 +177,24 @@ namespace Test_działania_aplikacji
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            labelGodzina.Text = DateTime.Now.ToLongTimeString();
+            labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
             timer.Start();
         }
 
-        private void buttonUsuwanieHistorii_Click(object sender, EventArgs e)
+        private void buttonDeleteHistory_Click(object sender, EventArgs e)
         {
-            usuwanieWierszaTabela(null, null);
-            listViewHistoria.Items.Clear();
-            listViewHistoria.Refresh();
-            WczytywanieListView(null, null);
+            DeleteRowDataBase(null, null);
+            listViewHistoriy.Items.Clear();
+            listViewHistoriy.Refresh();
+            PopulateListView(null, null);
         }
 
         private void buttonUsun7Dni_Click(object sender, EventArgs e)
         {
             usuwanie7DniTabela(null, null);
-            listViewHistoria.Items.Clear();
-            listViewHistoria.Refresh();
-            WczytywanieListView(null, null);
+            listViewHistoriy.Items.Clear();
+            listViewHistoriy.Refresh();
+            PopulateListView(null, null);
         }
 
         private void buttonZapiszCSV_Click(object sender, EventArgs e) //Zaisz jako CSV
