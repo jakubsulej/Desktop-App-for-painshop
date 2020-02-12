@@ -17,6 +17,35 @@ namespace Test_działania_aplikacji
             InitializeComponent();
         }
 
+        //string coatTypeName;
+
+        //public string TheValue
+        //{
+        //    get { return coatTypeName; }
+        //}
+
+        private void coatUserControl(object sender, EventArgs e)
+        {
+            //if (TheValue == "sipiol")
+            //{
+            //    sipiolObliczanie1.Show();
+            //    permutexCount1.Hide();
+            //    label1.Text = TheValue;
+            //}
+            //if (TheValue == "permutex")
+            //{
+            //    permutexCount1.Show();
+            //    sipiolObliczanie1.Hide();
+            //    label1.Text = TheValue;
+            //}
+            //else
+            //{
+            //    sipiolObliczanie1.Hide();
+            //    permutexCount1.Hide();
+            //    label1.Text = TheValue;
+            //}
+        }
+
         private void buttonRobienieLaku_Click(object sender, EventArgs e)
         {
             new CancelRobienieLaku().Show();
@@ -53,10 +82,18 @@ namespace Test_działania_aplikacji
             timer.Start();
         }
 
+        public void OpenSipiolUserControl()
+        {
+            sipiolObliczanie1.Show();
+        }
+
         private void LackQuantity_Load(object sender, EventArgs e)
         {
             timer.Start();
             labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
+            sipiolObliczanie1.Hide();
+            permutexCount1.Hide();
+
         }
     }
 }

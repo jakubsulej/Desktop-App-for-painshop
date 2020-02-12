@@ -53,6 +53,12 @@
     <Compile Include="CancelRobienieLaku.Designer.cs">
       <DependentUpon>CancelRobienieLaku.cs</DependentUpon>
     </Compile>
+    <Compile Include="DefaultMakeLackUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefaultMakeLackUserControl.Designer.cs">
+      <DependentUpon>DefaultMakeLackUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExitWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,12 @@
     <Compile Include="MenuGlowne.Designer.cs">
       <DependentUpon>MenuGlowne.cs</DependentUpon>
     </Compile>
+    <Compile Include="PermutexCount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PermutexCount.Designer.cs">
+      <DependentUpon>PermutexCount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -111,6 +123,9 @@
     <EmbeddedResource Include="CancelRobienieLaku.resx">
       <DependentUpon>CancelRobienieLaku.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DefaultMakeLackUserControl.resx">
+      <DependentUpon>DefaultMakeLackUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ExitWindow.resx">
       <DependentUpon>ExitWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuGlowne.resx">
       <DependentUpon>MenuGlowne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PermutexCount.resx">
+      <DependentUpon>PermutexCount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -14,16 +14,18 @@ namespace Test_działania_aplikacji
 {
     public partial class MenuGlowne : Form
     {
-        int mov;
-        int movX;
-        int movY;
-
         public MenuGlowne()
         {
             InitializeComponent();
         }
 
         string adminString;
+
+        int mov;
+        int movX;
+        int movY;
+
+        public bool isCoatButtonClicked;
 
         public void checkCurrentUserAdminStatusHistoryForm(object sender, EventArgs e) //Metoda Odczyt aktualnie zalogowanego użytkownika dla przycisku Historia
         {
@@ -96,10 +98,24 @@ namespace Test_działania_aplikacji
             checkCurrentUserAdminStatusSettingsForm(null, null); //Otwarcie okna jeśli USER jest adminem
         }
 
+        private void CancelMakeCoatPoupup(object sender, EventArgs e)
+        {
+            if (isCoatButtonClicked == true)
+            {
+                new CancelRobienieLaku().Show();
+            }
+            else 
+            { 
+
+            }
+        }
+
         private void MenuGlowne_Load(object sender, EventArgs e) //AKTUALNY CZAS
         {
             timer.Start();
             labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
+            sipiolObliczanie1.Hide();
+            permutexCount1.Hide();
         }
 
         private void timer_Tick(object sender, EventArgs e) //ODLICZANIE ZEGARA
@@ -125,18 +141,16 @@ namespace Test_działania_aplikacji
 
         private void buttonPermutexQuantity_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var form2 = new LackQuantity();
-            form2.Closed += (s, args) => this.Close();
-            form2.Show();
+            permutexCount1.Show();
+            sipiolObliczanie1.Hide();
+            isCoatButtonClicked = true;
         }
 
         private void buttonSipiolQuantity_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var form2 = new LackQuantity();
-            form2.Closed += (s, args) => this.Close();
-            form2.Show();
+            sipiolObliczanie1.Show();
+            permutexCount1.Hide();
+            isCoatButtonClicked = true;
         }
         
         private void toppanel2_MouseDown(object sender, MouseEventArgs e) //Zmiana miejsca okna dla obu paneli
@@ -177,6 +191,11 @@ namespace Test_działania_aplikacji
         private void toppanel3_MouseUp(object sender, MouseEventArgs e)
         {
             mov = 0;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

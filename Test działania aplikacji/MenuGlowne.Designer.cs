@@ -42,12 +42,14 @@
             this.minimalizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.sipiolObliczanie1 = new Test_działania_aplikacji.SipiolObliczanie();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonResilonQuantity = new System.Windows.Forms.Button();
             this.buttonPermutexQuantity = new System.Windows.Forms.Button();
             this.buttonSipiolQuantity = new System.Windows.Forms.Button();
+            this.permutexCount1 = new Test_działania_aplikacji.PermutexCount();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.toppanel2.SuspendLayout();
@@ -216,59 +218,69 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.sipiolObliczanie1);
             this.panel4.Controls.Add(this.button6);
             this.panel4.Controls.Add(this.button5);
             this.panel4.Controls.Add(this.button4);
-            this.panel4.Controls.Add(this.button3);
+            this.panel4.Controls.Add(this.buttonResilonQuantity);
             this.panel4.Controls.Add(this.buttonPermutexQuantity);
             this.panel4.Controls.Add(this.buttonSipiolQuantity);
+            this.panel4.Controls.Add(this.permutexCount1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(230, 31);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(758, 539);
             this.panel4.TabIndex = 5;
             // 
+            // sipiolObliczanie1
+            // 
+            this.sipiolObliczanie1.Location = new System.Drawing.Point(0, 71);
+            this.sipiolObliczanie1.Name = "sipiolObliczanie1";
+            this.sipiolObliczanie1.Size = new System.Drawing.Size(758, 468);
+            this.sipiolObliczanie1.TabIndex = 17;
+            // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(599, 41);
+            this.button6.Location = new System.Drawing.Point(604, 20);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(106, 95);
+            this.button6.Size = new System.Drawing.Size(106, 34);
             this.button6.TabIndex = 16;
             this.button6.Text = "Metakustik";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(487, 41);
+            this.button5.Location = new System.Drawing.Point(492, 20);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(106, 95);
+            this.button5.Size = new System.Drawing.Size(106, 34);
             this.button5.TabIndex = 15;
             this.button5.Text = "Canada";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(375, 41);
+            this.button4.Location = new System.Drawing.Point(380, 20);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(106, 95);
+            this.button4.Size = new System.Drawing.Size(106, 34);
             this.button4.TabIndex = 14;
             this.button4.Text = "Resilon Plus Matt";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonResilonQuantity
             // 
-            this.button3.Location = new System.Drawing.Point(263, 41);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 95);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Resilon";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonResilonQuantity.Location = new System.Drawing.Point(268, 20);
+            this.buttonResilonQuantity.Name = "buttonResilonQuantity";
+            this.buttonResilonQuantity.Size = new System.Drawing.Size(106, 34);
+            this.buttonResilonQuantity.TabIndex = 13;
+            this.buttonResilonQuantity.Text = "Resilon";
+            this.buttonResilonQuantity.UseVisualStyleBackColor = true;
+            this.buttonResilonQuantity.Click += new System.EventHandler(this.button3_Click);
             // 
             // buttonPermutexQuantity
             // 
-            this.buttonPermutexQuantity.Location = new System.Drawing.Point(151, 41);
+            this.buttonPermutexQuantity.Location = new System.Drawing.Point(156, 20);
             this.buttonPermutexQuantity.Name = "buttonPermutexQuantity";
-            this.buttonPermutexQuantity.Size = new System.Drawing.Size(106, 95);
+            this.buttonPermutexQuantity.Size = new System.Drawing.Size(106, 34);
             this.buttonPermutexQuantity.TabIndex = 12;
             this.buttonPermutexQuantity.Text = "Permutex";
             this.buttonPermutexQuantity.UseVisualStyleBackColor = true;
@@ -276,13 +288,20 @@
             // 
             // buttonSipiolQuantity
             // 
-            this.buttonSipiolQuantity.Location = new System.Drawing.Point(39, 41);
+            this.buttonSipiolQuantity.Location = new System.Drawing.Point(44, 20);
             this.buttonSipiolQuantity.Name = "buttonSipiolQuantity";
-            this.buttonSipiolQuantity.Size = new System.Drawing.Size(106, 95);
+            this.buttonSipiolQuantity.Size = new System.Drawing.Size(106, 34);
             this.buttonSipiolQuantity.TabIndex = 11;
             this.buttonSipiolQuantity.Text = "Sipiol";
             this.buttonSipiolQuantity.UseVisualStyleBackColor = true;
             this.buttonSipiolQuantity.Click += new System.EventHandler(this.buttonSipiolQuantity_Click);
+            // 
+            // permutexCount1
+            // 
+            this.permutexCount1.Location = new System.Drawing.Point(0, 81);
+            this.permutexCount1.Name = "permutexCount1";
+            this.permutexCount1.Size = new System.Drawing.Size(758, 458);
+            this.permutexCount1.TabIndex = 18;
             // 
             // timer
             // 
@@ -325,11 +344,13 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonResilonQuantity;
         private System.Windows.Forms.Button buttonPermutexQuantity;
         private System.Windows.Forms.Button buttonSipiolQuantity;
         private System.Windows.Forms.Label labelCurrentTime;
         private System.Windows.Forms.Timer timer;
+        private SipiolObliczanie sipiolObliczanie1;
+        private PermutexCount permutexCount1;
     }
 }
 

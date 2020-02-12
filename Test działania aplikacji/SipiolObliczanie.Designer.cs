@@ -284,8 +284,8 @@
             this.Controls.Add(this.labelBasicCoatQuantity);
             this.Controls.Add(this.comboBoxUnits);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.numberG);
             this.Controls.Add(this.numberKg);
+            this.Controls.Add(this.numberG);
             this.Name = "SipiolObliczanie";
             this.Size = new System.Drawing.Size(758, 539);
             this.Load += new System.EventHandler(this.SipiolObliczanie1_Load);
