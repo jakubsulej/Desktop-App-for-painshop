@@ -102,17 +102,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResilonCount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ResilonCount.Designer.cs">
+      <DependentUpon>ResilonCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResilonPlus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ResilonPlus.Designer.cs">
+      <DependentUpon>ResilonPlus.cs</DependentUpon>
+    </Compile>
     <Compile Include="RobienieLaku.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="RobienieLaku.Designer.cs">
       <DependentUpon>RobienieLaku.cs</DependentUpon>
     </Compile>
-    <Compile Include="SipiolObliczanie.cs">
+    <Compile Include="SipiolCount.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SipiolObliczanie.Designer.cs">
-      <DependentUpon>SipiolObliczanie.cs</DependentUpon>
+    <Compile Include="SipiolCount.Designer.cs">
+      <DependentUpon>SipiolCount.cs</DependentUpon>
     </Compile>
     <Compile Include="UstawieniaForm.cs">
       <SubType>Form</SubType>
@@ -149,11 +161,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResilonCount.resx">
+      <DependentUpon>ResilonCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResilonPlus.resx">
+      <DependentUpon>ResilonPlus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RobienieLaku.resx">
       <DependentUpon>RobienieLaku.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SipiolObliczanie.resx">
-      <DependentUpon>SipiolObliczanie.cs</DependentUpon>
+    <EmbeddedResource Include="SipiolCount.resx">
+      <DependentUpon>SipiolCount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UstawieniaForm.resx">
       <DependentUpon>UstawieniaForm.cs</DependentUpon>

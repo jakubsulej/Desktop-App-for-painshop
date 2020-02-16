@@ -51,9 +51,9 @@
             this.numberGPermutex = new System.Windows.Forms.NumericUpDown();
             this.numberKg = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.labelQuantityOfComponentB = new System.Windows.Forms.Label();
+            this.labelComponentB = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.labelComponentC = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.checkBox4Permutex = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numberGPermutex)).BeginInit();
@@ -68,7 +68,7 @@
             // lblMin
             // 
             this.lblMin.AutoSize = true;
-            this.lblMin.Location = new System.Drawing.Point(157, 227);
+            this.lblMin.Location = new System.Drawing.Point(157, 221);
             this.lblMin.Name = "lblMin";
             this.lblMin.Size = new System.Drawing.Size(38, 13);
             this.lblMin.TabIndex = 30;
@@ -82,7 +82,7 @@
             // lblSec
             // 
             this.lblSec.AutoSize = true;
-            this.lblSec.Location = new System.Drawing.Point(199, 227);
+            this.lblSec.Location = new System.Drawing.Point(199, 221);
             this.lblSec.Name = "lblSec";
             this.lblSec.Size = new System.Drawing.Size(27, 13);
             this.lblSec.TabIndex = 31;
@@ -91,7 +91,7 @@
             // checkBox5Permutex
             // 
             this.checkBox5Permutex.AutoSize = true;
-            this.checkBox5Permutex.Location = new System.Drawing.Point(448, 292);
+            this.checkBox5Permutex.Location = new System.Drawing.Point(448, 286);
             this.checkBox5Permutex.Name = "checkBox5Permutex";
             this.checkBox5Permutex.Size = new System.Drawing.Size(63, 17);
             this.checkBox5Permutex.TabIndex = 29;
@@ -102,7 +102,7 @@
             // checkBox3Permutex
             // 
             this.checkBox3Permutex.AutoSize = true;
-            this.checkBox3Permutex.Location = new System.Drawing.Point(448, 226);
+            this.checkBox3Permutex.Location = new System.Drawing.Point(448, 220);
             this.checkBox3Permutex.Name = "checkBox3Permutex";
             this.checkBox3Permutex.Size = new System.Drawing.Size(63, 17);
             this.checkBox3Permutex.TabIndex = 28;
@@ -113,7 +113,7 @@
             // checkBox2Permutex
             // 
             this.checkBox2Permutex.AutoSize = true;
-            this.checkBox2Permutex.Location = new System.Drawing.Point(448, 194);
+            this.checkBox2Permutex.Location = new System.Drawing.Point(448, 188);
             this.checkBox2Permutex.Name = "checkBox2Permutex";
             this.checkBox2Permutex.Size = new System.Drawing.Size(63, 17);
             this.checkBox2Permutex.TabIndex = 27;
@@ -124,7 +124,7 @@
             // checkBox1Permutex
             // 
             this.checkBox1Permutex.AutoSize = true;
-            this.checkBox1Permutex.Location = new System.Drawing.Point(448, 163);
+            this.checkBox1Permutex.Location = new System.Drawing.Point(448, 157);
             this.checkBox1Permutex.Name = "checkBox1Permutex";
             this.checkBox1Permutex.Size = new System.Drawing.Size(63, 17);
             this.checkBox1Permutex.TabIndex = 26;
@@ -135,7 +135,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(231, 227);
+            this.label7.Location = new System.Drawing.Point(231, 221);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(182, 13);
             this.label7.TabIndex = 24;
@@ -144,7 +144,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(130, 195);
+            this.label5.Location = new System.Drawing.Point(130, 189);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(250, 13);
             this.label5.TabIndex = 25;
@@ -153,7 +153,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(130, 164);
+            this.label3.Location = new System.Drawing.Point(130, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(176, 13);
             this.label3.TabIndex = 23;
@@ -162,7 +162,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(56, 293);
+            this.label8.Location = new System.Drawing.Point(56, 287);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(155, 13);
             this.label8.TabIndex = 19;
@@ -171,7 +171,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(56, 227);
+            this.label6.Location = new System.Drawing.Point(56, 221);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 13);
             this.label6.TabIndex = 22;
@@ -180,7 +180,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 195);
+            this.label4.Location = new System.Drawing.Point(56, 189);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 21;
@@ -189,7 +189,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(56, 164);
+            this.label2.Location = new System.Drawing.Point(56, 158);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 20;
@@ -198,7 +198,7 @@
             // labelQuantityOfThickener
             // 
             this.labelQuantityOfThickener.AutoSize = true;
-            this.labelQuantityOfThickener.Location = new System.Drawing.Point(102, 195);
+            this.labelQuantityOfThickener.Location = new System.Drawing.Point(102, 189);
             this.labelQuantityOfThickener.Name = "labelQuantityOfThickener";
             this.labelQuantityOfThickener.Size = new System.Drawing.Size(25, 13);
             this.labelQuantityOfThickener.TabIndex = 18;
@@ -207,7 +207,7 @@
             // labelBasicCoatQuantity
             // 
             this.labelBasicCoatQuantity.AutoSize = true;
-            this.labelBasicCoatQuantity.Location = new System.Drawing.Point(93, 164);
+            this.labelBasicCoatQuantity.Location = new System.Drawing.Point(93, 158);
             this.labelBasicCoatQuantity.Name = "labelBasicCoatQuantity";
             this.labelBasicCoatQuantity.Size = new System.Drawing.Size(31, 13);
             this.labelBasicCoatQuantity.TabIndex = 17;
@@ -223,7 +223,7 @@
             this.comboBoxUnitsPermutex.Items.AddRange(new object[] {
             "kg",
             "g"});
-            this.comboBoxUnitsPermutex.Location = new System.Drawing.Point(181, 113);
+            this.comboBoxUnitsPermutex.Location = new System.Drawing.Point(181, 107);
             this.comboBoxUnitsPermutex.Name = "comboBoxUnitsPermutex";
             this.comboBoxUnitsPermutex.Size = new System.Drawing.Size(45, 21);
             this.comboBoxUnitsPermutex.TabIndex = 15;
@@ -232,9 +232,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 67);
+            this.label1.Font = new System.Drawing.Font("Calibri Light", 14.25F);
+            this.label1.Location = new System.Drawing.Point(317, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.Size = new System.Drawing.Size(84, 23);
             this.label1.TabIndex = 13;
             this.label1.Text = "Permutex";
             // 
@@ -245,7 +246,7 @@
             0,
             0,
             0});
-            this.numberGPermutex.Location = new System.Drawing.Point(55, 114);
+            this.numberGPermutex.Location = new System.Drawing.Point(55, 108);
             this.numberGPermutex.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -258,7 +259,7 @@
             // 
             // numberKg
             // 
-            this.numberKg.Location = new System.Drawing.Point(55, 114);
+            this.numberKg.Location = new System.Drawing.Point(55, 108);
             this.numberKg.Maximum = new decimal(new int[] {
             10,
             0,
@@ -272,43 +273,43 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(56, 261);
+            this.label9.Location = new System.Drawing.Point(56, 255);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(115, 13);
             this.label9.TabIndex = 22;
             this.label9.Text = "4. Dodaj równocześnie";
             // 
-            // labelQuantityOfComponentB
+            // labelComponentB
             // 
-            this.labelQuantityOfComponentB.AutoSize = true;
-            this.labelQuantityOfComponentB.Location = new System.Drawing.Point(173, 261);
-            this.labelQuantityOfComponentB.Name = "labelQuantityOfComponentB";
-            this.labelQuantityOfComponentB.Size = new System.Drawing.Size(25, 13);
-            this.labelQuantityOfComponentB.TabIndex = 30;
-            this.labelQuantityOfComponentB.Text = "000";
+            this.labelComponentB.AutoSize = true;
+            this.labelComponentB.Location = new System.Drawing.Point(173, 255);
+            this.labelComponentB.Name = "labelComponentB";
+            this.labelComponentB.Size = new System.Drawing.Size(25, 13);
+            this.labelComponentB.TabIndex = 30;
+            this.labelComponentB.Text = "000";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(204, 261);
+            this.label10.Location = new System.Drawing.Point(204, 255);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(121, 13);
             this.label10.TabIndex = 25;
             this.label10.Text = "gram Permutex WV oraz";
             // 
-            // label11
+            // labelComponentC
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(334, 261);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(25, 13);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "000";
+            this.labelComponentC.AutoSize = true;
+            this.labelComponentC.Location = new System.Drawing.Point(334, 255);
+            this.labelComponentC.Name = "labelComponentC";
+            this.labelComponentC.Size = new System.Drawing.Size(25, 13);
+            this.labelComponentC.TabIndex = 30;
+            this.labelComponentC.Text = "000";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(365, 261);
+            this.label12.Location = new System.Drawing.Point(365, 255);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(61, 13);
             this.label12.TabIndex = 25;
@@ -317,7 +318,7 @@
             // checkBox4Permutex
             // 
             this.checkBox4Permutex.AutoSize = true;
-            this.checkBox4Permutex.Location = new System.Drawing.Point(448, 261);
+            this.checkBox4Permutex.Location = new System.Drawing.Point(448, 255);
             this.checkBox4Permutex.Name = "checkBox4Permutex";
             this.checkBox4Permutex.Size = new System.Drawing.Size(63, 17);
             this.checkBox4Permutex.TabIndex = 28;
@@ -329,8 +330,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.labelQuantityOfComponentB);
+            this.Controls.Add(this.labelComponentC);
+            this.Controls.Add(this.labelComponentB);
             this.Controls.Add(this.lblMin);
             this.Controls.Add(this.lblSec);
             this.Controls.Add(this.checkBox5Permutex);
@@ -388,9 +389,9 @@
         private System.Windows.Forms.NumericUpDown numberGPermutex;
         private System.Windows.Forms.NumericUpDown numberKg;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label labelQuantityOfComponentB;
+        private System.Windows.Forms.Label labelComponentB;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label labelComponentC;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckBox checkBox4Permutex;
     }

@@ -7,18 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Threading;
-using System.Diagnostics;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
-
 namespace Test_działania_aplikacji
 {
-    public partial class SipiolObliczanie : UserControl
+    public partial class ResilonCount : UserControl
     {
-
-        public SipiolObliczanie()
+        public ResilonCount()
         {
             InitializeComponent();
         }
@@ -35,25 +31,12 @@ namespace Test_działania_aplikacji
             {
                 numberG.Hide();
                 numberKg.Show();
-            } 
-            else {
+            }
+            else
+            {
                 numberKg.Hide();
                 numberG.Show();
             }
-        }
-        
-        private void numberKg_ValueChanged(object sender, EventArgs e) //Pobieranie wartości z numericUpDown dla KG i obliczanie
-        {
-            decimal iloscLaku = numberKg.Value * 1000; //Oblicza kg na g
-            labelBasicCoatQuantity.Text = iloscLaku.ToString(); //Wyrzuca wynik
-
-            double k = (double)iloscLaku;
-
-            double quantityOfComponentB = (k * 0.03) + 12;
-
-            labelQuantityOfComponentB.Text = quantityOfComponentB.ToString(); //WARTOSC WYJSCIOWA DLA WLEWANEGO SKLADNIKA
-
-            coatQuantity = labelBasicCoatQuantity.Text;
         }
 
         private void numberG_ValueChanged(object sender, EventArgs e) //obieranie wartości numericUpDown dla G i obliczanie
@@ -61,13 +44,23 @@ namespace Test_działania_aplikacji
             decimal iloscLaku = numberG.Value;
             labelBasicCoatQuantity.Text = iloscLaku.ToString(); //WARTOSC DLA WLEWANEGO LAKU
 
-            double konwersjaIloscLaku = (double)iloscLaku;
+            //double konwersjaIloscLaku = (double)iloscLaku;
 
-            double obliczanie = (konwersjaIloscLaku * 0.03)+12;
+            //double obliczanie = (konwersjaIloscLaku * 0.03) + 12;
 
-            labelQuantityOfComponentB.Text = obliczanie.ToString(); //WARTOSC WYJSCIOWA DLA WLEWANEGO SKLADNIKA
+            //coatQuantity = labelBasicCoatQuantity.Text;
+        }
 
-            coatQuantity = labelBasicCoatQuantity.Text;
+        private void numberKg_ValueChanged(object sender, EventArgs e)
+        {
+            decimal iloscLaku = numberKg.Value * 1000; //Oblicza kg na g
+            labelBasicCoatQuantity.Text = iloscLaku.ToString(); //Wyrzuca wynik
+
+            //double k = (double)iloscLaku;
+
+            //double quantityOfComponentB = (k * 0.03) + 12;
+
+            //coatQuantity = labelBasicCoatQuantity.Text;
         }
 
         public void zapisInformacjiWBazieDanych(object sender, EventArgs e) //Metoda zapisu informacji o lakierze w bazie danych
@@ -95,7 +88,7 @@ namespace Test_działania_aplikacji
 
             string sqlCoatHistory = "Insert into Historiarobienialaku ([ILOSCLAKU], [GODZINA], [USER], [RODZAJLAKU], [DATA]) values(@Ilosclaku, @Godzina, @User, @Rodzajlaku, @Data)";
 
-            string coatName = "Sipiol";
+            string coatName = "Resilon";
             DateTime currentDate = DateTime.Now;
             string tylkoData = currentDate.ToShortDateString();
 
@@ -114,7 +107,7 @@ namespace Test_działania_aplikacji
 
                         int rowsAdded = cmd.ExecuteNonQuery();
                     }
-                    
+
                     connection.Close();
                 }
                 catch (Exception ex)
@@ -131,29 +124,8 @@ namespace Test_działania_aplikacji
                 label2.ForeColor = Color.FromArgb(167, 167, 167);
                 labelBasicCoatQuantity.ForeColor = Color.FromArgb(167, 167, 167);
                 label3.ForeColor = Color.FromArgb(167, 167, 167);
-                checkBox2.Enabled = true;
                 numberG.Enabled = false;
                 comboBoxUnits.Enabled = false;
-            }
-            else
-            {
-                label2.ForeColor = Color.FromArgb(0, 0, 0);
-                labelBasicCoatQuantity.ForeColor = Color.FromArgb(0, 0, 0);
-                label3.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox2.Enabled = false;
-                checkBox2.Checked = false;     
-                numberG.Enabled = true;
-                comboBoxUnits.Enabled = true;
-            }
-        }
-
-        private void checkBox2_CheckStateChanged(object sender, EventArgs e) //Drugi CheckBox do zaznadania gotowych zadań + Uruchomienie timera
-        {
-            if (checkBox2.Checked)
-            {
-                label4.ForeColor = Color.FromArgb(167, 167, 167);
-                labelQuantityOfComponentB.ForeColor = Color.FromArgb(167, 167, 167);
-                label5.ForeColor = Color.FromArgb(167, 167, 167);
 
                 //Uruchomienie timera
                 timerCoat.Start();
@@ -162,43 +134,34 @@ namespace Test_działania_aplikacji
             }
             else
             {
-                label4.ForeColor = Color.FromArgb(0, 0, 0);
-                labelQuantityOfComponentB.ForeColor = Color.FromArgb(0, 0, 0);
-                label5.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox3.Enabled = false;
-                checkBox3.Checked = false;
+                label2.ForeColor = Color.FromArgb(0, 0, 0);
+                labelBasicCoatQuantity.ForeColor = Color.FromArgb(0, 0, 0);
+                label3.ForeColor = Color.FromArgb(0, 0, 0);
+                checkBox2.Enabled = false;
+                checkBox2.Checked = false;
+                numberG.Enabled = true;
+                comboBoxUnits.Enabled = true;
 
                 timerCoat.Stop(); //Zatrzymanie timera
             }
         }
 
-        private void checkBox3_CheckStateChanged(object sender, EventArgs e)//Trzeci CheckBox do zaznaczania gotowych zadań 
+        private void checkBox2_CheckStateChanged(object sender, EventArgs e) //Drugi CheckBox do zaznadania gotowych zadań + Uruchomienie timera
         {
-            
-            if (checkBox3.Checked)
+            if (checkBox2.Checked)
             {
-                label6.ForeColor = Color.FromArgb(167, 167, 167);
-                lblMin.ForeColor = Color.FromArgb(167, 167, 167);
-                lblSec.ForeColor = Color.FromArgb(167, 167, 167);
-                label7.ForeColor = Color.FromArgb(167, 167, 167);
-                checkBox4.Enabled = true;
+                checkBox3.Enabled = true;
             }
             else
             {
-                label6.ForeColor = Color.FromArgb(0, 0, 0);
-                lblMin.ForeColor = Color.FromArgb(0, 0, 0);
-                lblSec.ForeColor = Color.FromArgb(0, 0, 0);
-                label7.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox4.Enabled = false;
-                checkBox4.Checked = false;
-
-                timerCoat.Stop();
+                checkBox2.Enabled = false;
+                checkBox2.Checked = false;
             }
         }
 
-        private void checkBox4_CheckStateChanged(object sender, EventArgs e)
+        private void checkBox3_CheckStateChanged(object sender, EventArgs e)//Trzeci CheckBox do zaznaczania gotowych zadań 
         {
-            if (checkBox4.Checked)
+            if (checkBox3.Checked)
             {
                 MessageBox.Show(coatQuantity + "g zostało wykonane o godzinie: " + coatFinnishTime); //Popup informacyjny o ilości oraz godzinie wykonania lakieru
                 label8.ForeColor = Color.FromArgb(167, 167, 167);
@@ -206,7 +169,6 @@ namespace Test_działania_aplikacji
                 checkBox1.Enabled = false;
                 checkBox2.Enabled = false;
                 checkBox3.Enabled = false;
-                checkBox4.Enabled = false;
 
                 zapisInformacjiWBazieDanych(null, null);
                 //Zamknięcie obecnego okna i powrót do Menu Głównego
@@ -218,17 +180,38 @@ namespace Test_działania_aplikacji
             else
             {
                 label8.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox4.Enabled = true;
+                checkBox3.Enabled = true;
             }
         }
 
-        private void timerGodzinaLaku_Tick(object sender, EventArgs e) //Timer aktualnej godziny
+        private void timerCoatFinishTime_Tick(object sender, EventArgs e)
         {
             timerCoatFinishTime.Start();
             coatFinnishTime = DateTime.Now.ToLongTimeString();
         }
 
-        private void timerLaku_Tick(object sender, EventArgs e) //Odliczanie w dół timera
+        private void ResilonCount_Load(object sender, EventArgs e)
+        {
+            if (labelBasicCoatQuantity.Text == "000")
+            {
+                checkBox1.Enabled = false;
+            }
+            else
+            {
+                checkBox1.Enabled = true;
+            }
+
+            checkBox2.Enabled = false;
+            checkBox3.Enabled = false;
+
+            comboBoxUnits.SelectedIndex = 0; //Definiowanie wybranej domyślnej jednostki
+            numberKg.Show();
+
+            coatFinnishTime = DateTime.Now.ToLongTimeString(); //Pobieranie aktualnej godziny
+            timerCoatFinishTime.Start(); //Start odliczania godzinowego
+        }
+
+        private void timerCoat_Tick(object sender, EventArgs e)
         {
             if (hours == 0 && minutes == 0 && seconds == 0)// sprawdzenie zakończenia odliczania timera
             {
@@ -237,7 +220,7 @@ namespace Test_działania_aplikacji
 
                 lblMin.Text = "00 min";
                 lblSec.Text = "00 s";
-                checkBox3.Enabled = true;
+                checkBox2.Enabled = true;
             }
             else
             {
@@ -261,28 +244,6 @@ namespace Test_działania_aplikacji
                     lblSec.Text = seconds.ToString() + " s";
                 else lblSec.Text = "0" + seconds.ToString() + " s";
             }
-        }
-        
-        private void SipiolObliczanie1_Load(object sender, EventArgs e)//Domyślne ustawienia okna 
-        {
-            if (labelBasicCoatQuantity.Text == "000")
-            {
-                checkBox1.Enabled = false;
-            }
-            else
-            {
-                checkBox1.Enabled = true;
-            }
-
-            checkBox2.Enabled = false;
-            checkBox3.Enabled = false;
-            checkBox4.Enabled = false;
-
-            comboBoxUnits.SelectedIndex = 0; //Definiowanie wybranej domyślnej jednostki
-            numberKg.Show();
-
-            coatFinnishTime =  DateTime.Now.ToLongTimeString(); //Pobieranie aktualnej godziny
-            timerCoatFinishTime.Start(); //Start odliczania godzinowego
         }
     }
 }

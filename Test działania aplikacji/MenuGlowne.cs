@@ -87,7 +87,7 @@ namespace Test_działania_aplikacji
                 MessageBox.Show("Brak dostępu! Wymaga uprawnień administratora.");
             }
         }
-
+        
         private void ButtonHistoria_Click(object sender, EventArgs e)
         {
             checkCurrentUserAdminStatusHistoryForm(null, null); //Otwarcie okna jeśli USER jest adminem
@@ -104,17 +104,13 @@ namespace Test_działania_aplikacji
             {
                 new CancelRobienieLaku().Show();
             }
-            else 
-            { 
-
-            }
         }
 
         private void MenuGlowne_Load(object sender, EventArgs e) //AKTUALNY CZAS
         {
             timer.Start();
             labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
-            sipiolObliczanie1.Hide();
+            SipiolCount.Hide();
             permutexCount1.Hide();
         }
 
@@ -142,17 +138,39 @@ namespace Test_działania_aplikacji
         private void buttonPermutexQuantity_Click(object sender, EventArgs e)
         {
             permutexCount1.Show();
-            sipiolObliczanie1.Hide();
+            SipiolCount.Hide();
+            resilonCount1.Hide();
+            resilonPlus1.Hide();
             isCoatButtonClicked = true;
         }
 
         private void buttonSipiolQuantity_Click(object sender, EventArgs e)
         {
-            sipiolObliczanie1.Show();
+            SipiolCount.Show();
+            permutexCount1.Hide();
+            resilonCount1.Hide();
+            resilonPlus1.Hide();
+            isCoatButtonClicked = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            resilonCount1.Show();
+            resilonPlus1.Hide();
+            SipiolCount.Hide();
             permutexCount1.Hide();
             isCoatButtonClicked = true;
         }
-        
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            resilonPlus1.Show();
+            resilonCount1.Hide();
+            SipiolCount.Hide();
+            permutexCount1.Hide();
+            isCoatButtonClicked = true;
+        }
+
         private void toppanel2_MouseDown(object sender, MouseEventArgs e) //Zmiana miejsca okna dla obu paneli
         {
             mov = 1;
@@ -193,9 +211,44 @@ namespace Test_działania_aplikacji
             mov = 0;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonSipiolQuantity_MouseHover(object sender, EventArgs e)
         {
+            panel2.BackColor = Color.FromArgb(167, 167, 167);
+            panel3.BackColor = Color.FromArgb(255, 255, 255);
+            panel5.BackColor = Color.FromArgb(255, 255, 255);
+            panel6.BackColor = Color.FromArgb(255, 255, 255);
+        }
 
+        private void buttonPermutexQuantity_MouseHover(object sender, EventArgs e)
+        {
+            panel2.BackColor = Color.FromArgb(255, 255, 255);
+            panel3.BackColor = Color.FromArgb(167, 167, 167);
+            panel5.BackColor = Color.FromArgb(255, 255, 255);
+            panel6.BackColor = Color.FromArgb(255, 255, 255);
+        }
+
+        private void buttonResilonQuantity_MouseHover(object sender, EventArgs e)
+        {
+            panel2.BackColor = Color.FromArgb(255, 255, 255);
+            panel3.BackColor = Color.FromArgb(255, 255, 255);
+            panel5.BackColor = Color.FromArgb(167, 167, 167);
+            panel6.BackColor = Color.FromArgb(255, 255, 255);
+        }
+
+        private void buttonResilonPlus_MouseHover(object sender, EventArgs e)
+        {
+            panel2.BackColor = Color.FromArgb(255, 255, 255);
+            panel3.BackColor = Color.FromArgb(255, 255, 255);
+            panel5.BackColor = Color.FromArgb(255, 255, 255);
+            panel6.BackColor = Color.FromArgb(167, 167, 167);
+        }
+
+        private void panel4_MouseHover(object sender, EventArgs e)
+        {
+            panel2.BackColor = Color.FromArgb(255, 255, 255);
+            panel3.BackColor = Color.FromArgb(255, 255, 255);
+            panel5.BackColor = Color.FromArgb(255, 255, 255);
+            panel6.BackColor = Color.FromArgb(255, 255, 255);
         }
     }
 }

@@ -40,7 +40,7 @@
             this.buttonSipiolQuantity = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.permutexCount1 = new Test_działania_aplikacji.PermutexCount();
-            this.sipiolObliczanie1 = new Test_działania_aplikacji.SipiolObliczanie();
+            this.sipiolObliczanie1 = new Test_działania_aplikacji.SipiolCount();
             this.labelCurrentTime = new System.Windows.Forms.Label();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.buttonExit = new System.Windows.Forms.Button();
@@ -359,7 +359,7 @@
         private System.Windows.Forms.Button buttonMakeCoat;
         private System.Windows.Forms.Panel toppanel2;
         private System.Windows.Forms.Timer timer;
-        private SipiolObliczanie sipiolObliczanie1;
+        private SipiolCount sipiolObliczanie1;
         private PermutexCount permutexCount1;
         private System.Windows.Forms.Label label1;
     }

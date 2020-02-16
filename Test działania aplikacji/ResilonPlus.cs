@@ -12,64 +12,59 @@ using System.Data.SqlClient;
 
 namespace Test_działania_aplikacji
 {
-    public partial class PermutexCount : UserControl
+    public partial class ResilonPlus : UserControl
     {
-        public PermutexCount()
+        public ResilonPlus()
         {
             InitializeComponent();
         }
 
         private int hours, minutes, seconds;
 
-        string coatPermutexFinnishTime;
-        string coatPermutexQuantity;
+        string coatFinnishTime;
+        string coatQuantity;
         string currentlyLoggedUser;
 
-        private void comboBoxUnitsPermutex_SelectedValueChanged(object sender, EventArgs e)
+        private void comboBoxUnits_SelectedIndexChanged(object sender, EventArgs e) //Wybór jednostki wagi
         {
-            if (comboBoxUnitsPermutex.SelectedItem.ToString() == "kg")
+            if (comboBoxUnits.SelectedItem.ToString() == "kg")
             {
-                numberGPermutex.Hide();
+                numberG.Hide();
                 numberKg.Show();
             }
             else
             {
                 numberKg.Hide();
-                numberGPermutex.Show();
+                numberG.Show();
             }
         }
 
-        private void numberKg_ValueChanged_1(object sender, EventArgs e)
+        private void numberKg_ValueChanged(object sender, EventArgs e) //Pobieranie wartości z numericUpDown dla KG i obliczanie
         {
             decimal iloscLaku = numberKg.Value * 1000; //Oblicza kg na g
             labelBasicCoatQuantity.Text = iloscLaku.ToString(); //Wyrzuca wynik
 
             double k = (double)iloscLaku;
 
-            double quantityOfThickener = (k * 0.016) + 12;
+            double quantityOfComponentB = k * 0.02;
 
-            labelQuantityOfThickener.Text = quantityOfThickener.ToString(); //WARTOSC WYJSCIOWA DLA WLEWANEGO SKLADNIKA
+            labelQuantityOfComponentB.Text = quantityOfComponentB.ToString(); //WARTOSC WYJSCIOWA DLA WLEWANEGO SKLADNIKA
 
-            coatPermutexQuantity = labelBasicCoatQuantity.Text;
-
-            double quantityOfComponentB = k * 0.014;
-
-            labelComponentB.Text = quantityOfComponentB.ToString();
-            labelComponentC.Text = (quantityOfComponentB + 12).ToString();
+            coatQuantity = labelBasicCoatQuantity.Text;
         }
 
-        private void numberGPermutex_ValueChanged(object sender, EventArgs e)
+        private void numberG_ValueChanged(object sender, EventArgs e) //obieranie wartości numericUpDown dla G i obliczanie
         {
-            decimal iloscLaku = numberGPermutex.Value;
+            decimal iloscLaku = numberG.Value;
             labelBasicCoatQuantity.Text = iloscLaku.ToString(); //WARTOSC DLA WLEWANEGO LAKU
 
             double konwersjaIloscLaku = (double)iloscLaku;
 
-            double obliczanie = (konwersjaIloscLaku * 0.03) + 12;
+            double obliczanie = konwersjaIloscLaku * 0.02;
 
-            labelQuantityOfThickener.Text = obliczanie.ToString(); //WARTOSC WYJSCIOWA DLA WLEWANEGO SKLADNIKA
+            labelQuantityOfComponentB.Text = obliczanie.ToString(); //WARTOSC WYJSCIOWA DLA WLEWANEGO SKLADNIKA
 
-            coatPermutexQuantity = labelBasicCoatQuantity.Text;
+            coatQuantity = labelBasicCoatQuantity.Text;
         }
 
         public void zapisInformacjiWBazieDanych(object sender, EventArgs e) //Metoda zapisu informacji o lakierze w bazie danych
@@ -97,7 +92,7 @@ namespace Test_działania_aplikacji
 
             string sqlCoatHistory = "Insert into Historiarobienialaku ([ILOSCLAKU], [GODZINA], [USER], [RODZAJLAKU], [DATA]) values(@Ilosclaku, @Godzina, @User, @Rodzajlaku, @Data)";
 
-            string coatName = "Permutex";
+            string coatName = "Resilon Plus Matt";
             DateTime currentDate = DateTime.Now;
             string tylkoData = currentDate.ToShortDateString();
 
@@ -108,8 +103,8 @@ namespace Test_działania_aplikacji
 
                     using (SqlCommand cmd = new SqlCommand(sqlCoatHistory, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Ilosclaku", coatPermutexQuantity);
-                        cmd.Parameters.AddWithValue("@Godzina", coatPermutexFinnishTime);
+                        cmd.Parameters.AddWithValue("@Ilosclaku", coatQuantity);
+                        cmd.Parameters.AddWithValue("@Godzina", coatFinnishTime);
                         cmd.Parameters.AddWithValue("@User", currentlyLoggedUser);
                         cmd.Parameters.AddWithValue("@Rodzajlaku", coatName);
                         cmd.Parameters.AddWithValue("@Data", tylkoData);
@@ -126,35 +121,35 @@ namespace Test_działania_aplikacji
             }
         }
 
-        private void checkBox1Permutex_CheckedChanged(object sender, EventArgs e)
+        private void checkBox1_CheckStateChanged(object sender, EventArgs e) //Pierwszy CheckBox do zaznaczania gotowych zadań
         {
-            if (checkBox1Permutex.Checked)
+            if (checkBox1.Checked)
             {
                 label2.ForeColor = Color.FromArgb(167, 167, 167);
                 labelBasicCoatQuantity.ForeColor = Color.FromArgb(167, 167, 167);
                 label3.ForeColor = Color.FromArgb(167, 167, 167);
-                checkBox2Permutex.Enabled = true;
-                numberGPermutex.Enabled = false;
-                comboBoxUnitsPermutex.Enabled = false;
+                checkBox2.Enabled = true;
+                numberG.Enabled = false;
+                comboBoxUnits.Enabled = false;
             }
             else
             {
                 label2.ForeColor = Color.FromArgb(0, 0, 0);
                 labelBasicCoatQuantity.ForeColor = Color.FromArgb(0, 0, 0);
                 label3.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox2Permutex.Enabled = false;
-                checkBox2Permutex.Checked = false;
-                numberGPermutex.Enabled = true;
-                comboBoxUnitsPermutex.Enabled = true;
+                checkBox2.Enabled = false;
+                checkBox2.Checked = false;
+                numberG.Enabled = true;
+                comboBoxUnits.Enabled = true;
             }
         }
 
-        private void checkBox2Permutex_CheckStateChanged(object sender, EventArgs e)
+        private void checkBox2_CheckStateChanged(object sender, EventArgs e) //Drugi CheckBox do zaznadania gotowych zadań + Uruchomienie timera
         {
-            if (checkBox2Permutex.Checked)
+            if (checkBox2.Checked)
             {
                 label4.ForeColor = Color.FromArgb(167, 167, 167);
-                labelQuantityOfThickener.ForeColor = Color.FromArgb(167, 167, 167);
+                labelQuantityOfComponentB.ForeColor = Color.FromArgb(167, 167, 167);
                 label5.ForeColor = Color.FromArgb(167, 167, 167);
 
                 //Uruchomienie timera
@@ -165,24 +160,25 @@ namespace Test_działania_aplikacji
             else
             {
                 label4.ForeColor = Color.FromArgb(0, 0, 0);
-                labelQuantityOfThickener.ForeColor = Color.FromArgb(0, 0, 0);
+                labelQuantityOfComponentB.ForeColor = Color.FromArgb(0, 0, 0);
                 label5.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox3Permutex.Enabled = false;
-                checkBox3Permutex.Checked = false;
+                checkBox3.Enabled = false;
+                checkBox3.Checked = false;
 
                 timerCoat.Stop(); //Zatrzymanie timera
             }
         }
 
-        private void checkBox3Permutex_CheckedChanged(object sender, EventArgs e)
+        private void checkBox3_CheckStateChanged(object sender, EventArgs e)//Trzeci CheckBox do zaznaczania gotowych zadań 
         {
-            if (checkBox3Permutex.Checked)
+
+            if (checkBox3.Checked)
             {
                 label6.ForeColor = Color.FromArgb(167, 167, 167);
                 lblMin.ForeColor = Color.FromArgb(167, 167, 167);
                 lblSec.ForeColor = Color.FromArgb(167, 167, 167);
                 label7.ForeColor = Color.FromArgb(167, 167, 167);
-                checkBox4Permutex.Enabled = true;
+                checkBox4.Enabled = true;
             }
             else
             {
@@ -190,48 +186,24 @@ namespace Test_działania_aplikacji
                 lblMin.ForeColor = Color.FromArgb(0, 0, 0);
                 lblSec.ForeColor = Color.FromArgb(0, 0, 0);
                 label7.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox4Permutex.Enabled = false;
-                checkBox4Permutex.Checked = false;
+                checkBox4.Enabled = false;
+                checkBox4.Checked = false;
 
                 timerCoat.Stop();
             }
         }
 
-        private void checkBox4Permutex_CheckedChanged(object sender, EventArgs e)
+        private void checkBox4_CheckStateChanged(object sender, EventArgs e)
         {
-            if (checkBox4Permutex.Checked)
+            if (checkBox4.Checked)
             {
-                label9.ForeColor = Color.FromArgb(167, 167, 167);
-                labelComponentB.ForeColor = Color.FromArgb(167, 167, 167);
-                label10.ForeColor = Color.FromArgb(167, 167, 167);
-                labelComponentC.ForeColor = Color.FromArgb(167, 167, 167);
-                label12.ForeColor = Color.FromArgb(167, 167, 167);
-                checkBox5Permutex.Enabled = true;
-            }
-            else
-            {
-                label9.ForeColor = Color.FromArgb(0, 0, 0);
-                labelComponentB.ForeColor = Color.FromArgb(0, 0, 0);
-                label10.ForeColor = Color.FromArgb(0, 0, 0);
-                labelComponentC.ForeColor = Color.FromArgb(0, 0, 0);
-                label12.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox5Permutex.Enabled = false;
-                checkBox5Permutex.Checked = false;
-            }
-        }
-
-        private void checkBox5Permutex_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox5Permutex.Checked)
-            {
-                MessageBox.Show(coatPermutexQuantity + "g zostało wykonane o godzinie: " + coatPermutexFinnishTime); //Popup informacyjny o ilości oraz godzinie wykonania lakieru
+                MessageBox.Show(coatQuantity + "g zostało wykonane o godzinie: " + coatFinnishTime); //Popup informacyjny o ilości oraz godzinie wykonania lakieru
                 label8.ForeColor = Color.FromArgb(167, 167, 167);
 
-                checkBox1Permutex.Enabled = false;
-                checkBox2Permutex.Enabled = false;
-                checkBox3Permutex.Enabled = false;
-                checkBox4Permutex.Enabled = false;
-                checkBox5Permutex.Enabled = false;
+                checkBox1.Enabled = false;
+                checkBox2.Enabled = false;
+                checkBox3.Enabled = false;
+                checkBox4.Enabled = false;
 
                 zapisInformacjiWBazieDanych(null, null);
                 //Zamknięcie obecnego okna i powrót do Menu Głównego
@@ -243,37 +215,8 @@ namespace Test_działania_aplikacji
             else
             {
                 label8.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox5Permutex.Enabled = true;
+                checkBox4.Enabled = true;
             }
-        }
-
-        private void timerCoatFinishTime_Tick(object sender, EventArgs e)
-        {
-            timerCoatFinishTime.Start();
-            coatPermutexFinnishTime = DateTime.Now.ToLongTimeString();
-        }
-
-        private void PermutexCount_Load(object sender, EventArgs e)
-        {
-            if (labelBasicCoatQuantity.Text == "000")
-            {
-                checkBox1Permutex.Enabled = false;
-            }
-            else
-            {
-                checkBox1Permutex.Enabled = true;
-            }
-
-            checkBox2Permutex.Enabled = false;
-            checkBox3Permutex.Enabled = false;
-            checkBox4Permutex.Enabled = false;
-            checkBox5Permutex.Enabled = false;
-
-            comboBoxUnitsPermutex.SelectedIndex = 0; //Definiowanie wybranej domyślnej jednostki
-            numberKg.Show();
-
-            coatPermutexFinnishTime = DateTime.Now.ToLongTimeString(); //Pobieranie aktualnej godziny
-            timerCoatFinishTime.Start(); //Start odliczania godzinowego
         }
 
         private void timerCoat_Tick(object sender, EventArgs e)
@@ -285,7 +228,7 @@ namespace Test_działania_aplikacji
 
                 lblMin.Text = "00 min";
                 lblSec.Text = "00 s";
-                checkBox3Permutex.Enabled = true;
+                checkBox3.Enabled = true;
             }
             else
             {
@@ -309,6 +252,34 @@ namespace Test_działania_aplikacji
                     lblSec.Text = seconds.ToString() + " s";
                 else lblSec.Text = "0" + seconds.ToString() + " s";
             }
+        }
+
+        private void ResilonPlus_Load(object sender, EventArgs e)
+        {
+            if (labelBasicCoatQuantity.Text == "000")
+            {
+                checkBox1.Enabled = false;
+            }
+            else
+            {
+                checkBox1.Enabled = true;
+            }
+
+            checkBox2.Enabled = false;
+            checkBox3.Enabled = false;
+            checkBox4.Enabled = false;
+
+            comboBoxUnits.SelectedIndex = 0; //Definiowanie wybranej domyślnej jednostki
+            numberKg.Show();
+
+            coatFinnishTime = DateTime.Now.ToLongTimeString(); //Pobieranie aktualnej godziny
+            timerCoatFinishTime.Start(); //Start odliczania godzinowego
+        }
+
+        private void timerCoatFinishTime_Tick(object sender, EventArgs e)
+        {
+            timerCoatFinishTime.Start();
+            coatFinnishTime = DateTime.Now.ToLongTimeString();
         }
     }
 }
