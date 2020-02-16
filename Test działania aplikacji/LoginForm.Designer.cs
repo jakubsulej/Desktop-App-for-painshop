@@ -141,7 +141,7 @@
             // labelHiddenUser
             // 
             this.labelHiddenUser.AutoSize = true;
-            this.labelHiddenUser.Location = new System.Drawing.Point(467, 367);
+            this.labelHiddenUser.Location = new System.Drawing.Point(476, 367);
             this.labelHiddenUser.Name = "labelHiddenUser";
             this.labelHiddenUser.Size = new System.Drawing.Size(35, 13);
             this.labelHiddenUser.TabIndex = 7;

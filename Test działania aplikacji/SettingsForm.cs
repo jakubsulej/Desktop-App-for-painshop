@@ -12,10 +12,10 @@ using System.Data.SqlClient;
 
 namespace Test_działania_aplikacji
 {
-    public partial class UstawieniaForm : Form
+    public partial class SettingsForm : Form
     {
 
-        public UstawieniaForm()
+        public SettingsForm()
         {
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace Test_działania_aplikacji
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
-            string sql = "insert into Login ([UZYTKOWNIK], [HASLO], [ROLE]) values(@Uzytkownik,@Haslo,@Role)";
+            string sql = "insert into Login ([USER], [PASSWORD], [ROLE]) values(@User,@Password,@Role)";
 
             {
                 try
@@ -33,8 +33,8 @@ namespace Test_działania_aplikacji
 
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Uzytkownik", textBoxUserName.Text);
-                        cmd.Parameters.AddWithValue("@Haslo", textBoxUserPassword.Text);
+                        cmd.Parameters.AddWithValue("@User", textBoxUserName.Text);
+                        cmd.Parameters.AddWithValue("@Password", textBoxUserPassword.Text);
                         cmd.Parameters.AddWithValue("@Role", comboBoxUserAdminStatus.SelectedItem.ToString());
 
                         // Wiadomość o dodaniu nowej linijki bazy danych
@@ -60,15 +60,15 @@ namespace Test_działania_aplikacji
         {
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
-            string sql = "Update Login set Haslo=@Haslo, Role=@Role Where Uzytkownik=@Uzytkownik";
+            string sql = "Update Login set Password=@Password, Role=@Role Where User=@User";
 
             {
                 try
                 {
                     using (SqlCommand cmd = new SqlCommand(sql, con))
                     {
-                        cmd.Parameters.AddWithValue("@Uzytkownik", textBoxUserName.Text);
-                        cmd.Parameters.AddWithValue("@Haslo", textBoxUserPassword.Text);
+                        cmd.Parameters.AddWithValue("@User", textBoxUserName.Text);
+                        cmd.Parameters.AddWithValue("@Password", textBoxUserPassword.Text);
                         cmd.Parameters.AddWithValue("@Role", comboBoxUserAdminStatus.SelectedItem.ToString());
                         
                         con.Open();
@@ -115,8 +115,8 @@ namespace Test_działania_aplikacji
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 DataRow dr = dt.Rows[i];
-                ListViewItem listitem = new ListViewItem(dr["UZYTKOWNIK"].ToString());
-                listitem.SubItems.Add(dr["HASLO"].ToString());
+                ListViewItem listitem = new ListViewItem(dr["USER"].ToString());
+                listitem.SubItems.Add(dr["PASSWORD"].ToString());
                 listitem.SubItems.Add(dr["ROLE"].ToString());
                 listViewUsers.Items.Add(listitem);
             }
@@ -149,14 +149,14 @@ namespace Test_działania_aplikacji
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
-            string sql = "Delete from Login Where Uzytkownik=@Uzytkownik";
+            string sql = "Delete from Login Where User=@User";
 
             {
                 try
                 {
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Uzytkownik", textBoxUserName.Text);
+                        cmd.Parameters.AddWithValue("@User", textBoxUserName.Text);
 
                         connection.Open();
                         cmd.ExecuteNonQuery();
@@ -193,7 +193,7 @@ namespace Test_działania_aplikacji
             SidePanel.Top = buttonHistory.Top;
 
             this.Hide();
-            var form2 = new HistoriaForm();
+            var form2 = new HistoryForm();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }
@@ -201,7 +201,7 @@ namespace Test_działania_aplikacji
         private void ButtonMakeCoat_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var form2 = new MenuGlowne();
+            var form2 = new MainMenuForm();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }
@@ -210,56 +210,6 @@ namespace Test_działania_aplikacji
         {
             labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
             timer.Start();
-        }
-
-        private void buttonJig1_Click(object sender, EventArgs e)
-        {
-            new JigsSelector1().Show();
-        }
-
-        private void buttonJig2_Click(object sender, EventArgs e)
-        {
-            new JigsSelector2().Show();
-        }
-
-        private void buttonJig3_Click(object sender, EventArgs e)
-        {
-            new JigsSelector3().Show();
-        }
-
-        private void buttonJig4_Click(object sender, EventArgs e)
-        {
-            new JigsSelector4().Show();
-        }
-
-        private void buttonJig5_Click(object sender, EventArgs e)
-        {
-            new JigsSelector5().Show();
-        }
-
-        private void buttonJig6_Click(object sender, EventArgs e)
-        {
-            new JigsSelector6().Show();
-        }
-
-        private void buttonJig7_Click(object sender, EventArgs e)
-        {
-            new JigsSelector7().Show();
-        }
-
-        private void buttonJig8_Click(object sender, EventArgs e)
-        {
-            new JigsSelector8().Show();
-        }
-
-        private void buttonJig9_Click(object sender, EventArgs e)
-        {
-            new JigsSelector9().Show();
-        }
-
-        private void buttonJig10_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

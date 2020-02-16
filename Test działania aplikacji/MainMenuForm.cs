@@ -12,9 +12,9 @@ using System.Data.SqlClient;
 
 namespace Test_działania_aplikacji
 {
-    public partial class MenuGlowne : Form
+    public partial class MainMenuForm : Form
     {
-        public MenuGlowne()
+        public MainMenuForm()
         {
             InitializeComponent();
         }
@@ -25,13 +25,15 @@ namespace Test_działania_aplikacji
         int movX;
         int movY;
 
+        public bool isCoatButtonClicked;
+
         public void checkCurrentUserAdminStatusHistoryForm(object sender, EventArgs e) //Metoda Odczyt aktualnie zalogowanego użytkownika dla przycisku Historia
         {
 
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
             {
-                SqlCommand cmd = new SqlCommand("select * from ZALOGOWANYUZYTKOWNIK", connection);
+                SqlCommand cmd = new SqlCommand("select * from CURRENTUSER", connection);
                 connection.Open();
 
                 SqlDataReader read = cmd.ExecuteReader();
@@ -46,7 +48,7 @@ namespace Test_działania_aplikacji
             if (adminString == "admin")
             {
                 this.Hide();
-                var form2 = new HistoriaForm();
+                var form2 = new HistoryForm();
                 form2.Closed += (s, args) => this.Close();
                 form2.Show();
             }
@@ -61,14 +63,14 @@ namespace Test_działania_aplikacji
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
             
             {
-                SqlCommand cmd = new SqlCommand("select * from ZALOGOWANYUZYTKOWNIK", connection);
+                SqlCommand cmd = new SqlCommand("select * from CURRENTUSER", connection);
                 connection.Open();
 
                 SqlDataReader read = cmd.ExecuteReader();
 
                 while (read.Read())
                 {
-                    adminString = (read["UZYTKOWNIK"].ToString().Trim());
+                    adminString = (read["USER"].ToString().Trim());
                 }
                 read.Close();
             }
@@ -76,7 +78,7 @@ namespace Test_działania_aplikacji
             if (adminString == "admin")
             {
                 this.Hide();
-                var form2 = new UstawieniaForm();
+                var form2 = new SettingsForm();
                 form2.Closed += (s, args) => this.Close();
                 form2.Show();
             }
@@ -94,6 +96,14 @@ namespace Test_działania_aplikacji
         private void ButtonUstawienia_Click(object sender, EventArgs e)
         {
             checkCurrentUserAdminStatusSettingsForm(null, null); //Otwarcie okna jeśli USER jest adminem
+        }
+
+        private void CancelMakeCoatPoupup(object sender, EventArgs e)
+        {
+            if (isCoatButtonClicked == true)
+            {
+                new CancelRobienieLaku().Show();
+            }
         }
 
         private void MenuGlowne_Load(object sender, EventArgs e) //AKTUALNY CZAS
@@ -131,6 +141,7 @@ namespace Test_działania_aplikacji
             SipiolCount.Hide();
             resilonCount1.Hide();
             resilonPlus1.Hide();
+            isCoatButtonClicked = true;
         }
 
         private void buttonSipiolQuantity_Click(object sender, EventArgs e)
@@ -139,22 +150,25 @@ namespace Test_działania_aplikacji
             permutexCount1.Hide();
             resilonCount1.Hide();
             resilonPlus1.Hide();
+            isCoatButtonClicked = true;
         }
 
-        private void buttonResilon_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             resilonCount1.Show();
             resilonPlus1.Hide();
             SipiolCount.Hide();
             permutexCount1.Hide();
+            isCoatButtonClicked = true;
         }
 
-        private void buttonResilonPlus_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
             resilonPlus1.Show();
             resilonCount1.Hide();
             SipiolCount.Hide();
             permutexCount1.Hide();
+            isCoatButtonClicked = true;
         }
 
         private void toppanel2_MouseDown(object sender, MouseEventArgs e) //Zmiana miejsca okna dla obu paneli

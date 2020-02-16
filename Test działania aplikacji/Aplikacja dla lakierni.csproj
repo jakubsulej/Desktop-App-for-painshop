@@ -47,6 +47,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JigSelector\JigsSelector6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector6.Designer.cs">
+      <DependentUpon>JigsSelector6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector1.Designer.cs">
+      <DependentUpon>JigsSelector1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector2.Designer.cs">
+      <DependentUpon>JigsSelector2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector3.Designer.cs">
+      <DependentUpon>JigsSelector3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector4.Designer.cs">
+      <DependentUpon>JigsSelector4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector5.Designer.cs">
+      <DependentUpon>JigsSelector5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector7.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector7.Designer.cs">
+      <DependentUpon>JigsSelector7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector8.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector8.Designer.cs">
+      <DependentUpon>JigsSelector8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector9.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JigSelector\JigsSelector9.Designer.cs">
+      <DependentUpon>JigsSelector9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Popups\CancelRobienieLaku.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +168,33 @@
     <Compile Include="UstawieniaForm.Designer.cs">
       <DependentUpon>UstawieniaForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="JigSelector\JigsSelector6.resx">
+      <DependentUpon>JigsSelector6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JigSelector\JigsSelector1.resx">
+      <DependentUpon>JigsSelector1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JigSelector\JigsSelector2.resx">
+      <DependentUpon>JigsSelector2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JigSelector\JigsSelector3.resx">
+      <DependentUpon>JigsSelector3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JigSelector\JigsSelector4.resx">
+      <DependentUpon>JigsSelector4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JigSelector\JigsSelector5.resx">
+      <DependentUpon>JigsSelector5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JigSelector\JigsSelector7.resx">
+      <DependentUpon>JigsSelector7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JigSelector\JigsSelector8.resx">
+      <DependentUpon>JigsSelector8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JigSelector\JigsSelector9.resx">
+      <DependentUpon>JigsSelector9.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Popups\CancelRobienieLaku.resx">
       <DependentUpon>CancelRobienieLaku.cs</DependentUpon>
     </EmbeddedResource>
