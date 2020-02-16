@@ -50,7 +50,7 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.SipiolCount = new Test_działania_aplikacji.SipiolCount();
             this.permutexCount1 = new Test_działania_aplikacji.PermutexCount();
-            this.resilonPlus1 = new Test_działania_aplikacji.ResilonPlus();
+            this.resilonPlus1 = new Test_działania_aplikacji.ResilonPlusCount();
             this.resilonCount1 = new Test_działania_aplikacji.ResilonCount();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -428,7 +428,7 @@
         private SipiolCount SipiolCount;
         private PermutexCount permutexCount1;
         private ResilonCount resilonCount1;
-        private ResilonPlus resilonPlus1;
+        private ResilonPlusCount resilonPlus1;
         private System.Windows.Forms.Panel greyLine;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;

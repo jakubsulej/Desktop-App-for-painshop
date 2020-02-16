@@ -1,6 +1,6 @@
 ﻿namespace Test_działania_aplikacji
 {
-    partial class ResilonPlus
+    partial class ResilonPlusCount
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.

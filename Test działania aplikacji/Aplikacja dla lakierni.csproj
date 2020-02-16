@@ -47,22 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CancelRobienieLaku.cs">
+    <Compile Include="Popups\CancelRobienieLaku.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CancelRobienieLaku.Designer.cs">
+    <Compile Include="Popups\CancelRobienieLaku.Designer.cs">
       <DependentUpon>CancelRobienieLaku.cs</DependentUpon>
     </Compile>
-    <Compile Include="DefaultMakeLackUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="DefaultMakeLackUserControl.Designer.cs">
-      <DependentUpon>DefaultMakeLackUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ExitWindow.cs">
+    <Compile Include="Popups\ExitWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ExitWindow.Designer.cs">
+    <Compile Include="Popups\ExitWindow.Designer.cs">
       <DependentUpon>ExitWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="HistoriaForm.cs">
@@ -70,12 +64,6 @@
     </Compile>
     <Compile Include="HistoriaForm.Designer.cs">
       <DependentUpon>HistoriaForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LackQuantity.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LackQuantity.Designer.cs">
-      <DependentUpon>LackQuantity.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -89,10 +77,10 @@
     <Compile Include="MenuGlowne.Designer.cs">
       <DependentUpon>MenuGlowne.cs</DependentUpon>
     </Compile>
-    <Compile Include="PermutexCount.cs">
+    <Compile Include="MakeCoatUserControl\PermutexCount.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PermutexCount.Designer.cs">
+    <Compile Include="MakeCoatUserControl\PermutexCount.Designer.cs">
       <DependentUpon>PermutexCount.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -102,28 +90,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResilonCount.cs">
+    <Compile Include="MakeCoatUserControl\ResilonCount.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ResilonCount.Designer.cs">
+    <Compile Include="MakeCoatUserControl\ResilonCount.Designer.cs">
       <DependentUpon>ResilonCount.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResilonPlus.cs">
+    <Compile Include="MakeCoatUserControl\ResilonPlusCount.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ResilonPlus.Designer.cs">
-      <DependentUpon>ResilonPlus.cs</DependentUpon>
+    <Compile Include="MakeCoatUserControl\ResilonPlusCount.Designer.cs">
+      <DependentUpon>ResilonPlusCount.cs</DependentUpon>
     </Compile>
-    <Compile Include="RobienieLaku.cs">
+    <Compile Include="MakeCoatUserControl\SipiolCount.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RobienieLaku.Designer.cs">
-      <DependentUpon>RobienieLaku.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SipiolCount.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SipiolCount.Designer.cs">
+    <Compile Include="MakeCoatUserControl\SipiolCount.Designer.cs">
       <DependentUpon>SipiolCount.cs</DependentUpon>
     </Compile>
     <Compile Include="UstawieniaForm.cs">
@@ -132,20 +114,14 @@
     <Compile Include="UstawieniaForm.Designer.cs">
       <DependentUpon>UstawieniaForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CancelRobienieLaku.resx">
+    <EmbeddedResource Include="Popups\CancelRobienieLaku.resx">
       <DependentUpon>CancelRobienieLaku.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DefaultMakeLackUserControl.resx">
-      <DependentUpon>DefaultMakeLackUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ExitWindow.resx">
+    <EmbeddedResource Include="Popups\ExitWindow.resx">
       <DependentUpon>ExitWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HistoriaForm.resx">
       <DependentUpon>HistoriaForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LackQuantity.resx">
-      <DependentUpon>LackQuantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -153,7 +129,7 @@
     <EmbeddedResource Include="MenuGlowne.resx">
       <DependentUpon>MenuGlowne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PermutexCount.resx">
+    <EmbeddedResource Include="MakeCoatUserControl\PermutexCount.resx">
       <DependentUpon>PermutexCount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -161,16 +137,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResilonCount.resx">
+    <EmbeddedResource Include="MakeCoatUserControl\ResilonCount.resx">
       <DependentUpon>ResilonCount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResilonPlus.resx">
-      <DependentUpon>ResilonPlus.cs</DependentUpon>
+    <EmbeddedResource Include="MakeCoatUserControl\ResilonPlusCount.resx">
+      <DependentUpon>ResilonPlusCount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RobienieLaku.resx">
-      <DependentUpon>RobienieLaku.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SipiolCount.resx">
+    <EmbeddedResource Include="MakeCoatUserControl\SipiolCount.resx">
       <DependentUpon>SipiolCount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UstawieniaForm.resx">
@@ -189,8 +162,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Popups\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

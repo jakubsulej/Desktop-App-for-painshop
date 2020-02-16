@@ -12,9 +12,9 @@ using System.Data.SqlClient;
 
 namespace Test_działania_aplikacji
 {
-    public partial class ResilonPlus : UserControl
+    public partial class ResilonPlusCount : UserControl
     {
-        public ResilonPlus()
+        public ResilonPlusCount()
         {
             InitializeComponent();
         }
