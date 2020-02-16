@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoriaForm));
-            this.listViewHistoriy = new System.Windows.Forms.ListView();
+            this.listViewHistory = new System.Windows.Forms.ListView();
             this.IloscLaku = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Godzina = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Uzytkownik = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -50,26 +50,25 @@
             this.buttonDeleteRow = new System.Windows.Forms.Button();
             this.buttonDeleteLast7Days = new System.Windows.Forms.Button();
             this.buttonSafeAsCSV = new System.Windows.Forms.Button();
-            this.labelAccessDirectory = new System.Windows.Forms.Label();
             this.toppanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listViewHistoriy
+            // listViewHistory
             // 
-            this.listViewHistoriy.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewHistory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IloscLaku,
             this.Godzina,
             this.Uzytkownik,
             this.RodzajLakieru,
             this.Data});
-            this.listViewHistoriy.HideSelection = false;
-            this.listViewHistoriy.Location = new System.Drawing.Point(244, 49);
-            this.listViewHistoriy.Name = "listViewHistoriy";
-            this.listViewHistoriy.Size = new System.Drawing.Size(732, 354);
-            this.listViewHistoriy.TabIndex = 0;
-            this.listViewHistoriy.UseCompatibleStateImageBehavior = false;
-            this.listViewHistoriy.View = System.Windows.Forms.View.Details;
+            this.listViewHistory.HideSelection = false;
+            this.listViewHistory.Location = new System.Drawing.Point(244, 49);
+            this.listViewHistory.Name = "listViewHistory";
+            this.listViewHistory.Size = new System.Drawing.Size(732, 354);
+            this.listViewHistory.TabIndex = 0;
+            this.listViewHistory.UseCompatibleStateImageBehavior = false;
+            this.listViewHistory.View = System.Windows.Forms.View.Details;
             // 
             // IloscLaku
             // 
@@ -273,30 +272,17 @@
             this.buttonSafeAsCSV.UseVisualStyleBackColor = true;
             this.buttonSafeAsCSV.Click += new System.EventHandler(this.buttonZapiszCSV_Click);
             // 
-            // labelAccessDirectory
-            // 
-            this.labelAccessDirectory.AutoSize = true;
-            this.labelAccessDirectory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelAccessDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelAccessDirectory.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.labelAccessDirectory.Location = new System.Drawing.Point(533, 471);
-            this.labelAccessDirectory.Name = "labelAccessDirectory";
-            this.labelAccessDirectory.Size = new System.Drawing.Size(116, 13);
-            this.labelAccessDirectory.TabIndex = 13;
-            this.labelAccessDirectory.Text = "Zmień ścieżkę dostępu";
-            // 
             // HistoriaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(988, 570);
-            this.Controls.Add(this.labelAccessDirectory);
             this.Controls.Add(this.buttonSafeAsCSV);
             this.Controls.Add(this.buttonDeleteLast7Days);
             this.Controls.Add(this.buttonDeleteRow);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toppanel2);
-            this.Controls.Add(this.listViewHistoriy);
+            this.Controls.Add(this.listViewHistory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HistoriaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -306,13 +292,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView listViewHistoriy;
+        private System.Windows.Forms.ListView listViewHistory;
         private System.Windows.Forms.Button minimalizeButton;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Panel toppanel2;
@@ -332,6 +317,5 @@
         private System.Windows.Forms.Button buttonDeleteRow;
         private System.Windows.Forms.Button buttonDeleteLast7Days;
         private System.Windows.Forms.Button buttonSafeAsCSV;
-        private System.Windows.Forms.Label labelAccessDirectory;
     }
 }

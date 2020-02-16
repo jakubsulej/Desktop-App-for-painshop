@@ -99,7 +99,7 @@ namespace Test_działania_aplikacji
 
             string coatName = "Permutex";
             DateTime currentDate = DateTime.Now;
-            string tylkoData = currentDate.ToShortDateString();
+            string justDate = currentDate.ToShortDateString();
 
             {
                 try
@@ -112,7 +112,7 @@ namespace Test_działania_aplikacji
                         cmd.Parameters.AddWithValue("@Godzina", coatPermutexFinnishTime);
                         cmd.Parameters.AddWithValue("@User", currentlyLoggedUser);
                         cmd.Parameters.AddWithValue("@Rodzajlaku", coatName);
-                        cmd.Parameters.AddWithValue("@Data", tylkoData);
+                        cmd.Parameters.AddWithValue("@Data", justDate);
 
                         int rowsAdded = cmd.ExecuteNonQuery();
                     }
