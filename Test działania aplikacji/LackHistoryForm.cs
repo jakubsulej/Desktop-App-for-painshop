@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Test_działania_aplikacji
 {
-    public partial class HistoriaForm : Form
+    public partial class LackHistoryForm : Form
     {
-        public HistoriaForm()
+        public LackHistoryForm()
         {
             InitializeComponent();
         }
@@ -151,7 +151,7 @@ namespace Test_działania_aplikacji
             SidePanel.Top = buttonSettings.Top;
 
             this.Hide();
-            var form2 = new UstawieniaForm();
+            var form2 = new SettingForm();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }
@@ -170,7 +170,7 @@ namespace Test_działania_aplikacji
         private void buttonMakeCoat_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var form2 = new MenuGlowne();
+            var form2 = new MainForm();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }

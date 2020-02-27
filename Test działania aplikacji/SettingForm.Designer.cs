@@ -1,6 +1,6 @@
 ﻿namespace Test_działania_aplikacji
 {
-    partial class UstawieniaForm
+    partial class SettingForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UstawieniaForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingForm));
             this.tabSettings = new System.Windows.Forms.TabControl();
-            this.Users = new System.Windows.Forms.TabPage();
+            this.UsersTab = new System.Windows.Forms.TabPage();
             this.buttonLoadDataBase = new System.Windows.Forms.Button();
             this.buttonDeleteUser = new System.Windows.Forms.Button();
             this.listViewUsers = new System.Windows.Forms.ListView();
@@ -46,7 +46,16 @@
             this.labelUserPassword = new System.Windows.Forms.Label();
             this.labelAdminStatus = new System.Windows.Forms.Label();
             this.labelUserName = new System.Windows.Forms.Label();
-            this.Wozki = new System.Windows.Forms.TabPage();
+            this.JigsTab = new System.Windows.Forms.TabPage();
+            this.labelJig9 = new System.Windows.Forms.Label();
+            this.labelJig8 = new System.Windows.Forms.Label();
+            this.labelJig7 = new System.Windows.Forms.Label();
+            this.labelJig6 = new System.Windows.Forms.Label();
+            this.labelJig5 = new System.Windows.Forms.Label();
+            this.labelJig4 = new System.Windows.Forms.Label();
+            this.labelJig3 = new System.Windows.Forms.Label();
+            this.labelJig2 = new System.Windows.Forms.Label();
+            this.labelJig1 = new System.Windows.Forms.Label();
             this.buttonJig9 = new System.Windows.Forms.Button();
             this.buttonJig8 = new System.Windows.Forms.Button();
             this.buttonJig7 = new System.Windows.Forms.Button();
@@ -67,43 +76,53 @@
             this.buttonHistory = new System.Windows.Forms.Button();
             this.buttonMakeCoat = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.buttonCount = new System.Windows.Forms.Button();
+            this.labelSipiol = new System.Windows.Forms.Label();
+            this.labelPermutex = new System.Windows.Forms.Label();
+            this.labelResilon = new System.Windows.Forms.Label();
+            this.labelResilonPlus = new System.Windows.Forms.Label();
+            this.labelSipiolWeight = new System.Windows.Forms.Label();
+            this.labelPermutexWeight = new System.Windows.Forms.Label();
+            this.labelResilonWeight = new System.Windows.Forms.Label();
+            this.labelResilonPlusWeight = new System.Windows.Forms.Label();
+            this.labelF33Count = new System.Windows.Forms.Label();
             this.tabSettings.SuspendLayout();
-            this.Users.SuspendLayout();
-            this.Wozki.SuspendLayout();
+            this.UsersTab.SuspendLayout();
+            this.JigsTab.SuspendLayout();
             this.toppanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabSettings
             // 
-            this.tabSettings.Controls.Add(this.Users);
-            this.tabSettings.Controls.Add(this.Wozki);
+            this.tabSettings.Controls.Add(this.UsersTab);
+            this.tabSettings.Controls.Add(this.JigsTab);
             this.tabSettings.Location = new System.Drawing.Point(238, 50);
             this.tabSettings.Name = "tabSettings";
             this.tabSettings.SelectedIndex = 0;
             this.tabSettings.Size = new System.Drawing.Size(722, 469);
             this.tabSettings.TabIndex = 0;
             // 
-            // Users
+            // UsersTab
             // 
-            this.Users.Controls.Add(this.buttonLoadDataBase);
-            this.Users.Controls.Add(this.buttonDeleteUser);
-            this.Users.Controls.Add(this.listViewUsers);
-            this.Users.Controls.Add(this.buttonUpdateUserData);
-            this.Users.Controls.Add(this.buttonAddNewUser);
-            this.Users.Controls.Add(this.comboBoxUserAdminStatus);
-            this.Users.Controls.Add(this.textBoxUserPassword);
-            this.Users.Controls.Add(this.textBoxUserName);
-            this.Users.Controls.Add(this.labelUserPassword);
-            this.Users.Controls.Add(this.labelAdminStatus);
-            this.Users.Controls.Add(this.labelUserName);
-            this.Users.Location = new System.Drawing.Point(4, 22);
-            this.Users.Name = "Users";
-            this.Users.Padding = new System.Windows.Forms.Padding(3);
-            this.Users.Size = new System.Drawing.Size(714, 443);
-            this.Users.TabIndex = 1;
-            this.Users.Text = "Użytkownicy";
-            this.Users.UseVisualStyleBackColor = true;
+            this.UsersTab.Controls.Add(this.buttonLoadDataBase);
+            this.UsersTab.Controls.Add(this.buttonDeleteUser);
+            this.UsersTab.Controls.Add(this.listViewUsers);
+            this.UsersTab.Controls.Add(this.buttonUpdateUserData);
+            this.UsersTab.Controls.Add(this.buttonAddNewUser);
+            this.UsersTab.Controls.Add(this.comboBoxUserAdminStatus);
+            this.UsersTab.Controls.Add(this.textBoxUserPassword);
+            this.UsersTab.Controls.Add(this.textBoxUserName);
+            this.UsersTab.Controls.Add(this.labelUserPassword);
+            this.UsersTab.Controls.Add(this.labelAdminStatus);
+            this.UsersTab.Controls.Add(this.labelUserName);
+            this.UsersTab.Location = new System.Drawing.Point(4, 22);
+            this.UsersTab.Name = "UsersTab";
+            this.UsersTab.Padding = new System.Windows.Forms.Padding(3);
+            this.UsersTab.Size = new System.Drawing.Size(714, 443);
+            this.UsersTab.TabIndex = 1;
+            this.UsersTab.Text = "Użytkownicy";
+            this.UsersTab.UseVisualStyleBackColor = true;
             // 
             // buttonLoadDataBase
             // 
@@ -231,30 +250,130 @@
             this.labelUserName.TabIndex = 7;
             this.labelUserName.Text = "Nazwa Użytkownika";
             // 
-            // Wozki
+            // JigsTab
             // 
-            this.Wozki.Controls.Add(this.buttonJig9);
-            this.Wozki.Controls.Add(this.buttonJig8);
-            this.Wozki.Controls.Add(this.buttonJig7);
-            this.Wozki.Controls.Add(this.buttonJig6);
-            this.Wozki.Controls.Add(this.buttonJig5);
-            this.Wozki.Controls.Add(this.buttonJig4);
-            this.Wozki.Controls.Add(this.buttonJig3);
-            this.Wozki.Controls.Add(this.buttonJig2);
-            this.Wozki.Controls.Add(this.buttonJig1);
-            this.Wozki.Location = new System.Drawing.Point(4, 22);
-            this.Wozki.Name = "Wozki";
-            this.Wozki.Padding = new System.Windows.Forms.Padding(3);
-            this.Wozki.Size = new System.Drawing.Size(714, 443);
-            this.Wozki.TabIndex = 2;
-            this.Wozki.Text = "Wózki";
-            this.Wozki.UseVisualStyleBackColor = true;
+            this.JigsTab.Controls.Add(this.labelF33Count);
+            this.JigsTab.Controls.Add(this.labelResilonPlusWeight);
+            this.JigsTab.Controls.Add(this.labelResilonWeight);
+            this.JigsTab.Controls.Add(this.labelPermutexWeight);
+            this.JigsTab.Controls.Add(this.labelSipiolWeight);
+            this.JigsTab.Controls.Add(this.labelResilonPlus);
+            this.JigsTab.Controls.Add(this.labelResilon);
+            this.JigsTab.Controls.Add(this.labelPermutex);
+            this.JigsTab.Controls.Add(this.labelSipiol);
+            this.JigsTab.Controls.Add(this.buttonCount);
+            this.JigsTab.Controls.Add(this.labelJig9);
+            this.JigsTab.Controls.Add(this.labelJig8);
+            this.JigsTab.Controls.Add(this.labelJig7);
+            this.JigsTab.Controls.Add(this.labelJig6);
+            this.JigsTab.Controls.Add(this.labelJig5);
+            this.JigsTab.Controls.Add(this.labelJig4);
+            this.JigsTab.Controls.Add(this.labelJig3);
+            this.JigsTab.Controls.Add(this.labelJig2);
+            this.JigsTab.Controls.Add(this.labelJig1);
+            this.JigsTab.Controls.Add(this.buttonJig9);
+            this.JigsTab.Controls.Add(this.buttonJig8);
+            this.JigsTab.Controls.Add(this.buttonJig7);
+            this.JigsTab.Controls.Add(this.buttonJig6);
+            this.JigsTab.Controls.Add(this.buttonJig5);
+            this.JigsTab.Controls.Add(this.buttonJig4);
+            this.JigsTab.Controls.Add(this.buttonJig3);
+            this.JigsTab.Controls.Add(this.buttonJig2);
+            this.JigsTab.Controls.Add(this.buttonJig1);
+            this.JigsTab.Location = new System.Drawing.Point(4, 22);
+            this.JigsTab.Name = "JigsTab";
+            this.JigsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.JigsTab.Size = new System.Drawing.Size(714, 443);
+            this.JigsTab.TabIndex = 2;
+            this.JigsTab.Text = "Wózki";
+            this.JigsTab.UseVisualStyleBackColor = true;
+            // 
+            // labelJig9
+            // 
+            this.labelJig9.AutoSize = true;
+            this.labelJig9.Location = new System.Drawing.Point(645, 99);
+            this.labelJig9.Name = "labelJig9";
+            this.labelJig9.Size = new System.Drawing.Size(35, 13);
+            this.labelJig9.TabIndex = 1;
+            this.labelJig9.Text = "label1";
+            // 
+            // labelJig8
+            // 
+            this.labelJig8.AutoSize = true;
+            this.labelJig8.Location = new System.Drawing.Point(570, 99);
+            this.labelJig8.Name = "labelJig8";
+            this.labelJig8.Size = new System.Drawing.Size(35, 13);
+            this.labelJig8.TabIndex = 1;
+            this.labelJig8.Text = "label1";
+            // 
+            // labelJig7
+            // 
+            this.labelJig7.AutoSize = true;
+            this.labelJig7.Location = new System.Drawing.Point(492, 99);
+            this.labelJig7.Name = "labelJig7";
+            this.labelJig7.Size = new System.Drawing.Size(35, 13);
+            this.labelJig7.TabIndex = 1;
+            this.labelJig7.Text = "label1";
+            // 
+            // labelJig6
+            // 
+            this.labelJig6.AutoSize = true;
+            this.labelJig6.Location = new System.Drawing.Point(417, 99);
+            this.labelJig6.Name = "labelJig6";
+            this.labelJig6.Size = new System.Drawing.Size(35, 13);
+            this.labelJig6.TabIndex = 1;
+            this.labelJig6.Text = "label1";
+            // 
+            // labelJig5
+            // 
+            this.labelJig5.AutoSize = true;
+            this.labelJig5.Location = new System.Drawing.Point(341, 99);
+            this.labelJig5.Name = "labelJig5";
+            this.labelJig5.Size = new System.Drawing.Size(35, 13);
+            this.labelJig5.TabIndex = 1;
+            this.labelJig5.Text = "label1";
+            // 
+            // labelJig4
+            // 
+            this.labelJig4.AutoSize = true;
+            this.labelJig4.Location = new System.Drawing.Point(265, 99);
+            this.labelJig4.Name = "labelJig4";
+            this.labelJig4.Size = new System.Drawing.Size(35, 13);
+            this.labelJig4.TabIndex = 1;
+            this.labelJig4.Text = "label1";
+            // 
+            // labelJig3
+            // 
+            this.labelJig3.AutoSize = true;
+            this.labelJig3.Location = new System.Drawing.Point(185, 99);
+            this.labelJig3.Name = "labelJig3";
+            this.labelJig3.Size = new System.Drawing.Size(35, 13);
+            this.labelJig3.TabIndex = 1;
+            this.labelJig3.Text = "label1";
+            // 
+            // labelJig2
+            // 
+            this.labelJig2.AutoSize = true;
+            this.labelJig2.Location = new System.Drawing.Point(110, 99);
+            this.labelJig2.Name = "labelJig2";
+            this.labelJig2.Size = new System.Drawing.Size(35, 13);
+            this.labelJig2.TabIndex = 1;
+            this.labelJig2.Text = "label1";
+            // 
+            // labelJig1
+            // 
+            this.labelJig1.AutoSize = true;
+            this.labelJig1.Location = new System.Drawing.Point(33, 99);
+            this.labelJig1.Name = "labelJig1";
+            this.labelJig1.Size = new System.Drawing.Size(35, 13);
+            this.labelJig1.TabIndex = 1;
+            this.labelJig1.Text = "label1";
             // 
             // buttonJig9
             // 
-            this.buttonJig9.Location = new System.Drawing.Point(548, 43);
+            this.buttonJig9.Location = new System.Drawing.Point(628, 43);
             this.buttonJig9.Name = "buttonJig9";
-            this.buttonJig9.Size = new System.Drawing.Size(50, 50);
+            this.buttonJig9.Size = new System.Drawing.Size(70, 50);
             this.buttonJig9.TabIndex = 0;
             this.buttonJig9.Text = "Wózek9";
             this.buttonJig9.UseVisualStyleBackColor = true;
@@ -262,9 +381,9 @@
             // 
             // buttonJig8
             // 
-            this.buttonJig8.Location = new System.Drawing.Point(492, 43);
+            this.buttonJig8.Location = new System.Drawing.Point(552, 43);
             this.buttonJig8.Name = "buttonJig8";
-            this.buttonJig8.Size = new System.Drawing.Size(50, 50);
+            this.buttonJig8.Size = new System.Drawing.Size(70, 50);
             this.buttonJig8.TabIndex = 0;
             this.buttonJig8.Text = "Wózek8";
             this.buttonJig8.UseVisualStyleBackColor = true;
@@ -272,9 +391,9 @@
             // 
             // buttonJig7
             // 
-            this.buttonJig7.Location = new System.Drawing.Point(436, 43);
+            this.buttonJig7.Location = new System.Drawing.Point(476, 43);
             this.buttonJig7.Name = "buttonJig7";
-            this.buttonJig7.Size = new System.Drawing.Size(50, 50);
+            this.buttonJig7.Size = new System.Drawing.Size(70, 50);
             this.buttonJig7.TabIndex = 0;
             this.buttonJig7.Text = "Wózek7";
             this.buttonJig7.UseVisualStyleBackColor = true;
@@ -282,9 +401,9 @@
             // 
             // buttonJig6
             // 
-            this.buttonJig6.Location = new System.Drawing.Point(380, 43);
+            this.buttonJig6.Location = new System.Drawing.Point(400, 43);
             this.buttonJig6.Name = "buttonJig6";
-            this.buttonJig6.Size = new System.Drawing.Size(50, 50);
+            this.buttonJig6.Size = new System.Drawing.Size(70, 50);
             this.buttonJig6.TabIndex = 0;
             this.buttonJig6.Text = "Wózek6";
             this.buttonJig6.UseVisualStyleBackColor = true;
@@ -294,7 +413,7 @@
             // 
             this.buttonJig5.Location = new System.Drawing.Point(324, 43);
             this.buttonJig5.Name = "buttonJig5";
-            this.buttonJig5.Size = new System.Drawing.Size(50, 50);
+            this.buttonJig5.Size = new System.Drawing.Size(70, 50);
             this.buttonJig5.TabIndex = 0;
             this.buttonJig5.Text = "Wózek5";
             this.buttonJig5.UseVisualStyleBackColor = true;
@@ -302,9 +421,9 @@
             // 
             // buttonJig4
             // 
-            this.buttonJig4.Location = new System.Drawing.Point(268, 43);
+            this.buttonJig4.Location = new System.Drawing.Point(248, 43);
             this.buttonJig4.Name = "buttonJig4";
-            this.buttonJig4.Size = new System.Drawing.Size(50, 50);
+            this.buttonJig4.Size = new System.Drawing.Size(70, 50);
             this.buttonJig4.TabIndex = 0;
             this.buttonJig4.Text = "Wózek4";
             this.buttonJig4.UseVisualStyleBackColor = true;
@@ -312,9 +431,9 @@
             // 
             // buttonJig3
             // 
-            this.buttonJig3.Location = new System.Drawing.Point(212, 43);
+            this.buttonJig3.Location = new System.Drawing.Point(169, 43);
             this.buttonJig3.Name = "buttonJig3";
-            this.buttonJig3.Size = new System.Drawing.Size(50, 50);
+            this.buttonJig3.Size = new System.Drawing.Size(70, 50);
             this.buttonJig3.TabIndex = 0;
             this.buttonJig3.Text = "Wózek3";
             this.buttonJig3.UseVisualStyleBackColor = true;
@@ -322,9 +441,9 @@
             // 
             // buttonJig2
             // 
-            this.buttonJig2.Location = new System.Drawing.Point(156, 43);
+            this.buttonJig2.Location = new System.Drawing.Point(93, 43);
             this.buttonJig2.Name = "buttonJig2";
-            this.buttonJig2.Size = new System.Drawing.Size(50, 50);
+            this.buttonJig2.Size = new System.Drawing.Size(70, 50);
             this.buttonJig2.TabIndex = 0;
             this.buttonJig2.Text = "Wózek 2";
             this.buttonJig2.UseVisualStyleBackColor = true;
@@ -332,9 +451,9 @@
             // 
             // buttonJig1
             // 
-            this.buttonJig1.Location = new System.Drawing.Point(100, 43);
+            this.buttonJig1.Location = new System.Drawing.Point(17, 43);
             this.buttonJig1.Name = "buttonJig1";
-            this.buttonJig1.Size = new System.Drawing.Size(50, 50);
+            this.buttonJig1.Size = new System.Drawing.Size(70, 50);
             this.buttonJig1.TabIndex = 0;
             this.buttonJig1.Text = "Wózek 1";
             this.buttonJig1.UseVisualStyleBackColor = true;
@@ -487,6 +606,97 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // buttonCount
+            // 
+            this.buttonCount.Location = new System.Drawing.Point(288, 146);
+            this.buttonCount.Name = "buttonCount";
+            this.buttonCount.Size = new System.Drawing.Size(106, 36);
+            this.buttonCount.TabIndex = 2;
+            this.buttonCount.Text = "Odśwież i oblicz";
+            this.buttonCount.UseVisualStyleBackColor = true;
+            this.buttonCount.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
+            // labelSipiol
+            // 
+            this.labelSipiol.AutoSize = true;
+            this.labelSipiol.Location = new System.Drawing.Point(61, 286);
+            this.labelSipiol.Name = "labelSipiol";
+            this.labelSipiol.Size = new System.Drawing.Size(32, 13);
+            this.labelSipiol.TabIndex = 3;
+            this.labelSipiol.Text = "Sipiol";
+            // 
+            // labelPermutex
+            // 
+            this.labelPermutex.AutoSize = true;
+            this.labelPermutex.Location = new System.Drawing.Point(61, 316);
+            this.labelPermutex.Name = "labelPermutex";
+            this.labelPermutex.Size = new System.Drawing.Size(51, 13);
+            this.labelPermutex.TabIndex = 3;
+            this.labelPermutex.Text = "Permutex";
+            // 
+            // labelResilon
+            // 
+            this.labelResilon.AutoSize = true;
+            this.labelResilon.Location = new System.Drawing.Point(61, 344);
+            this.labelResilon.Name = "labelResilon";
+            this.labelResilon.Size = new System.Drawing.Size(42, 13);
+            this.labelResilon.TabIndex = 3;
+            this.labelResilon.Text = "Resilon";
+            // 
+            // labelResilonPlus
+            // 
+            this.labelResilonPlus.AutoSize = true;
+            this.labelResilonPlus.Location = new System.Drawing.Point(61, 372);
+            this.labelResilonPlus.Name = "labelResilonPlus";
+            this.labelResilonPlus.Size = new System.Drawing.Size(65, 13);
+            this.labelResilonPlus.TabIndex = 3;
+            this.labelResilonPlus.Text = "Resilon Plus";
+            // 
+            // labelSipiolWeight
+            // 
+            this.labelSipiolWeight.AutoSize = true;
+            this.labelSipiolWeight.Location = new System.Drawing.Point(128, 286);
+            this.labelSipiolWeight.Name = "labelSipiolWeight";
+            this.labelSipiolWeight.Size = new System.Drawing.Size(22, 13);
+            this.labelSipiolWeight.TabIndex = 4;
+            this.labelSipiolWeight.Text = "0 g";
+            // 
+            // labelPermutexWeight
+            // 
+            this.labelPermutexWeight.AutoSize = true;
+            this.labelPermutexWeight.Location = new System.Drawing.Point(128, 316);
+            this.labelPermutexWeight.Name = "labelPermutexWeight";
+            this.labelPermutexWeight.Size = new System.Drawing.Size(22, 13);
+            this.labelPermutexWeight.TabIndex = 4;
+            this.labelPermutexWeight.Text = "0 g";
+            // 
+            // labelResilonWeight
+            // 
+            this.labelResilonWeight.AutoSize = true;
+            this.labelResilonWeight.Location = new System.Drawing.Point(128, 344);
+            this.labelResilonWeight.Name = "labelResilonWeight";
+            this.labelResilonWeight.Size = new System.Drawing.Size(22, 13);
+            this.labelResilonWeight.TabIndex = 4;
+            this.labelResilonWeight.Text = "0 g";
+            // 
+            // labelResilonPlusWeight
+            // 
+            this.labelResilonPlusWeight.AutoSize = true;
+            this.labelResilonPlusWeight.Location = new System.Drawing.Point(128, 372);
+            this.labelResilonPlusWeight.Name = "labelResilonPlusWeight";
+            this.labelResilonPlusWeight.Size = new System.Drawing.Size(22, 13);
+            this.labelResilonPlusWeight.TabIndex = 4;
+            this.labelResilonPlusWeight.Text = "0 g";
+            // 
+            // labelF33Count
+            // 
+            this.labelF33Count.AutoSize = true;
+            this.labelF33Count.Location = new System.Drawing.Point(461, 344);
+            this.labelF33Count.Name = "labelF33Count";
+            this.labelF33Count.Size = new System.Drawing.Size(35, 13);
+            this.labelF33Count.TabIndex = 5;
+            this.labelF33Count.Text = "label1";
+            // 
             // UstawieniaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,9 +712,10 @@
             this.Text = "UstawieniaForm";
             this.Load += new System.EventHandler(this.UstawieniaForm_Load);
             this.tabSettings.ResumeLayout(false);
-            this.Users.ResumeLayout(false);
-            this.Users.PerformLayout();
-            this.Wozki.ResumeLayout(false);
+            this.UsersTab.ResumeLayout(false);
+            this.UsersTab.PerformLayout();
+            this.JigsTab.ResumeLayout(false);
+            this.JigsTab.PerformLayout();
             this.toppanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -515,7 +726,7 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabSettings;
-        private System.Windows.Forms.TabPage Users;
+        private System.Windows.Forms.TabPage UsersTab;
         private System.Windows.Forms.Button buttonAddNewUser;
         private System.Windows.Forms.ComboBox comboBoxUserAdminStatus;
         private System.Windows.Forms.TextBox textBoxUserPassword;
@@ -541,7 +752,7 @@
         private System.Windows.Forms.Button buttonHistory;
         private System.Windows.Forms.Button buttonMakeCoat;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.TabPage Wozki;
+        private System.Windows.Forms.TabPage JigsTab;
         private System.Windows.Forms.Button buttonJig8;
         private System.Windows.Forms.Button buttonJig7;
         private System.Windows.Forms.Button buttonJig6;
@@ -551,5 +762,24 @@
         private System.Windows.Forms.Button buttonJig2;
         private System.Windows.Forms.Button buttonJig1;
         private System.Windows.Forms.Button buttonJig9;
+        private System.Windows.Forms.Label labelJig9;
+        private System.Windows.Forms.Label labelJig8;
+        private System.Windows.Forms.Label labelJig7;
+        private System.Windows.Forms.Label labelJig6;
+        private System.Windows.Forms.Label labelJig5;
+        private System.Windows.Forms.Label labelJig4;
+        private System.Windows.Forms.Label labelJig3;
+        private System.Windows.Forms.Label labelJig2;
+        private System.Windows.Forms.Label labelJig1;
+        private System.Windows.Forms.Button buttonCount;
+        private System.Windows.Forms.Label labelResilonPlus;
+        private System.Windows.Forms.Label labelResilon;
+        private System.Windows.Forms.Label labelPermutex;
+        private System.Windows.Forms.Label labelSipiol;
+        private System.Windows.Forms.Label labelResilonPlusWeight;
+        private System.Windows.Forms.Label labelResilonWeight;
+        private System.Windows.Forms.Label labelPermutexWeight;
+        private System.Windows.Forms.Label labelSipiolWeight;
+        private System.Windows.Forms.Label labelF33Count;
     }
 }

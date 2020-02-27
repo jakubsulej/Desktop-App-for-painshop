@@ -12,9 +12,9 @@ using System.Data.SqlClient;
 
 namespace Test_działania_aplikacji
 {
-    public partial class MenuGlowne : Form
+    public partial class MainForm : Form
     {
-        public MenuGlowne()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -46,7 +46,7 @@ namespace Test_działania_aplikacji
             if (adminString == "admin")
             {
                 this.Hide();
-                var form2 = new HistoriaForm();
+                var form2 = new LackHistoryForm();
                 form2.Closed += (s, args) => this.Close();
                 form2.Show();
             }
@@ -76,7 +76,7 @@ namespace Test_działania_aplikacji
             if (adminString == "admin")
             {
                 this.Hide();
-                var form2 = new UstawieniaForm();
+                var form2 = new SettingForm();
                 form2.Closed += (s, args) => this.Close();
                 form2.Show();
             }

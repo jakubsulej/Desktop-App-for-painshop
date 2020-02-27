@@ -113,11 +113,11 @@
     <Compile Include="Popups\ExitWindow.Designer.cs">
       <DependentUpon>ExitWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="HistoriaForm.cs">
+    <Compile Include="LackHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HistoriaForm.Designer.cs">
-      <DependentUpon>HistoriaForm.cs</DependentUpon>
+    <Compile Include="LackHistoryForm.Designer.cs">
+      <DependentUpon>LackHistoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -125,11 +125,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuGlowne.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuGlowne.Designer.cs">
-      <DependentUpon>MenuGlowne.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MakeCoatUserControl\PermutexCount.cs">
       <SubType>UserControl</SubType>
@@ -162,11 +162,11 @@
     <Compile Include="MakeCoatUserControl\SipiolCount.Designer.cs">
       <DependentUpon>SipiolCount.cs</DependentUpon>
     </Compile>
-    <Compile Include="UstawieniaForm.cs">
+    <Compile Include="SettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UstawieniaForm.Designer.cs">
-      <DependentUpon>UstawieniaForm.cs</DependentUpon>
+    <Compile Include="SettingForm.Designer.cs">
+      <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="JigSelector\JigsSelector6.resx">
       <DependentUpon>JigsSelector6.cs</DependentUpon>
@@ -201,14 +201,14 @@
     <EmbeddedResource Include="Popups\ExitWindow.resx">
       <DependentUpon>ExitWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HistoriaForm.resx">
-      <DependentUpon>HistoriaForm.cs</DependentUpon>
+    <EmbeddedResource Include="LackHistoryForm.resx">
+      <DependentUpon>LackHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuGlowne.resx">
-      <DependentUpon>MenuGlowne.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MakeCoatUserControl\PermutexCount.resx">
       <DependentUpon>PermutexCount.cs</DependentUpon>
@@ -227,8 +227,8 @@
     <EmbeddedResource Include="MakeCoatUserControl\SipiolCount.resx">
       <DependentUpon>SipiolCount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UstawieniaForm.resx">
-      <DependentUpon>UstawieniaForm.cs</DependentUpon>
+    <EmbeddedResource Include="SettingForm.resx">
+      <DependentUpon>SettingForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

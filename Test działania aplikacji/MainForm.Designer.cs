@@ -1,6 +1,6 @@
 ﻿namespace Test_działania_aplikacji
 {
-    partial class MenuGlowne
+    partial class MainForm
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuGlowne));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.toppanel3 = new System.Windows.Forms.Panel();
             this.labelCurrentTime = new System.Windows.Forms.Label();
@@ -56,7 +56,6 @@
             this.resilonPlus1 = new Test_działania_aplikacji.ResilonPlusCount();
             this.resilonCount1 = new Test_działania_aplikacji.ResilonCount();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.toppanel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -65,7 +64,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.toppanel3);
             this.panel1.Controls.Add(this.labelCurrentTime);
             this.panel1.Controls.Add(this.SidePanel);
@@ -388,16 +386,6 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(148, 427);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "label1";
-            // 
             // MenuGlowne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,7 +434,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -208,7 +208,7 @@ namespace Test_działania_aplikacji
                 zapisInformacjiWBazieDanych(null, null);
                 //Zamknięcie obecnego okna i powrót do Menu Głównego
                 this.Hide();
-                var form2 = new MenuGlowne();
+                var form2 = new MainForm();
                 form2.Closed += (s, args) => this.Hide();
                 form2.Show();
             }

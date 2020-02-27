@@ -39,13 +39,13 @@ namespace Test_działania_aplikacji
 
         private void checkCurrentUser(object sender, EventArgs e) //Aktualny user w tabeli do String
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
             string aktualnieZalogowanyUser;
 
             {
-                SqlCommand cmd = new SqlCommand("select UZYTKOWNIK from ZALOGOWANYUZYTKOWNIK", con);
-                con.Open();
+                SqlCommand cmd = new SqlCommand("select UZYTKOWNIK from ZALOGOWANYUZYTKOWNIK", connection);
+                connection.Open();
 
                 SqlDataReader read = cmd.ExecuteReader();
 
@@ -77,7 +77,7 @@ namespace Test_działania_aplikacji
 
             if (tabelaDanych.Rows.Count == 1)
             {
-                MenuGlowne objMenuGlowne = new MenuGlowne();
+                MainForm objMenuGlowne = new MainForm();
                 this.Hide();
                 objMenuGlowne.Show();
 
@@ -111,15 +111,15 @@ namespace Test_działania_aplikacji
 
         private void deleteOldUserDataBase(object sender, EventArgs e)
         {
-            SqlConnection polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
-            string sql = "Delete from ZALOGOWANYUZYTKOWNIK";
+            string sqlUser = "Delete from ZALOGOWANYUZYTKOWNIK";
             {
                 try
                 {
-                    using (SqlCommand cmd = new SqlCommand(sql, polaczenie))
+                    using (SqlCommand cmd = new SqlCommand(sqlUser, connection))
                     {
-                        polaczenie.Open();
+                        connection.Open();
                         cmd.ExecuteNonQuery();
                     }
                 }

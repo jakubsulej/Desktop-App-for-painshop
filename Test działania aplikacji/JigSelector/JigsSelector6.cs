@@ -28,7 +28,7 @@ namespace Test_działania_aplikacji
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
-            string sql = "Delete from JIGLIST Where JIGNUMBER = '1'";
+            string sql = "Delete from JIGLIST Where JIGNUMBER = '6'";
 
             {
                 try
@@ -59,7 +59,7 @@ namespace Test_działania_aplikacji
 
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Jignumber", "5");
+                        cmd.Parameters.AddWithValue("@Jignumber", "6");
                         cmd.Parameters.AddWithValue("@Jigname", "F33DS1");
 
                         // Wiadomość o dodaniu nowej linijki bazy danych
@@ -91,7 +91,7 @@ namespace Test_działania_aplikacji
 
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Jignumber", "5");
+                        cmd.Parameters.AddWithValue("@Jignumber", "6");
                         cmd.Parameters.AddWithValue("@Jigname", "F33DS2");
 
                         // Wiadomość o dodaniu nowej linijki bazy danych
@@ -123,7 +123,7 @@ namespace Test_działania_aplikacji
 
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Jignumber", "5");
+                        cmd.Parameters.AddWithValue("@Jignumber", "6");
                         cmd.Parameters.AddWithValue("@Jigname", "VWFSI485");
 
                         // Wiadomość o dodaniu nowej linijki bazy danych
@@ -155,7 +155,7 @@ namespace Test_działania_aplikacji
 
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Jignumber", "5");
+                        cmd.Parameters.AddWithValue("@Jignumber", "6");
                         cmd.Parameters.AddWithValue("@Jigname", "Targa");
 
                         // Wiadomość o dodaniu nowej linijki bazy danych
@@ -187,7 +187,7 @@ namespace Test_działania_aplikacji
 
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Jignumber", "5");
+                        cmd.Parameters.AddWithValue("@Jignumber", "6");
                         cmd.Parameters.AddWithValue("@Jigname", "R231HD");
 
                         // Wiadomość o dodaniu nowej linijki bazy danych
@@ -219,7 +219,7 @@ namespace Test_działania_aplikacji
 
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Jignumber", "5");
+                        cmd.Parameters.AddWithValue("@Jignumber", "6");
                         cmd.Parameters.AddWithValue("@Jigname", "VWTH");
 
                         // Wiadomość o dodaniu nowej linijki bazy danych

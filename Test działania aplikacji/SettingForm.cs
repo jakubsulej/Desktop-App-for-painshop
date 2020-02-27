@@ -12,10 +12,10 @@ using System.Data.SqlClient;
 
 namespace Test_działania_aplikacji
 {
-    public partial class UstawieniaForm : Form
+    public partial class SettingForm : Form
     {
 
-        public UstawieniaForm()
+        public SettingForm()
         {
             InitializeComponent();
         }
@@ -58,20 +58,20 @@ namespace Test_działania_aplikacji
 
         private void buttonUpdateUsers_Click(object sender, EventArgs e) //Aktualizacja danych o użytkowniku w TextBox
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
             string sql = "Update Login set Haslo=@Haslo, Role=@Role Where Uzytkownik=@Uzytkownik";
 
             {
                 try
                 {
-                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@Uzytkownik", textBoxUserName.Text);
                         cmd.Parameters.AddWithValue("@Haslo", textBoxUserPassword.Text);
                         cmd.Parameters.AddWithValue("@Role", comboBoxUserAdminStatus.SelectedItem.ToString());
                         
-                        con.Open();
+                        connection.Open();
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -94,6 +94,9 @@ namespace Test_działania_aplikacji
             //URUCHOMIENIE TIMERA DLA GODZINY
             timer.Start();
             labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
+
+            //ODCZYT Z BAZY DANYCH AKTUALNYCH WÓZKÓW
+            displayJigLabels(null, null);
         }
 
         private void buttonForceUpdateListView_Click(object sender, EventArgs e) //Przycisk wymuszenie aktualizacji ListView
@@ -172,6 +175,149 @@ namespace Test_działania_aplikacji
             PopulateListView(null, null);
         }
 
+        private void displayJigLabels(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+
+            string jigName;
+
+            connection.Open();
+            {
+                SqlCommand cmdLabel1 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='1'", connection);
+
+                SqlDataReader read = cmdLabel1.ExecuteReader();
+
+                while (read.Read())
+                {
+                    jigName = (read["JIGNAME"].ToString().Trim());
+                    labelJig1.Text = jigName.Trim();
+                }
+                read.Close();
+            }
+
+            {
+                SqlCommand cmdLabel2 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='2'", connection);
+
+                SqlDataReader read = cmdLabel2.ExecuteReader();
+
+                while (read.Read())
+                {
+                    jigName = (read["JIGNAME"].ToString().Trim());
+                    labelJig2.Text = jigName.Trim();
+                }
+                read.Close();
+            }
+
+            {
+                SqlCommand cmdLabel3 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='3'", connection);
+
+                SqlDataReader read = cmdLabel3.ExecuteReader();
+
+                while (read.Read())
+                {
+                    jigName = (read["JIGNAME"].ToString().Trim());
+                    labelJig3.Text = jigName.Trim();
+                }
+                read.Close();
+            }
+
+            {
+                SqlCommand cmdLabel4 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='4'", connection);
+
+                SqlDataReader read = cmdLabel4.ExecuteReader();
+
+                while (read.Read())
+                {
+                    jigName = (read["JIGNAME"].ToString().Trim());
+                    labelJig4.Text = jigName.Trim();
+                }
+                read.Close();
+            }
+
+            {
+                SqlCommand cmdLabel5 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='5'", connection);
+
+                SqlDataReader read = cmdLabel5.ExecuteReader();
+
+                while (read.Read())
+                {
+                    jigName = (read["JIGNAME"].ToString().Trim());
+                    labelJig5.Text = jigName.Trim();
+                }
+                read.Close();
+            }
+
+            {
+                SqlCommand cmdLabel6 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='6'", connection);
+
+                SqlDataReader read = cmdLabel6.ExecuteReader();
+
+                while (read.Read())
+                {
+                    jigName = (read["JIGNAME"].ToString().Trim());
+                    labelJig6.Text = jigName.Trim();
+                }
+                read.Close();
+            }
+
+            {
+                SqlCommand cmdLabel7 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='7'", connection);
+
+                SqlDataReader read = cmdLabel7.ExecuteReader();
+
+                while (read.Read())
+                {
+                    jigName = (read["JIGNAME"].ToString().Trim());
+                    labelJig7.Text = jigName.Trim();
+                }
+                read.Close();
+            }
+
+            {
+                SqlCommand cmdLabel8 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='8'", connection);
+
+                SqlDataReader read = cmdLabel8.ExecuteReader();
+
+                while (read.Read())
+                {
+                    jigName = (read["JIGNAME"].ToString().Trim());
+                    labelJig8.Text = jigName.Trim();
+                }
+                read.Close();
+            }
+
+            {
+                SqlCommand cmdLabel9 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='9'", connection);
+
+                SqlDataReader read = cmdLabel9.ExecuteReader();
+
+                while (read.Read())
+                {
+                    jigName = (read["JIGNAME"].ToString().Trim());
+                    labelJig9.Text = jigName.Trim();
+                }
+                read.Close();
+            }
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+
+            string jigName;
+
+            connection.Open();
+            {
+                SqlCommand cmdLabel1 = new SqlCommand("SELECT JIGNAME, COUNT(1) AS ETC FROM JIGLIST Group BY JIGNAME Where JIGNAME = 'Targa'", connection);
+
+                //SqlDataReader read = cmdLabel1.ExecuteReader();
+
+                Int32 count = (Int32) cmdLabel1.ExecuteScalar();
+                labelF33Count.Text = count.ToString();
+            }
+
+        }
+
         private void closeButton_Click(object sender, EventArgs e) //Krzyżyk wyjście z programu
         {
             new ExitWindow().Show();
@@ -193,7 +339,7 @@ namespace Test_działania_aplikacji
             SidePanel.Top = buttonHistory.Top;
 
             this.Hide();
-            var form2 = new HistoriaForm();
+            var form2 = new LackHistoryForm();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }
@@ -201,7 +347,7 @@ namespace Test_działania_aplikacji
         private void ButtonMakeCoat_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var form2 = new MenuGlowne();
+            var form2 = new MainForm();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }
@@ -215,51 +361,55 @@ namespace Test_działania_aplikacji
         private void buttonJig1_Click(object sender, EventArgs e)
         {
             new JigsSelector1().Show();
+            displayJigLabels(null, null);
         }
 
         private void buttonJig2_Click(object sender, EventArgs e)
         {
             new JigsSelector2().Show();
+            displayJigLabels(null, null);
         }
 
         private void buttonJig3_Click(object sender, EventArgs e)
         {
             new JigsSelector3().Show();
+            displayJigLabels(null, null);
         }
 
         private void buttonJig4_Click(object sender, EventArgs e)
         {
             new JigsSelector4().Show();
+            displayJigLabels(null, null);
         }
 
         private void buttonJig5_Click(object sender, EventArgs e)
         {
             new JigsSelector5().Show();
+            displayJigLabels(null, null);
         }
 
         private void buttonJig6_Click(object sender, EventArgs e)
         {
             new JigsSelector6().Show();
+            displayJigLabels(null, null);
         }
 
         private void buttonJig7_Click(object sender, EventArgs e)
         {
             new JigsSelector7().Show();
+            displayJigLabels(null, null);
         }
 
         private void buttonJig8_Click(object sender, EventArgs e)
         {
             new JigsSelector8().Show();
+            displayJigLabels(null, null);
         }
 
         private void buttonJig9_Click(object sender, EventArgs e)
         {
             new JigsSelector9().Show();
-        }
-
-        private void buttonJig10_Click(object sender, EventArgs e)
-        {
-            
+            displayJigLabels(null, null);
         }
     }
 }

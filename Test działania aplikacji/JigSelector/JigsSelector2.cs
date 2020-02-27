@@ -21,6 +21,11 @@ namespace Test_działania_aplikacji
 
         private void closeButton_Click(object sender, EventArgs e)
         {
+            closeThisPopupForm(null,null);
+        }
+
+        private void closeThisPopupForm(object sender, EventArgs e)
+        {
             Close();
         }
 
@@ -65,7 +70,7 @@ namespace Test_działania_aplikacji
                         // Wiadomość o dodaniu nowej linijki bazy danych
                         int rowsAdded = cmd.ExecuteNonQuery();
                         if (rowsAdded > 0)
-                            Close();
+                            closeThisPopupForm(null, null);
                         else
                             MessageBox.Show("Nie dodano Wózka");
                     }
@@ -97,7 +102,7 @@ namespace Test_działania_aplikacji
                         // Wiadomość o dodaniu nowej linijki bazy danych
                         int rowsAdded = cmd.ExecuteNonQuery();
                         if (rowsAdded > 0)
-                            Close();
+                            closeThisPopupForm(null, null);
                         else
                             MessageBox.Show("Nie dodano Wózka");
                     }
@@ -129,7 +134,7 @@ namespace Test_działania_aplikacji
                         // Wiadomość o dodaniu nowej linijki bazy danych
                         int rowsAdded = cmd.ExecuteNonQuery();
                         if (rowsAdded > 0)
-                            Close();
+                            closeThisPopupForm(null, null);
                         else
                             MessageBox.Show("Nie dodano Wózka");
                     }
@@ -161,7 +166,7 @@ namespace Test_działania_aplikacji
                         // Wiadomość o dodaniu nowej linijki bazy danych
                         int rowsAdded = cmd.ExecuteNonQuery();
                         if (rowsAdded > 0)
-                            Close();
+                            closeThisPopupForm(null, null);
                         else
                             MessageBox.Show("Nie dodano Wózka");
                     }
@@ -193,7 +198,7 @@ namespace Test_działania_aplikacji
                         // Wiadomość o dodaniu nowej linijki bazy danych
                         int rowsAdded = cmd.ExecuteNonQuery();
                         if (rowsAdded > 0)
-                            Close();
+                            closeThisPopupForm(null, null);
                         else
                             MessageBox.Show("Nie dodano Wózka");
                     }
@@ -225,7 +230,7 @@ namespace Test_działania_aplikacji
                         // Wiadomość o dodaniu nowej linijki bazy danych
                         int rowsAdded = cmd.ExecuteNonQuery();
                         if (rowsAdded > 0)
-                            Close();
+                            closeThisPopupForm(null, null);
                         else
                             MessageBox.Show("Nie dodano Wózka");
                     }
