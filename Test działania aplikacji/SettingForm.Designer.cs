@@ -47,6 +47,7 @@
             this.labelAdminStatus = new System.Windows.Forms.Label();
             this.labelUserName = new System.Windows.Forms.Label();
             this.JigsTab = new System.Windows.Forms.TabPage();
+            this.buttonCount = new System.Windows.Forms.Button();
             this.labelJig9 = new System.Windows.Forms.Label();
             this.labelJig8 = new System.Windows.Forms.Label();
             this.labelJig7 = new System.Windows.Forms.Label();
@@ -76,16 +77,7 @@
             this.buttonHistory = new System.Windows.Forms.Button();
             this.buttonMakeCoat = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.buttonCount = new System.Windows.Forms.Button();
-            this.labelSipiol = new System.Windows.Forms.Label();
-            this.labelPermutex = new System.Windows.Forms.Label();
-            this.labelResilon = new System.Windows.Forms.Label();
-            this.labelResilonPlus = new System.Windows.Forms.Label();
-            this.labelSipiolWeight = new System.Windows.Forms.Label();
-            this.labelPermutexWeight = new System.Windows.Forms.Label();
-            this.labelResilonWeight = new System.Windows.Forms.Label();
-            this.labelResilonPlusWeight = new System.Windows.Forms.Label();
-            this.labelF33Count = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabSettings.SuspendLayout();
             this.UsersTab.SuspendLayout();
             this.JigsTab.SuspendLayout();
@@ -252,15 +244,7 @@
             // 
             // JigsTab
             // 
-            this.JigsTab.Controls.Add(this.labelF33Count);
-            this.JigsTab.Controls.Add(this.labelResilonPlusWeight);
-            this.JigsTab.Controls.Add(this.labelResilonWeight);
-            this.JigsTab.Controls.Add(this.labelPermutexWeight);
-            this.JigsTab.Controls.Add(this.labelSipiolWeight);
-            this.JigsTab.Controls.Add(this.labelResilonPlus);
-            this.JigsTab.Controls.Add(this.labelResilon);
-            this.JigsTab.Controls.Add(this.labelPermutex);
-            this.JigsTab.Controls.Add(this.labelSipiol);
+            this.JigsTab.Controls.Add(this.button1);
             this.JigsTab.Controls.Add(this.buttonCount);
             this.JigsTab.Controls.Add(this.labelJig9);
             this.JigsTab.Controls.Add(this.labelJig8);
@@ -287,6 +271,16 @@
             this.JigsTab.TabIndex = 2;
             this.JigsTab.Text = "Wózki";
             this.JigsTab.UseVisualStyleBackColor = true;
+            // 
+            // buttonCount
+            // 
+            this.buttonCount.Location = new System.Drawing.Point(17, 147);
+            this.buttonCount.Name = "buttonCount";
+            this.buttonCount.Size = new System.Drawing.Size(106, 36);
+            this.buttonCount.TabIndex = 2;
+            this.buttonCount.Text = "Odśwież";
+            this.buttonCount.UseVisualStyleBackColor = true;
+            this.buttonCount.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // labelJig9
             // 
@@ -606,98 +600,16 @@
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // buttonCount
+            // button1
             // 
-            this.buttonCount.Location = new System.Drawing.Point(288, 146);
-            this.buttonCount.Name = "buttonCount";
-            this.buttonCount.Size = new System.Drawing.Size(106, 36);
-            this.buttonCount.TabIndex = 2;
-            this.buttonCount.Text = "Odśwież i oblicz";
-            this.buttonCount.UseVisualStyleBackColor = true;
-            this.buttonCount.Click += new System.EventHandler(this.buttonRefresh_Click);
+            this.button1.Location = new System.Drawing.Point(145, 147);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 36);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Zapisz jako CSV";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // labelSipiol
-            // 
-            this.labelSipiol.AutoSize = true;
-            this.labelSipiol.Location = new System.Drawing.Point(61, 286);
-            this.labelSipiol.Name = "labelSipiol";
-            this.labelSipiol.Size = new System.Drawing.Size(32, 13);
-            this.labelSipiol.TabIndex = 3;
-            this.labelSipiol.Text = "Sipiol";
-            // 
-            // labelPermutex
-            // 
-            this.labelPermutex.AutoSize = true;
-            this.labelPermutex.Location = new System.Drawing.Point(61, 316);
-            this.labelPermutex.Name = "labelPermutex";
-            this.labelPermutex.Size = new System.Drawing.Size(51, 13);
-            this.labelPermutex.TabIndex = 3;
-            this.labelPermutex.Text = "Permutex";
-            // 
-            // labelResilon
-            // 
-            this.labelResilon.AutoSize = true;
-            this.labelResilon.Location = new System.Drawing.Point(61, 344);
-            this.labelResilon.Name = "labelResilon";
-            this.labelResilon.Size = new System.Drawing.Size(42, 13);
-            this.labelResilon.TabIndex = 3;
-            this.labelResilon.Text = "Resilon";
-            // 
-            // labelResilonPlus
-            // 
-            this.labelResilonPlus.AutoSize = true;
-            this.labelResilonPlus.Location = new System.Drawing.Point(61, 372);
-            this.labelResilonPlus.Name = "labelResilonPlus";
-            this.labelResilonPlus.Size = new System.Drawing.Size(65, 13);
-            this.labelResilonPlus.TabIndex = 3;
-            this.labelResilonPlus.Text = "Resilon Plus";
-            // 
-            // labelSipiolWeight
-            // 
-            this.labelSipiolWeight.AutoSize = true;
-            this.labelSipiolWeight.Location = new System.Drawing.Point(128, 286);
-            this.labelSipiolWeight.Name = "labelSipiolWeight";
-            this.labelSipiolWeight.Size = new System.Drawing.Size(22, 13);
-            this.labelSipiolWeight.TabIndex = 4;
-            this.labelSipiolWeight.Text = "0 g";
-            // 
-            // labelPermutexWeight
-            // 
-            this.labelPermutexWeight.AutoSize = true;
-            this.labelPermutexWeight.Location = new System.Drawing.Point(128, 316);
-            this.labelPermutexWeight.Name = "labelPermutexWeight";
-            this.labelPermutexWeight.Size = new System.Drawing.Size(22, 13);
-            this.labelPermutexWeight.TabIndex = 4;
-            this.labelPermutexWeight.Text = "0 g";
-            // 
-            // labelResilonWeight
-            // 
-            this.labelResilonWeight.AutoSize = true;
-            this.labelResilonWeight.Location = new System.Drawing.Point(128, 344);
-            this.labelResilonWeight.Name = "labelResilonWeight";
-            this.labelResilonWeight.Size = new System.Drawing.Size(22, 13);
-            this.labelResilonWeight.TabIndex = 4;
-            this.labelResilonWeight.Text = "0 g";
-            // 
-            // labelResilonPlusWeight
-            // 
-            this.labelResilonPlusWeight.AutoSize = true;
-            this.labelResilonPlusWeight.Location = new System.Drawing.Point(128, 372);
-            this.labelResilonPlusWeight.Name = "labelResilonPlusWeight";
-            this.labelResilonPlusWeight.Size = new System.Drawing.Size(22, 13);
-            this.labelResilonPlusWeight.TabIndex = 4;
-            this.labelResilonPlusWeight.Text = "0 g";
-            // 
-            // labelF33Count
-            // 
-            this.labelF33Count.AutoSize = true;
-            this.labelF33Count.Location = new System.Drawing.Point(461, 344);
-            this.labelF33Count.Name = "labelF33Count";
-            this.labelF33Count.Size = new System.Drawing.Size(35, 13);
-            this.labelF33Count.TabIndex = 5;
-            this.labelF33Count.Text = "label1";
-            // 
-            // UstawieniaForm
+            // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -707,7 +619,7 @@
             this.Controls.Add(this.toppanel2);
             this.Controls.Add(this.tabSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "UstawieniaForm";
+            this.Name = "SettingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UstawieniaForm";
             this.Load += new System.EventHandler(this.UstawieniaForm_Load);
@@ -772,14 +684,6 @@
         private System.Windows.Forms.Label labelJig2;
         private System.Windows.Forms.Label labelJig1;
         private System.Windows.Forms.Button buttonCount;
-        private System.Windows.Forms.Label labelResilonPlus;
-        private System.Windows.Forms.Label labelResilon;
-        private System.Windows.Forms.Label labelPermutex;
-        private System.Windows.Forms.Label labelSipiol;
-        private System.Windows.Forms.Label labelResilonPlusWeight;
-        private System.Windows.Forms.Label labelResilonWeight;
-        private System.Windows.Forms.Label labelPermutexWeight;
-        private System.Windows.Forms.Label labelSipiolWeight;
-        private System.Windows.Forms.Label labelF33Count;
+        private System.Windows.Forms.Button button1;
     }
 }

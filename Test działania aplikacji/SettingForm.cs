@@ -302,20 +302,7 @@ namespace Test_działania_aplikacji
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
-
-            string jigName;
-
-            connection.Open();
-            {
-                SqlCommand cmdLabel1 = new SqlCommand("SELECT JIGNAME, COUNT(1) AS ETC FROM JIGLIST Group BY JIGNAME Where JIGNAME = 'Targa'", connection);
-
-                //SqlDataReader read = cmdLabel1.ExecuteReader();
-
-                Int32 count = (Int32) cmdLabel1.ExecuteScalar();
-                labelF33Count.Text = count.ToString();
-            }
-
+            displayJigLabels(null, null);
         }
 
         private void closeButton_Click(object sender, EventArgs e) //Krzyżyk wyjście z programu
