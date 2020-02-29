@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{42BA3895-87CB-4351-AB39-322A4EF53476}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Test_działania_aplikacji</RootNamespace>
-    <AssemblyName>Test działania aplikacji</AssemblyName>
+    <RootNamespace>Paint_shop_app</RootNamespace>
+    <AssemblyName>Paint shop app</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
