@@ -147,9 +147,6 @@ namespace Test_działania_aplikacji
 
         private void buttonSettings_Click(object sender, EventArgs e) //Otwarcie nowego okna Ustawienia
         {
-            SidePanel.Height = buttonSettings.Height;
-            SidePanel.Top = buttonSettings.Top;
-
             this.Hide();
             var form2 = new SettingForm();
             form2.Closed += (s, args) => this.Close();
