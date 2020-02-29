@@ -21,8 +21,8 @@ namespace Test_działania_aplikacji
 
         public void PopulateListView(object sender, EventArgs e)
         {
-            listViewHistoriy.GridLines = true;
-            listViewHistoriy.View = View.Details;
+            listViewHistory.GridLines = true;
+            listViewHistory.View = View.Details;
 
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
@@ -38,16 +38,16 @@ namespace Test_działania_aplikacji
                 listitem.SubItems.Add(dr["USER"].ToString());
                 listitem.SubItems.Add(dr["RODZAJLAKU"].ToString());
                 listitem.SubItems.Add(dr["DATA"].ToString());
-                listViewHistoriy.Items.Add(listitem);
+                listViewHistory.Items.Add(listitem);
             }
         }
 
         private void DeleteRowDataBase(object sender, EventArgs e) //USUWANIE ZAZNACZONYCH DANYCH
         {
-            if (listViewHistoriy.SelectedItems.Count > 0) //Zabezpieczenie przed brakiem wyboru wiersza z ListView
+            if (listViewHistory.SelectedItems.Count > 0) //Zabezpieczenie przed brakiem wyboru wiersza z ListView
             {
-                string dataTabela = listViewHistoriy.SelectedItems[0].SubItems[4].Text;
-                string godzinaTabela = listViewHistoriy.SelectedItems[0].SubItems[1].Text;
+                string dataTabela = listViewHistory.SelectedItems[0].SubItems[4].Text;
+                string godzinaTabela = listViewHistory.SelectedItems[0].SubItems[1].Text;
 
                 SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
@@ -159,8 +159,8 @@ namespace Test_działania_aplikacji
         private void HistoriaForm_Load(object sender, EventArgs e)
         {
             PopulateListView (null, null);
-            listViewHistoriy.View = View.Details;
-            listViewHistoriy.FullRowSelect = true;
+            listViewHistory.View = View.Details;
+            listViewHistory.FullRowSelect = true;
 
             //URUCHOMIENIE TIMERA DLA AKTUALNEJ GODZINY
             timer.Start();
@@ -184,22 +184,58 @@ namespace Test_działania_aplikacji
         private void buttonDeleteHistory_Click(object sender, EventArgs e)
         {
             DeleteRowDataBase(null, null);
-            listViewHistoriy.Items.Clear();
-            listViewHistoriy.Refresh();
+            listViewHistory.Items.Clear();
+            listViewHistory.Refresh();
             PopulateListView(null, null);
         }
 
         private void buttonUsun7Dni_Click(object sender, EventArgs e)
         {
             usuwanie7DniTabela(null, null);
-            listViewHistoriy.Items.Clear();
-            listViewHistoriy.Refresh();
+            listViewHistory.Items.Clear();
+            listViewHistory.Refresh();
             PopulateListView(null, null);
         }
 
         private void buttonZapiszCSV_Click(object sender, EventArgs e) //Zaisz jako CSV
         {
+            DateTime currentDate = DateTime.Now;
+            string justDate = currentDate.ToShortDateString();
 
+            //Zadeklarowanie nowego pliku
+            SaveFileDialog sfd = new SaveFileDialog
+            {
+                Title = "Wybierz miejsce zapisania pliku",
+                FileName = "historia_lakiernia_" + justDate + ".csv",
+                Filter = "CSV (*.csv)|*.csv",
+                FilterIndex = 0,
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            };
+
+            //show the dialog + display the results in a msgbox unless cancelled
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+
+                string[] headers = listViewHistory.Columns
+                           .OfType<ColumnHeader>()
+                           .Select(header => header.Text.Trim())
+                           .ToArray();
+
+                string[][] items = listViewHistory.Items
+                            .OfType<ListViewItem>()
+                            .Select(lvi => lvi.SubItems
+                                .OfType<ListViewItem.ListViewSubItem>()
+                                .Select(si => si.Text).ToArray()).ToArray();
+
+                string table = string.Join(",", headers) + Environment.NewLine;
+                foreach (string[] a in items)
+                {
+                    table += string.Join(",", a) + Environment.NewLine;
+                }
+                table = table.TrimEnd('\r', '\n');
+                System.IO.File.WriteAllText(sfd.FileName, table);
+            }
         }
     }
 }
