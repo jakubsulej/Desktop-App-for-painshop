@@ -1,4 +1,4 @@
-﻿namespace Test_działania_aplikacji
+﻿namespace PaintshopAppUI
 {
     partial class CancelRobienieLaku
     {

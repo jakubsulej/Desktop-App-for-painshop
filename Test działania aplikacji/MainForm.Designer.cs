@@ -1,4 +1,4 @@
-﻿namespace Test_działania_aplikacji
+﻿namespace PaintshopAppUI
 {
     partial class MainForm
     {
@@ -51,10 +51,10 @@
             this.buttonSipiolQuantity = new System.Windows.Forms.Button();
             this.buttonPermutexQuantity = new System.Windows.Forms.Button();
             this.buttonResilonQuantity = new System.Windows.Forms.Button();
-            this.SipiolCount = new Test_działania_aplikacji.SipiolCount();
-            this.permutexCount1 = new Test_działania_aplikacji.PermutexCount();
-            this.resilonPlus1 = new Test_działania_aplikacji.ResilonPlusCount();
-            this.resilonCount1 = new Test_działania_aplikacji.ResilonCount();
+            this.SipiolCount = new PaintshopAppUI.SipiolCount();
+            this.permutexCount1 = new PaintshopAppUI.PermutexCount();
+            this.resilonPlus1 = new PaintshopAppUI.ResilonPlusCount();
+            this.resilonCount1 = new PaintshopAppUI.ResilonCount();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.toppanel2.SuspendLayout();

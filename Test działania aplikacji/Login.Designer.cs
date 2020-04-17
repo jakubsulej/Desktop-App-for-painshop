@@ -1,4 +1,4 @@
-﻿namespace Test_działania_aplikacji
+﻿namespace PaintshopAppUI
 {
     partial class LoginForm
     {
@@ -39,6 +39,7 @@
             this.minimalizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.labelHiddenUser = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelLoginTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -146,12 +147,23 @@
             this.labelHiddenUser.Size = new System.Drawing.Size(0, 13);
             this.labelHiddenUser.TabIndex = 7;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(392, 167);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 389);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelHiddenUser);
             this.Controls.Add(this.panelLoginTop);
             this.Controls.Add(this.buttonCancel);
@@ -184,5 +196,6 @@
         private System.Windows.Forms.Button minimalizeButton;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Label labelHiddenUser;
+        private System.Windows.Forms.Button button1;
     }
 }

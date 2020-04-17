@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Test_działania_aplikacji
+namespace PaintshopAppUI
 {
     public partial class CancelRobienieLaku : Form
     {

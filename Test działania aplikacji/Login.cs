@@ -8,8 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Paint_shop_app;
+using Dapper;
+using DataAccessLibrary.Models;
+using static DataAccessLibrary.Tools;
 
-namespace Test_działania_aplikacji
+namespace PaintshopAppUI
 {
     public partial class LoginForm : Form
     {
@@ -20,22 +24,6 @@ namespace Test_działania_aplikacji
         }
 
         private int isOldUserInDatabase;
-
-        //---------------Sterowanie oknem-------------------
-        private void buttonLoginCancel_Click(object sender, EventArgs e) //Zamknięcie okna
-        {
-            Close();
-        }
-
-        private void minimalizeButton_Click(object sender, EventArgs e) //Minimalizacja okna
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void closeButton_Click(object sender, EventArgs e) //Zamknięcie okna
-        {
-            Close();
-        }
 
         private void checkCurrentUser(object sender, EventArgs e) //Aktualny user w tabeli do String
         {
@@ -66,12 +54,12 @@ namespace Test_działania_aplikacji
             }
         }
 
-        private void logowanieDoSystemu(object sender, EventArgs e) //Metoda logowania usera do systemu
+        private void loginToSystem(object sender, EventArgs e) //Metoda logowania usera do systemu
         {
-            SqlConnection polaczenie = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
 
             String query = "Select Role from Login Where Uzytkownik = '" + textBoxUserName.Text.Trim() + "' and Haslo = '" + textBoxUserPassword.Text.Trim() + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(query, polaczenie);
+            SqlDataAdapter sda = new SqlDataAdapter(query, connection);
             DataTable tabelaDanych = new DataTable();
             sda.Fill(tabelaDanych);
 
@@ -88,12 +76,12 @@ namespace Test_działania_aplikacji
                 {
                     try
                     {
-                        using (SqlCommand cmd = new SqlCommand(sql, polaczenie))
+                        using (SqlCommand cmd = new SqlCommand(sql, connection))
                         {
                             cmd.Parameters.AddWithValue("@Uzytkownik", textBoxUserName.Text);
                             cmd.Parameters.AddWithValue("@Admin", zalogowanyUzytkownik);
 
-                            polaczenie.Open();
+                            connection.Open();
                             cmd.ExecuteNonQuery();
                         }
                     }
@@ -136,12 +124,12 @@ namespace Test_działania_aplikacji
 
             if (isOldUserInDatabase == 0) //Sprawdzanie czy tabela Zalogowanyuzytkownik jest pusta
             {
-                logowanieDoSystemu(null, null);
+                loginToSystem(null, null);
             }
             else
             {
                 deleteOldUserDataBase(null, null);
-                logowanieDoSystemu(null, null);
+                loginToSystem(null, null);
             }
         }
 
@@ -157,6 +145,41 @@ namespace Test_działania_aplikacji
         {
             checkCurrentUser(null, null);
             labelHiddenUser.Text = isOldUserInDatabase.ToString();
+        }        
+        
+        //---------------Sterowanie oknem-------------------
+        private void buttonLoginCancel_Click(object sender, EventArgs e) //Zamknięcie okna
+        {
+            Close();
+        }
+
+        private void minimalizeButton_Click(object sender, EventArgs e) //Minimalizacja okna
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void closeButton_Click(object sender, EventArgs e) //Zamknięcie okna
+        {
+            Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string userName = textBoxUserName.Text;
+
+            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            {
+                string sql = "select User from dbo.Person";
+
+                var people = cnn.Query<PersonModel>(sql);
+
+                
+
+                foreach (var person in people)
+                {
+                    Console.WriteLine($"{ person.User }");
+                }
+            }
         }
     }
 }

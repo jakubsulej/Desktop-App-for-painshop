@@ -13,7 +13,7 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 
 
-namespace Test_działania_aplikacji
+namespace PaintshopAppUI
 {
     public partial class SipiolCount : UserControl
     {

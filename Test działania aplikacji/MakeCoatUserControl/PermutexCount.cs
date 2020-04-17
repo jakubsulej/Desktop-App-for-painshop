@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
-namespace Test_działania_aplikacji
+namespace PaintshopAppUI
 {
     public partial class PermutexCount : UserControl
     {
@@ -21,7 +21,7 @@ namespace Test_działania_aplikacji
 
         private int hours, minutes, seconds;
 
-        string coatPermutexFinnishTime;
+        string coatPermutexFinishTime;
         string coatPermutexQuantity;
         string currentlyLoggedUser;
 
@@ -63,9 +63,9 @@ namespace Test_działania_aplikacji
             decimal iloscLaku = numberGPermutex.Value;
             labelBasicCoatQuantity.Text = iloscLaku.ToString(); //WARTOSC DLA WLEWANEGO LAKU
 
-            double konwersjaIloscLaku = (double)iloscLaku;
+            double convertCoatQuantity = (double)iloscLaku;
 
-            double obliczanie = (konwersjaIloscLaku * 0.03) + 12;
+            double obliczanie = (convertCoatQuantity * 0.03) + 12;
 
             labelQuantityOfThickener.Text = obliczanie.ToString(); //WARTOSC WYJSCIOWA DLA WLEWANEGO SKLADNIKA
 
@@ -109,7 +109,7 @@ namespace Test_działania_aplikacji
                     using (SqlCommand cmd = new SqlCommand(sqlCoatHistory, connection))
                     {
                         cmd.Parameters.AddWithValue("@Ilosclaku", coatPermutexQuantity);
-                        cmd.Parameters.AddWithValue("@Godzina", coatPermutexFinnishTime);
+                        cmd.Parameters.AddWithValue("@Godzina", coatPermutexFinishTime);
                         cmd.Parameters.AddWithValue("@User", currentlyLoggedUser);
                         cmd.Parameters.AddWithValue("@Rodzajlaku", coatName);
                         cmd.Parameters.AddWithValue("@Data", justDate);
@@ -224,7 +224,7 @@ namespace Test_działania_aplikacji
         {
             if (checkBox5Permutex.Checked)
             {
-                MessageBox.Show(coatPermutexQuantity + "g zostało wykonane o godzinie: " + coatPermutexFinnishTime); //Popup informacyjny o ilości oraz godzinie wykonania lakieru
+                MessageBox.Show(coatPermutexQuantity + "g zostało wykonane o godzinie: " + coatPermutexFinishTime); //Popup informacyjny o ilości oraz godzinie wykonania lakieru
                 label8.ForeColor = Color.FromArgb(167, 167, 167);
 
                 checkBox1Permutex.Enabled = false;
@@ -250,7 +250,7 @@ namespace Test_działania_aplikacji
         private void timerCoatFinishTime_Tick(object sender, EventArgs e)
         {
             timerCoatFinishTime.Start();
-            coatPermutexFinnishTime = DateTime.Now.ToLongTimeString();
+            coatPermutexFinishTime = DateTime.Now.ToLongTimeString();
         }
 
         private void PermutexCount_Load(object sender, EventArgs e)
@@ -272,7 +272,7 @@ namespace Test_działania_aplikacji
             comboBoxUnitsPermutex.SelectedIndex = 0; //Definiowanie wybranej domyślnej jednostki
             numberKg.Show();
 
-            coatPermutexFinnishTime = DateTime.Now.ToLongTimeString(); //Pobieranie aktualnej godziny
+            coatPermutexFinishTime = DateTime.Now.ToLongTimeString(); //Pobieranie aktualnej godziny
             timerCoatFinishTime.Start(); //Start odliczania godzinowego
         }
 

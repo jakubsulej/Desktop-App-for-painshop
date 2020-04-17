@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
-namespace Test_działania_aplikacji
+namespace PaintshopAppUI
 {
     public partial class JigsSelector8 : Form
     {
