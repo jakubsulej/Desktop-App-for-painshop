@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using Paint_shop_app;
 using Dapper;
 using DataAccessLibrary.Models;
+using DataAccessLibrary.DataAccess;
 using static DataAccessLibrary.Tools;
 
 namespace PaintshopAppUI
@@ -143,8 +144,18 @@ namespace PaintshopAppUI
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            checkCurrentUser(null, null);
-            labelHiddenUser.Text = isOldUserInDatabase.ToString();
+            DataAccess db = new DataAccess();
+
+            db.CheckCurrentUser();
+
+            if (DataAccess.isCurrentUserLogged == true)
+            {
+                db.DeleteOldUser();
+            }
+            else
+            {
+                labelHiddenUser.Text = "0";
+            }
         }        
         
         //---------------Sterowanie oknem-------------------
@@ -165,22 +176,21 @@ namespace PaintshopAppUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string userName = textBoxUserName.Text;
+            DataAccess db = new DataAccess();
 
-            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            db.GetLogin(textBoxUserName.Text.Trim(),textBoxUserPassword.Text.Trim());
+
+            if (DataAccess.loginOutput == true)
             {
-                string sql = "select User from dbo.Person";
-
-                var people = cnn.Query<PersonModel>(sql);
-
-                
-
-                foreach (var person in people)
-                {
-                    Console.WriteLine($"{ person.User }");
-                }
+                MessageBox.Show("Hura");
+                db.SaveCurrentUser();
+            }
+            else
+            {
+                MessageBox.Show("Chuj");
             }
         }
     }
+
 }
 

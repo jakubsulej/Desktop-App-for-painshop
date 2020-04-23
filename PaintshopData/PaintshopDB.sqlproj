@@ -68,9 +68,13 @@
     <Build Include="dbo\Tables\HISTORY.sql" />
     <Build Include="dbo\Tables\JIGS.sql" />
     <Build Include="dbo\Tables\LOGGEDUSERS.sql" />
+    <Build Include="dbo\Stored Procedures\GetLogin.sql" />
     <Build Include="dbo\Tables\PEOPLE.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="PaintshopDB.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PublishProfiles\PaintshopDB.publish.xml" />
   </ItemGroup>
 </Project>
