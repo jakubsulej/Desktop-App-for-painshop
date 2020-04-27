@@ -12,7 +12,7 @@ using Dapper;
 
 namespace DataAccessLibrary.DataAccess
 {
-    public class DataAccess
+    public class LoginDataAccess
     {
         public static bool loginOutput = false;
         public static bool isCurrentUserLogged;

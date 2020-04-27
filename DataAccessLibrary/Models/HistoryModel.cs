@@ -12,6 +12,6 @@ namespace DataAccessLibrary.Models
         public DateTime CoatTime { get; set; }
         public string User { get; set; }
         public string CoatType { get; set; }
-        public DateTime CoatDate { get; set; }
+        public string CoatDate { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Data.SqlClient;
+using DataAccessLibrary.DataAccess;
 
 namespace PaintshopAppUI
 {
@@ -19,31 +20,33 @@ namespace PaintshopAppUI
             InitializeComponent();
         }
 
-        string adminString;
-
         int mov;
         int movX;
         int movY;
 
-        public void checkCurrentUserAdminStatusHistoryForm(object sender, EventArgs e) //Metoda Odczyt aktualnie zalogowanego użytkownika dla przycisku Historia
+        public bool userAdminAccessPersmission;
+
+        public void CheckCurrentUserPermission()
         {
+            CurrentUserDataAccess db = new CurrentUserDataAccess();
 
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            db.GetLoggedUser();
 
+            if (CurrentUserDataAccess.loggedUserRole.Trim() == "admin")
             {
-                SqlCommand cmd = new SqlCommand("select * from ZALOGOWANYUZYTKOWNIK", connection);
-                connection.Open();
-
-                SqlDataReader read = cmd.ExecuteReader();
-
-                while (read.Read())
-                {
-                    adminString = (read["ADMIN"].ToString().Trim());
-                }
-                read.Close();
+                userAdminAccessPersmission = true;
             }
+            else
+            {
+                userAdminAccessPersmission = false;
+            }
+        }
 
-            if (adminString == "admin")
+        private void ButtonHistoria_Click(object sender, EventArgs e)
+        {
+            CheckCurrentUserPermission();
+
+            if(userAdminAccessPersmission == true)
             {
                 this.Hide();
                 var form2 = new LackHistoryForm();
@@ -52,28 +55,15 @@ namespace PaintshopAppUI
             }
             else
             {
-                MessageBox.Show("Brak dostępu! Wymaga uprawnień administratora.");
+                MessageBox.Show("You dont have admin permission");
             }
         }
 
-        public void checkCurrentUserAdminStatusSettingsForm(object sender, EventArgs e) //Metoda Odczyt aktualnie zalogowanego użytkownika dla przycisku Ustawienia
+        private void ButtonUstawienia_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
-            
-            {
-                SqlCommand cmd = new SqlCommand("select * from ZALOGOWANYUZYTKOWNIK", connection);
-                connection.Open();
+            CheckCurrentUserPermission();
 
-                SqlDataReader read = cmd.ExecuteReader();
-
-                while (read.Read())
-                {
-                    adminString = (read["UZYTKOWNIK"].ToString().Trim());
-                }
-                read.Close();
-            }
-
-            if (adminString == "admin")
+            if (userAdminAccessPersmission == true)
             {
                 this.Hide();
                 var form2 = new SettingForm();
@@ -82,18 +72,8 @@ namespace PaintshopAppUI
             }
             else
             {
-                MessageBox.Show("Brak dostępu! Wymaga uprawnień administratora.");
+                MessageBox.Show("You dont have admin permission");
             }
-        }
-        
-        private void ButtonHistoria_Click(object sender, EventArgs e)
-        {
-            checkCurrentUserAdminStatusHistoryForm(null, null); //Otwarcie okna jeśli USER jest adminem
-        }
-
-        private void ButtonUstawienia_Click(object sender, EventArgs e)
-        {
-            checkCurrentUserAdminStatusSettingsForm(null, null); //Otwarcie okna jeśli USER jest adminem
         }
 
         private void MenuGlowne_Load(object sender, EventArgs e) //AKTUALNY CZAS
@@ -235,6 +215,11 @@ namespace PaintshopAppUI
             panel3.BackColor = Color.FromArgb(255, 255, 255);
             panel5.BackColor = Color.FromArgb(255, 255, 255);
             panel6.BackColor = Color.FromArgb(255, 255, 255);
+        }
+
+        private void buttonTest_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

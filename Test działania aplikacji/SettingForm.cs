@@ -9,83 +9,58 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using DataAccessLibrary.DataAccess;
+using DataAccessLibrary.Models;
 
 namespace PaintshopAppUI
 {
     public partial class SettingForm : Form
     {
+        List<PersonModel> people = new List<PersonModel>();
 
         public SettingForm()
         {
             InitializeComponent();
         }
 
-        private void buttonDodajUzytkownika_Click(object sender, EventArgs e) //Dodawanie nowego użytkownika
+        public void AddPerson()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            PeopleDataAccess db = new PeopleDataAccess();
 
-            string sql = "insert into Login ([UZYTKOWNIK], [HASLO], [ROLE]) values(@Uzytkownik,@Haslo,@Role)";
+            db.AddPerson(textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserAdminStatus.SelectedItem.ToString());
 
+            if(PeopleDataAccess.errorMessage == true)
             {
-                try
-                {
-                    connection.Open();
-
-                    using (SqlCommand cmd = new SqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@Uzytkownik", textBoxUserName.Text);
-                        cmd.Parameters.AddWithValue("@Haslo", textBoxUserPassword.Text);
-                        cmd.Parameters.AddWithValue("@Role", comboBoxUserAdminStatus.SelectedItem.ToString());
-
-                        // Wiadomość o dodaniu nowej linijki bazy danych
-                        int rowsAdded = cmd.ExecuteNonQuery();
-                        if (rowsAdded > 0)
-                            MessageBox.Show("Dodano Użytkownika");
-                        else
-                            MessageBox.Show("Nie dodano Użytkownika");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // Wyświetlanie błędów
-                    MessageBox.Show("BŁĄD:" + ex.Message);
-                }
+                MessageBox.Show("User name: " + textBoxUserName.Text + " already exist. Please declare another user name.");
             }
+            else
+            {
+                MessageBox.Show("User had been sucesfull added.");
+            }
+        }
+
+        private void buttonAddPerson_Click(object sender, EventArgs e)
+        {
+            AddPerson();
+
+            listViewUsers.Items.Clear();
+            listViewUsers.Refresh();
+
+            PopulateListView(null, null);
+        }
+
+        private void buttonUpdatePerson_Click(object sender, EventArgs e)
+        {
+            PeopleDataAccess db = new PeopleDataAccess();
+
+            db.UpdatePerson(textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserAdminStatus.SelectedItem.ToString());
+
             listViewUsers.Items.Clear();
             listViewUsers.Refresh();
             PopulateListView(null, null);
         }
 
-        private void buttonUpdateUsers_Click(object sender, EventArgs e) //Aktualizacja danych o użytkowniku w TextBox
-        {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
-
-            string sql = "Update Login set Haslo=@Haslo, Role=@Role Where Uzytkownik=@Uzytkownik";
-
-            {
-                try
-                {
-                    using (SqlCommand cmd = new SqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@Uzytkownik", textBoxUserName.Text);
-                        cmd.Parameters.AddWithValue("@Haslo", textBoxUserPassword.Text);
-                        cmd.Parameters.AddWithValue("@Role", comboBoxUserAdminStatus.SelectedItem.ToString());
-                        
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("BŁĄD:" + ex.Message);
-                }
-            }
-            listViewUsers.Items.Clear();
-            listViewUsers.Refresh();
-            PopulateListView(null, null);
-        }
-
-        private void UstawieniaForm_Load(object sender, EventArgs e) //Ładowanie ListView wartościami bazy danych podczas ładowania okna
+        private void UstawieniaForm_Load(object sender, EventArgs e)
         {
             PopulateListView(null, null);
             listViewUsers.View = View.Details;
@@ -99,33 +74,32 @@ namespace PaintshopAppUI
             displayJigLabels(null, null);
         }
 
-        private void buttonForceUpdateListView_Click(object sender, EventArgs e) //Przycisk wymuszenie aktualizacji ListView
+        private void buttonForceUpdateListView_Click(object sender, EventArgs e)
         {
             listViewUsers.Items.Clear();
             listViewUsers.Refresh();
             PopulateListView(null, null);
-        }
-        public void PopulateListView(object sender, EventArgs e) //Metoda zapełniania ListView wartościami z bazy danych LOGIN
+        } 
+
+        public void PopulateListView(object sender, EventArgs e)
         {
             listViewUsers.GridLines = true;
-            listViewUsers.View = View.Details;
+            listViewUsers.View = View.Details; 
 
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
-            SqlDataAdapter sda = new SqlDataAdapter("select * from Login", connection);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
+            PeopleDataAccess db = new PeopleDataAccess();
 
-            for (int i = 0; i < dt.Rows.Count; i++)
+            people = db.GetPeople();
+
+            foreach(PersonModel person in people)
             {
-                DataRow dr = dt.Rows[i];
-                ListViewItem listitem = new ListViewItem(dr["UZYTKOWNIK"].ToString());
-                listitem.SubItems.Add(dr["HASLO"].ToString());
-                listitem.SubItems.Add(dr["ROLE"].ToString());
-                listViewUsers.Items.Add(listitem);
+                ListViewItem item = new ListViewItem(person.UserName);
+                item.SubItems.Add(person.Password);
+                item.SubItems.Add(person.Role);
+                listViewUsers.Items.Add(item);
             }
         }
 
-        private void listViewUsers_MouseClick(object sender, MouseEventArgs e) //Wybór użytkownika i string do textBox z bazy w ListView
+        private void listViewUsers_MouseClick(object sender, MouseEventArgs e)
         {
             String user = listViewUsers.SelectedItems[0].SubItems[0].Text;
             String password = listViewUsers.SelectedItems[0].SubItems[1].Text;
@@ -148,28 +122,12 @@ namespace PaintshopAppUI
             }
         }
 
-        private void buttonDeleteUser_Click(object sender, EventArgs e) //Usuwanie użytkownika.
+        private void buttonDeleteUser_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            PeopleDataAccess db = new PeopleDataAccess();
 
-            string sql = "Delete from Login Where Uzytkownik=@Uzytkownik";
+            db.DeletePerson(textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserAdminStatus.SelectedItem.ToString());
 
-            {
-                try
-                {
-                    using (SqlCommand cmd = new SqlCommand(sql, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@Uzytkownik", textBoxUserName.Text);
-
-                        connection.Open();
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("BŁĄD:" + ex.Message);
-                }
-            }
             listViewUsers.Items.Clear();
             listViewUsers.Refresh();
             PopulateListView(null, null);

@@ -11,7 +11,7 @@ using System.Threading;
 using System.Diagnostics;
 using System.Data.Sql;
 using System.Data.SqlClient;
-
+using DataAccessLibrary.DataAccess;
 
 namespace PaintshopAppUI
 {
@@ -25,9 +25,9 @@ namespace PaintshopAppUI
 
         private int hours, minutes, seconds;
 
-        string coatFinnishTime;
+        string coatFinishTime;
         string coatQuantity;
-        string currentlyLoggedUser;
+        public string coatType = "Sipiol";
 
         private void comboBoxUnits_SelectedIndexChanged(object sender, EventArgs e) //Wybór jednostki wagi
         {
@@ -70,58 +70,13 @@ namespace PaintshopAppUI
             coatQuantity = labelBasicCoatQuantity.Text;
         }
 
-        public void zapisInformacjiWBazieDanych(object sender, EventArgs e) //Metoda zapisu informacji o lakierze w bazie danych
+        public void saveCoatDataInDataBase(object sender, EventArgs e) //Metoda zapisu informacji o lakierze w bazie danych
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            HistoryDataAccess db = new HistoryDataAccess();
 
-            //ODCZYT AKTUALNIE ZALOGOWANEGO UŻYTKOWNIKA
+            db.GetLoggedUser();
 
-            SqlCommand command = new SqlCommand("Select * From ZALOGOWANYUZYTKOWNIK", connection);
-
-            connection.Open();
-
-            SqlDataReader read = command.ExecuteReader();
-
-            while (read.Read())
-            {
-                currentlyLoggedUser = (read["UZYTKOWNIK"].ToString().Trim());
-            }
-
-            read.Close();
-
-            connection.Close();
-
-            //ZAPIS W BAZIE DANYCH HISTORIAROBIENIA LAKU WSZYSTKICH INFORMACJI
-
-            string sqlCoatHistory = "Insert into Historiarobienialaku ([ILOSCLAKU], [GODZINA], [USER], [RODZAJLAKU], [DATA]) values(@Ilosclaku, @Godzina, @User, @Rodzajlaku, @Data)";
-
-            string coatName = "Sipiol";
-            DateTime currentDate = DateTime.Now;
-            string tylkoData = currentDate.ToShortDateString();
-
-            {
-                try
-                {
-                    connection.Open();
-
-                    using (SqlCommand cmd = new SqlCommand(sqlCoatHistory, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@Ilosclaku", coatQuantity);
-                        cmd.Parameters.AddWithValue("@Godzina", coatFinnishTime);
-                        cmd.Parameters.AddWithValue("@User", currentlyLoggedUser);
-                        cmd.Parameters.AddWithValue("@Rodzajlaku", coatName);
-                        cmd.Parameters.AddWithValue("@Data", tylkoData);
-
-                        int rowsAdded = cmd.ExecuteNonQuery();
-                    }
-                    
-                    connection.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("BŁĄD:" + ex.Message);
-                }
-            }
+            db.AddCoatData(coatQuantity, coatFinishTime, coatType);
         }
 
         private void checkBox1_CheckStateChanged(object sender, EventArgs e) //Pierwszy CheckBox do zaznaczania gotowych zadań
@@ -200,7 +155,7 @@ namespace PaintshopAppUI
         {
             if (checkBox4.Checked)
             {
-                MessageBox.Show(coatQuantity + "g zostało wykonane o godzinie: " + coatFinnishTime); //Popup informacyjny o ilości oraz godzinie wykonania lakieru
+                MessageBox.Show(coatQuantity + "g zostało wykonane o godzinie: " + coatFinishTime); //Popup informacyjny o ilości oraz godzinie wykonania lakieru
                 label8.ForeColor = Color.FromArgb(167, 167, 167);
 
                 checkBox1.Enabled = false;
@@ -208,7 +163,7 @@ namespace PaintshopAppUI
                 checkBox3.Enabled = false;
                 checkBox4.Enabled = false;
 
-                zapisInformacjiWBazieDanych(null, null);
+                saveCoatDataInDataBase(null, null);
                 //Zamknięcie obecnego okna i powrót do Menu Głównego
                 this.Hide();
                 var form2 = new MainForm();
@@ -225,7 +180,7 @@ namespace PaintshopAppUI
         private void timerGodzinaLaku_Tick(object sender, EventArgs e) //Timer aktualnej godziny
         {
             timerCoatFinishTime.Start();
-            coatFinnishTime = DateTime.Now.ToLongTimeString();
+            coatFinishTime = DateTime.Now.ToLongTimeString();
         }
 
         private void timerLaku_Tick(object sender, EventArgs e) //Odliczanie w dół timera
@@ -281,7 +236,7 @@ namespace PaintshopAppUI
             comboBoxUnits.SelectedIndex = 0; //Definiowanie wybranej domyślnej jednostki
             numberKg.Show();
 
-            coatFinnishTime =  DateTime.Now.ToLongTimeString(); //Pobieranie aktualnej godziny
+            coatFinishTime =  DateTime.Now.ToLongTimeString(); //Pobieranie aktualnej godziny
             timerCoatFinishTime.Start(); //Start odliczania godzinowego
         }
     }

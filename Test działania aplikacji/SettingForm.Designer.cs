@@ -178,7 +178,7 @@
             this.buttonUpdateUserData.TabIndex = 14;
             this.buttonUpdateUserData.Text = "Zaktualizuj dane";
             this.buttonUpdateUserData.UseVisualStyleBackColor = true;
-            this.buttonUpdateUserData.Click += new System.EventHandler(this.buttonUpdateUsers_Click);
+            this.buttonUpdateUserData.Click += new System.EventHandler(this.buttonUpdatePerson_Click);
             // 
             // buttonAddNewUser
             // 
@@ -188,7 +188,7 @@
             this.buttonAddNewUser.TabIndex = 13;
             this.buttonAddNewUser.Text = "Dodaj użytkownika";
             this.buttonAddNewUser.UseVisualStyleBackColor = true;
-            this.buttonAddNewUser.Click += new System.EventHandler(this.buttonDodajUzytkownika_Click);
+            this.buttonAddNewUser.Click += new System.EventHandler(this.buttonAddPerson_Click);
             // 
             // comboBoxUserAdminStatus
             // 
