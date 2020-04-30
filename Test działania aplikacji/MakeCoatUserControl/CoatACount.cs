@@ -15,10 +15,10 @@ using DataAccessLibrary.DataAccess;
 
 namespace PaintshopAppUI
 {
-    public partial class SipiolCount : UserControl
+    public partial class CoatACount : UserControl
     {
 
-        public SipiolCount()
+        public CoatACount()
         {
             InitializeComponent();
         }
@@ -27,7 +27,7 @@ namespace PaintshopAppUI
 
         string coatFinishTime;
         string coatQuantity;
-        public string coatType = "Sipiol";
+        public string coatType = "CoatA";
 
         private void comboBoxUnits_SelectedIndexChanged(object sender, EventArgs e) //Wybór jednostki wagi
         {
@@ -155,7 +155,7 @@ namespace PaintshopAppUI
         {
             if (checkBox4.Checked)
             {
-                MessageBox.Show(coatQuantity + "g zostało wykonane o godzinie: " + coatFinishTime); //Popup informacyjny o ilości oraz godzinie wykonania lakieru
+                MessageBox.Show(coatQuantity + "g was made at: " + coatFinishTime); //Popup informacyjny o ilości oraz godzinie wykonania lakieru
                 label8.ForeColor = Color.FromArgb(167, 167, 167);
 
                 checkBox1.Enabled = false;
@@ -188,7 +188,7 @@ namespace PaintshopAppUI
             if (hours == 0 && minutes == 0 && seconds == 0)// sprawdzenie zakończenia odliczania timera
             {
                 timerCoat.Stop();
-                MessageBox.Show("Lakier jest rozmieszany i gotowy do użycia");
+                MessageBox.Show("Coat is mixed and ready to use.");
 
                 lblMin.Text = "00 min";
                 lblSec.Text = "00 s";
@@ -218,7 +218,7 @@ namespace PaintshopAppUI
             }
         }
         
-        private void SipiolObliczanie1_Load(object sender, EventArgs e)//Domyślne ustawienia okna 
+        private void CoatACount_Load(object sender, EventArgs e)//Domyślne ustawienia okna 
         {
             if (labelBasicCoatQuantity.Text == "000")
             {

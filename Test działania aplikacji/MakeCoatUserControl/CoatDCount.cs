@@ -24,7 +24,7 @@ namespace PaintshopAppUI
 
         string coatFinishTime;
         string coatQuantity;
-        public string coatType = "Resilon Plus";
+        public string coatType = "Resilon+";
 
         private void comboBoxUnits_SelectedIndexChanged(object sender, EventArgs e) //Wybór jednostki wagi
         {

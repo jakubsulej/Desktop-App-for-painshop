@@ -114,24 +114,6 @@
     <Compile Include="JigSelector\JigsSelector5.Designer.cs">
       <DependentUpon>JigsSelector5.cs</DependentUpon>
     </Compile>
-    <Compile Include="JigSelector\JigsSelector7.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="JigSelector\JigsSelector7.Designer.cs">
-      <DependentUpon>JigsSelector7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="JigSelector\JigsSelector8.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="JigSelector\JigsSelector8.Designer.cs">
-      <DependentUpon>JigsSelector8.cs</DependentUpon>
-    </Compile>
-    <Compile Include="JigSelector\JigsSelector9.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="JigSelector\JigsSelector9.Designer.cs">
-      <DependentUpon>JigsSelector9.cs</DependentUpon>
-    </Compile>
     <Compile Include="Popups\CancelRobienieLaku.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,11 +144,11 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MakeCoatUserControl\PermutexCount.cs">
+    <Compile Include="MakeCoatUserControl\CoatBCount.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MakeCoatUserControl\PermutexCount.Designer.cs">
-      <DependentUpon>PermutexCount.cs</DependentUpon>
+    <Compile Include="MakeCoatUserControl\CoatBCount.Designer.cs">
+      <DependentUpon>CoatBCount.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,23 +157,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="MakeCoatUserControl\ResilonCount.cs">
+    <Compile Include="MakeCoatUserControl\CoatCCount.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MakeCoatUserControl\ResilonCount.Designer.cs">
-      <DependentUpon>ResilonCount.cs</DependentUpon>
+    <Compile Include="MakeCoatUserControl\CoatCCount.Designer.cs">
+      <DependentUpon>CoatCCount.cs</DependentUpon>
     </Compile>
-    <Compile Include="MakeCoatUserControl\ResilonPlusCount.cs">
+    <Compile Include="MakeCoatUserControl\CoatDCount.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MakeCoatUserControl\ResilonPlusCount.Designer.cs">
-      <DependentUpon>ResilonPlusCount.cs</DependentUpon>
+    <Compile Include="MakeCoatUserControl\CoatDCount.Designer.cs">
+      <DependentUpon>CoatDCount.cs</DependentUpon>
     </Compile>
-    <Compile Include="MakeCoatUserControl\SipiolCount.cs">
+    <Compile Include="MakeCoatUserControl\CoatACount.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MakeCoatUserControl\SipiolCount.Designer.cs">
-      <DependentUpon>SipiolCount.cs</DependentUpon>
+    <Compile Include="MakeCoatUserControl\CoatACount.Designer.cs">
+      <DependentUpon>CoatACount.cs</DependentUpon>
     </Compile>
     <Compile Include="SettingForm.cs">
       <SubType>Form</SubType>
@@ -217,15 +199,6 @@
     <EmbeddedResource Include="JigSelector\JigsSelector5.resx">
       <DependentUpon>JigsSelector5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JigSelector\JigsSelector7.resx">
-      <DependentUpon>JigsSelector7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JigSelector\JigsSelector8.resx">
-      <DependentUpon>JigsSelector8.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JigSelector\JigsSelector9.resx">
-      <DependentUpon>JigsSelector9.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Popups\CancelRobienieLaku.resx">
       <DependentUpon>CancelRobienieLaku.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,22 +214,22 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MakeCoatUserControl\PermutexCount.resx">
-      <DependentUpon>PermutexCount.cs</DependentUpon>
+    <EmbeddedResource Include="MakeCoatUserControl\CoatBCount.resx">
+      <DependentUpon>CoatBCount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="MakeCoatUserControl\ResilonCount.resx">
-      <DependentUpon>ResilonCount.cs</DependentUpon>
+    <EmbeddedResource Include="MakeCoatUserControl\CoatCCount.resx">
+      <DependentUpon>CoatCCount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MakeCoatUserControl\ResilonPlusCount.resx">
-      <DependentUpon>ResilonPlusCount.cs</DependentUpon>
+    <EmbeddedResource Include="MakeCoatUserControl\CoatDCount.resx">
+      <DependentUpon>CoatDCount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MakeCoatUserControl\SipiolCount.resx">
-      <DependentUpon>SipiolCount.cs</DependentUpon>
+    <EmbeddedResource Include="MakeCoatUserControl\CoatACount.resx">
+      <DependentUpon>CoatACount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>

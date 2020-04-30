@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLibrary.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -9,11 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAccessLibrary.Models;
 
 namespace PaintshopAppUI
 {
     public partial class LackHistoryForm : Form
     {
+        List<HistoryModel> history = new List<HistoryModel>();
+
         public LackHistoryForm()
         {
             InitializeComponent();
@@ -24,21 +28,18 @@ namespace PaintshopAppUI
             listViewHistory.GridLines = true;
             listViewHistory.View = View.Details;
 
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            HistoryDataAccess db = new HistoryDataAccess();
 
-            SqlDataAdapter sda = new SqlDataAdapter("select * from HISTORIAROBIENIALAKU", connection);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
+            history = db.GetHistory();
 
-            for (int i = 0; i < dt.Rows.Count; i++)
+            foreach (HistoryModel data in history)
             {
-                DataRow dr = dt.Rows[i];
-                ListViewItem listitem = new ListViewItem(dr["ILOSCLAKU"].ToString());
-                listitem.SubItems.Add(dr["GODZINA"].ToString());
-                listitem.SubItems.Add(dr["USER"].ToString());
-                listitem.SubItems.Add(dr["RODZAJLAKU"].ToString());
-                listitem.SubItems.Add(dr["DATA"].ToString());
-                listViewHistory.Items.Add(listitem);
+                ListViewItem item = new ListViewItem(data.CoatQuantity.ToString());
+                item.SubItems.Add(data.CoatTime);
+                item.SubItems.Add(data.User);
+                item.SubItems.Add(data.CoatType);
+                item.SubItems.Add(data.CoatDate);
+                listViewHistory.Items.Add(item);
             }
         }
 
@@ -46,35 +47,23 @@ namespace PaintshopAppUI
         {
             if (listViewHistory.SelectedItems.Count > 0) //Zabezpieczenie przed brakiem wyboru wiersza z ListView
             {
-                string dataTabela = listViewHistory.SelectedItems[0].SubItems[4].Text;
-                string godzinaTabela = listViewHistory.SelectedItems[0].SubItems[1].Text;
+                string date = listViewHistory.SelectedItems[0].SubItems[4].Text;
+                string coat = listViewHistory.SelectedItems[0].SubItems[3].Text;
+                string user = listViewHistory.SelectedItems[0].SubItems[2].Text;
+                string hour = listViewHistory.SelectedItems[0].SubItems[1].Text;
 
-                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+                HistoryDataAccess db = new HistoryDataAccess();
 
-                string sql = "Delete from HISTORIAROBIENIALAKU where Godzina=@Godzina AND Data=@Data";
-
-                {
-                    try
-                    {
-                        using (SqlCommand cmd = new SqlCommand(sql, con))
-                        {
-                            cmd.Parameters.AddWithValue("@Godzina", godzinaTabela);
-                            cmd.Parameters.AddWithValue("@Data", dataTabela);
-
-                            con.Open();
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("BŁĄD:" + ex.Message);
-                    }
-                }
+                db.DeleteCoatData(date, coat, user, hour);
             }
             else
             {
                 MessageBox.Show("Nie wybrano wiersza do usunięcia!");
             }
+
+            listViewHistory.Items.Clear();
+            listViewHistory.Refresh();
+            PopulateListView(null, null);
         }
 
         private void closeButton_Click(object sender, EventArgs e) //Krzyżyk wyjście z programu
@@ -135,6 +124,10 @@ namespace PaintshopAppUI
 
         private void buttonUsun7Dni_Click(object sender, EventArgs e)
         {
+            HistoryDataAccess db = new HistoryDataAccess();
+            
+            db.DeleteCoatData7Days();
+            
             listViewHistory.Items.Clear();
             listViewHistory.Refresh();
             PopulateListView(null, null);

@@ -51,8 +51,8 @@
             this.buttonSipiolQuantity = new System.Windows.Forms.Button();
             this.buttonPermutexQuantity = new System.Windows.Forms.Button();
             this.buttonResilonQuantity = new System.Windows.Forms.Button();
-            this.SipiolCount = new PaintshopAppUI.SipiolCount();
-            this.permutexCount1 = new PaintshopAppUI.PermutexCount();
+            this.CoatACount = new PaintshopAppUI.CoatACount();
+            this.CoatBCount1 = new PaintshopAppUI.CoatBCount();
             this.resilonPlus1 = new PaintshopAppUI.ResilonPlusCount();
             this.resilonCount1 = new PaintshopAppUI.ResilonCount();
             this.timer = new System.Windows.Forms.Timer(this.components);
@@ -98,9 +98,9 @@
             this.labelCurrentTime.ForeColor = System.Drawing.SystemColors.Control;
             this.labelCurrentTime.Location = new System.Drawing.Point(37, 528);
             this.labelCurrentTime.Name = "labelCurrentTime";
-            this.labelCurrentTime.Size = new System.Drawing.Size(61, 17);
+            this.labelCurrentTime.Size = new System.Drawing.Size(39, 17);
             this.labelCurrentTime.TabIndex = 7;
-            this.labelCurrentTime.Text = "Godzina";
+            this.labelCurrentTime.Text = "Time";
             // 
             // SidePanel
             // 
@@ -121,10 +121,10 @@
             this.buttonMenuExit.Name = "buttonMenuExit";
             this.buttonMenuExit.Size = new System.Drawing.Size(217, 55);
             this.buttonMenuExit.TabIndex = 3;
-            this.buttonMenuExit.Text = "          Wyjście";
+            this.buttonMenuExit.Text = "          Exit";
             this.buttonMenuExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonMenuExit.UseVisualStyleBackColor = true;
-            this.buttonMenuExit.Click += new System.EventHandler(this.ButtonWyjscie_Click);
+            this.buttonMenuExit.Click += new System.EventHandler(this.ButtonExit_Click);
             // 
             // buttonMenuSettings
             // 
@@ -138,7 +138,7 @@
             this.buttonMenuSettings.Name = "buttonMenuSettings";
             this.buttonMenuSettings.Size = new System.Drawing.Size(217, 55);
             this.buttonMenuSettings.TabIndex = 2;
-            this.buttonMenuSettings.Text = "          Ustawienia";
+            this.buttonMenuSettings.Text = "          Settings";
             this.buttonMenuSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonMenuSettings.UseVisualStyleBackColor = false;
             this.buttonMenuSettings.Click += new System.EventHandler(this.ButtonUstawienia_Click);
@@ -154,7 +154,7 @@
             this.buttonMenuHistory.Name = "buttonMenuHistory";
             this.buttonMenuHistory.Size = new System.Drawing.Size(217, 55);
             this.buttonMenuHistory.TabIndex = 1;
-            this.buttonMenuHistory.Text = "          Historia";
+            this.buttonMenuHistory.Text = "          History";
             this.buttonMenuHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonMenuHistory.UseVisualStyleBackColor = true;
             this.buttonMenuHistory.Click += new System.EventHandler(this.ButtonHistoria_Click);
@@ -173,7 +173,7 @@
             this.buttonMenuMakeCoat.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.buttonMenuMakeCoat.Size = new System.Drawing.Size(217, 55);
             this.buttonMenuMakeCoat.TabIndex = 0;
-            this.buttonMenuMakeCoat.Text = "          Zrób lakier";
+            this.buttonMenuMakeCoat.Text = "      Make coat";
             this.buttonMenuMakeCoat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonMenuMakeCoat.UseVisualStyleBackColor = false;
             // 
@@ -233,8 +233,8 @@
             this.panel4.Controls.Add(this.buttonSipiolQuantity);
             this.panel4.Controls.Add(this.buttonPermutexQuantity);
             this.panel4.Controls.Add(this.buttonResilonQuantity);
-            this.panel4.Controls.Add(this.SipiolCount);
-            this.panel4.Controls.Add(this.permutexCount1);
+            this.panel4.Controls.Add(this.CoatACount);
+            this.panel4.Controls.Add(this.CoatBCount1);
             this.panel4.Controls.Add(this.resilonPlus1);
             this.panel4.Controls.Add(this.resilonCount1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -296,7 +296,7 @@
             this.buttonResilonPlus.Name = "buttonResilonPlus";
             this.buttonResilonPlus.Size = new System.Drawing.Size(159, 39);
             this.buttonResilonPlus.TabIndex = 14;
-            this.buttonResilonPlus.Text = "Resilon Plus Matt";
+            this.buttonResilonPlus.Text = "Coat 4";
             this.buttonResilonPlus.UseVisualStyleBackColor = true;
             this.buttonResilonPlus.Click += new System.EventHandler(this.buttonResilonPlus_Click);
             this.buttonResilonPlus.MouseHover += new System.EventHandler(this.buttonResilonPlus_MouseHover);
@@ -314,10 +314,10 @@
             this.buttonSipiolQuantity.Name = "buttonSipiolQuantity";
             this.buttonSipiolQuantity.Size = new System.Drawing.Size(106, 39);
             this.buttonSipiolQuantity.TabIndex = 11;
-            this.buttonSipiolQuantity.Text = "Sipiol";
+            this.buttonSipiolQuantity.Text = "Coat 1";
             this.buttonSipiolQuantity.UseVisualStyleBackColor = true;
-            this.buttonSipiolQuantity.Click += new System.EventHandler(this.buttonSipiolQuantity_Click);
-            this.buttonSipiolQuantity.MouseHover += new System.EventHandler(this.buttonSipiolQuantity_MouseHover);
+            this.buttonSipiolQuantity.Click += new System.EventHandler(this.buttonCoatAQuantity_Click);
+            this.buttonSipiolQuantity.MouseHover += new System.EventHandler(this.buttonCoatAQuantity_MouseHover);
             // 
             // buttonPermutexQuantity
             // 
@@ -331,10 +331,10 @@
             this.buttonPermutexQuantity.Name = "buttonPermutexQuantity";
             this.buttonPermutexQuantity.Size = new System.Drawing.Size(106, 39);
             this.buttonPermutexQuantity.TabIndex = 12;
-            this.buttonPermutexQuantity.Text = "Permutex";
+            this.buttonPermutexQuantity.Text = "Coat 2";
             this.buttonPermutexQuantity.UseVisualStyleBackColor = true;
-            this.buttonPermutexQuantity.Click += new System.EventHandler(this.buttonPermutexQuantity_Click);
-            this.buttonPermutexQuantity.MouseHover += new System.EventHandler(this.buttonPermutexQuantity_MouseHover);
+            this.buttonPermutexQuantity.Click += new System.EventHandler(this.buttonCoatBQuantity_Click);
+            this.buttonPermutexQuantity.MouseHover += new System.EventHandler(this.buttonCoatBQuantity_MouseHover);
             // 
             // buttonResilonQuantity
             // 
@@ -348,24 +348,24 @@
             this.buttonResilonQuantity.Name = "buttonResilonQuantity";
             this.buttonResilonQuantity.Size = new System.Drawing.Size(106, 39);
             this.buttonResilonQuantity.TabIndex = 13;
-            this.buttonResilonQuantity.Text = "Resilon";
+            this.buttonResilonQuantity.Text = "Coat 3";
             this.buttonResilonQuantity.UseVisualStyleBackColor = true;
             this.buttonResilonQuantity.Click += new System.EventHandler(this.buttonResilon_Click);
             this.buttonResilonQuantity.MouseHover += new System.EventHandler(this.buttonResilonQuantity_MouseHover);
             // 
-            // SipiolCount
+            // CoatACount
             // 
-            this.SipiolCount.Location = new System.Drawing.Point(0, 71);
-            this.SipiolCount.Name = "SipiolCount";
-            this.SipiolCount.Size = new System.Drawing.Size(758, 468);
-            this.SipiolCount.TabIndex = 17;
+            this.CoatACount.Location = new System.Drawing.Point(0, 71);
+            this.CoatACount.Name = "CoatACount";
+            this.CoatACount.Size = new System.Drawing.Size(758, 468);
+            this.CoatACount.TabIndex = 17;
             // 
-            // permutexCount1
+            // CoatBCount1
             // 
-            this.permutexCount1.Location = new System.Drawing.Point(0, 81);
-            this.permutexCount1.Name = "permutexCount1";
-            this.permutexCount1.Size = new System.Drawing.Size(758, 458);
-            this.permutexCount1.TabIndex = 18;
+            this.CoatBCount1.Location = new System.Drawing.Point(0, 81);
+            this.CoatBCount1.Name = "CoatBCount1";
+            this.CoatBCount1.Size = new System.Drawing.Size(758, 458);
+            this.CoatBCount1.TabIndex = 18;
             // 
             // resilonPlus1
             // 
@@ -425,8 +425,8 @@
         private System.Windows.Forms.Button buttonSipiolQuantity;
         private System.Windows.Forms.Label labelCurrentTime;
         private System.Windows.Forms.Timer timer;
-        private SipiolCount SipiolCount;
-        private PermutexCount permutexCount1;
+        private CoatACount CoatACount;
+        private CoatBCount CoatBCount1;
         private ResilonCount resilonCount1;
         private ResilonPlusCount resilonPlus1;
         private System.Windows.Forms.Panel greyLine;

@@ -13,9 +13,9 @@ using DataAccessLibrary.DataAccess;
 
 namespace PaintshopAppUI
 {
-    public partial class PermutexCount : UserControl
+    public partial class CoatBCount : UserControl
     {
-        public PermutexCount()
+        public CoatBCount()
         {
             InitializeComponent();
         }
@@ -24,19 +24,19 @@ namespace PaintshopAppUI
 
         string coatFinishTime;
         string coatQuantity;
-        public string coatType = "Permutex";
+        public string coatType = "CoatB";
 
-        private void comboBoxUnitsPermutex_SelectedValueChanged(object sender, EventArgs e)
+        private void comboBoxUnitsCoatB_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (comboBoxUnitsPermutex.SelectedItem.ToString() == "kg")
+            if (comboBoxUnitsCoatB.SelectedItem.ToString() == "kg")
             {
-                numberGPermutex.Hide();
+                numberGCoatB.Hide();
                 numberKg.Show();
             }
             else
             {
                 numberKg.Hide();
-                numberGPermutex.Show();
+                numberGCoatB.Show();
             }
         }
 
@@ -59,9 +59,9 @@ namespace PaintshopAppUI
             labelComponentC.Text = (quantityOfComponentB + 12).ToString();
         }
 
-        private void numberGPermutex_ValueChanged(object sender, EventArgs e)
+        private void numberGCoatB_ValueChanged(object sender, EventArgs e)
         {
-            decimal iloscLaku = numberGPermutex.Value;
+            decimal iloscLaku = numberGCoatB.Value;
             labelBasicCoatQuantity.Text = iloscLaku.ToString(); //WARTOSC DLA WLEWANEGO LAKU
 
             double convertCoatQuantity = (double)iloscLaku;
@@ -82,32 +82,32 @@ namespace PaintshopAppUI
             db.AddCoatData(coatQuantity,coatFinishTime,coatType);
         }
 
-        private void checkBox1Permutex_CheckedChanged(object sender, EventArgs e)
+        private void checkBox1CoatB_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1Permutex.Checked)
+            if (checkBox1CoatB.Checked)
             {
                 label2.ForeColor = Color.FromArgb(167, 167, 167);
                 labelBasicCoatQuantity.ForeColor = Color.FromArgb(167, 167, 167);
                 label3.ForeColor = Color.FromArgb(167, 167, 167);
-                checkBox2Permutex.Enabled = true;
-                numberGPermutex.Enabled = false;
-                comboBoxUnitsPermutex.Enabled = false;
+                checkBox2CoatB.Enabled = true;
+                numberGCoatB.Enabled = false;
+                comboBoxUnitsCoatB.Enabled = false;
             }
             else
             {
                 label2.ForeColor = Color.FromArgb(0, 0, 0);
                 labelBasicCoatQuantity.ForeColor = Color.FromArgb(0, 0, 0);
                 label3.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox2Permutex.Enabled = false;
-                checkBox2Permutex.Checked = false;
-                numberGPermutex.Enabled = true;
-                comboBoxUnitsPermutex.Enabled = true;
+                checkBox2CoatB.Enabled = false;
+                checkBox2CoatB.Checked = false;
+                numberGCoatB.Enabled = true;
+                comboBoxUnitsCoatB.Enabled = true;
             }
         }
 
-        private void checkBox2Permutex_CheckStateChanged(object sender, EventArgs e)
+        private void checkBox2CoatB_CheckStateChanged(object sender, EventArgs e)
         {
-            if (checkBox2Permutex.Checked)
+            if (checkBox2CoatB.Checked)
             {
                 label4.ForeColor = Color.FromArgb(167, 167, 167);
                 labelQuantityOfThickener.ForeColor = Color.FromArgb(167, 167, 167);
@@ -123,22 +123,22 @@ namespace PaintshopAppUI
                 label4.ForeColor = Color.FromArgb(0, 0, 0);
                 labelQuantityOfThickener.ForeColor = Color.FromArgb(0, 0, 0);
                 label5.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox3Permutex.Enabled = false;
-                checkBox3Permutex.Checked = false;
+                checkBox3CoatB.Enabled = false;
+                checkBox3CoatB.Checked = false;
 
                 timerCoat.Stop(); //Zatrzymanie timera
             }
         }
 
-        private void checkBox3Permutex_CheckedChanged(object sender, EventArgs e)
+        private void checkBox3CoatB_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox3Permutex.Checked)
+            if (checkBox3CoatB.Checked)
             {
                 label6.ForeColor = Color.FromArgb(167, 167, 167);
                 lblMin.ForeColor = Color.FromArgb(167, 167, 167);
                 lblSec.ForeColor = Color.FromArgb(167, 167, 167);
                 label7.ForeColor = Color.FromArgb(167, 167, 167);
-                checkBox4Permutex.Enabled = true;
+                checkBox4CoatB.Enabled = true;
             }
             else
             {
@@ -146,23 +146,23 @@ namespace PaintshopAppUI
                 lblMin.ForeColor = Color.FromArgb(0, 0, 0);
                 lblSec.ForeColor = Color.FromArgb(0, 0, 0);
                 label7.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox4Permutex.Enabled = false;
-                checkBox4Permutex.Checked = false;
+                checkBox4CoatB.Enabled = false;
+                checkBox4CoatB.Checked = false;
 
                 timerCoat.Stop();
             }
         }
 
-        private void checkBox4Permutex_CheckedChanged(object sender, EventArgs e)
+        private void checkBox4CoatB_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox4Permutex.Checked)
+            if (checkBox4CoatB.Checked)
             {
                 label9.ForeColor = Color.FromArgb(167, 167, 167);
                 labelComponentB.ForeColor = Color.FromArgb(167, 167, 167);
                 label10.ForeColor = Color.FromArgb(167, 167, 167);
                 labelComponentC.ForeColor = Color.FromArgb(167, 167, 167);
                 label12.ForeColor = Color.FromArgb(167, 167, 167);
-                checkBox5Permutex.Enabled = true;
+                checkBox5CoatB.Enabled = true;
             }
             else
             {
@@ -171,23 +171,23 @@ namespace PaintshopAppUI
                 label10.ForeColor = Color.FromArgb(0, 0, 0);
                 labelComponentC.ForeColor = Color.FromArgb(0, 0, 0);
                 label12.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox5Permutex.Enabled = false;
-                checkBox5Permutex.Checked = false;
+                checkBox5CoatB.Enabled = false;
+                checkBox5CoatB.Checked = false;
             }
         }
 
-        private void checkBox5Permutex_CheckedChanged(object sender, EventArgs e)
+        private void checkBox5CoatB_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox5Permutex.Checked)
+            if (checkBox5CoatB.Checked)
             {
                 MessageBox.Show(coatQuantity + "g was made at: " + coatFinishTime); //Popup informacyjny o ilości oraz godzinie wykonania lakieru
                 label8.ForeColor = Color.FromArgb(167, 167, 167);
 
-                checkBox1Permutex.Enabled = false;
-                checkBox2Permutex.Enabled = false;
-                checkBox3Permutex.Enabled = false;
-                checkBox4Permutex.Enabled = false;
-                checkBox5Permutex.Enabled = false;
+                checkBox1CoatB.Enabled = false;
+                checkBox2CoatB.Enabled = false;
+                checkBox3CoatB.Enabled = false;
+                checkBox4CoatB.Enabled = false;
+                checkBox5CoatB.Enabled = false;
 
                 saveCoatHistoryInDataBase(null, null);
                 //Zamknięcie obecnego okna i powrót do Menu Głównego
@@ -199,7 +199,7 @@ namespace PaintshopAppUI
             else
             {
                 label8.ForeColor = Color.FromArgb(0, 0, 0);
-                checkBox5Permutex.Enabled = true;
+                checkBox5CoatB.Enabled = true;
             }
         }
 
@@ -209,23 +209,23 @@ namespace PaintshopAppUI
             coatFinishTime = DateTime.Now.ToLongTimeString();
         }
 
-        private void PermutexCount_Load(object sender, EventArgs e)
+        private void CoatBCount_Load(object sender, EventArgs e)
         {
             if (labelBasicCoatQuantity.Text == "000")
             {
-                checkBox1Permutex.Enabled = false;
+                checkBox1CoatB.Enabled = false;
             }
             else
             {
-                checkBox1Permutex.Enabled = true;
+                checkBox1CoatB.Enabled = true;
             }
 
-            checkBox2Permutex.Enabled = false;
-            checkBox3Permutex.Enabled = false;
-            checkBox4Permutex.Enabled = false;
-            checkBox5Permutex.Enabled = false;
+            checkBox2CoatB.Enabled = false;
+            checkBox3CoatB.Enabled = false;
+            checkBox4CoatB.Enabled = false;
+            checkBox5CoatB.Enabled = false;
 
-            comboBoxUnitsPermutex.SelectedIndex = 0; //Definiowanie wybranej domyślnej jednostki
+            comboBoxUnitsCoatB.SelectedIndex = 0; //Definiowanie wybranej domyślnej jednostki
             numberKg.Show();
 
             coatFinishTime = DateTime.Now.ToLongTimeString(); //Pobieranie aktualnej godziny
@@ -237,11 +237,11 @@ namespace PaintshopAppUI
             if (hours == 0 && minutes == 0 && seconds == 0)// sprawdzenie zakończenia odliczania timera
             {
                 timerCoat.Stop();
-                MessageBox.Show("Lakier jest rozmieszany i gotowy do użycia");
+                MessageBox.Show("Coat is mixed and ready to use.");
 
                 lblMin.Text = "00 min";
                 lblSec.Text = "00 s";
-                checkBox3Permutex.Enabled = true;
+                checkBox3CoatB.Enabled = true;
             }
             else
             {

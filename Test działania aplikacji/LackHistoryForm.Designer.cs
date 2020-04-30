@@ -72,27 +72,27 @@
             // 
             // IloscLaku
             // 
-            this.IloscLaku.Text = "Ilosc laku";
+            this.IloscLaku.Text = "Coat quantity";
             this.IloscLaku.Width = 119;
             // 
             // Godzina
             // 
-            this.Godzina.Text = "Godzina";
+            this.Godzina.Text = "Time";
             this.Godzina.Width = 116;
             // 
             // Uzytkownik
             // 
-            this.Uzytkownik.Text = "Użytkownik";
+            this.Uzytkownik.Text = "User";
             this.Uzytkownik.Width = 139;
             // 
             // RodzajLakieru
             // 
-            this.RodzajLakieru.Text = "Rodzaj lakieru";
+            this.RodzajLakieru.Text = "Coat type";
             this.RodzajLakieru.Width = 141;
             // 
             // Data
             // 
-            this.Data.Text = "Data";
+            this.Data.Text = "Date";
             this.Data.Width = 145;
             // 
             // minimalizeButton
@@ -158,9 +158,9 @@
             this.labelCurrentTime.ForeColor = System.Drawing.SystemColors.Control;
             this.labelCurrentTime.Location = new System.Drawing.Point(37, 497);
             this.labelCurrentTime.Name = "labelCurrentTime";
-            this.labelCurrentTime.Size = new System.Drawing.Size(61, 17);
+            this.labelCurrentTime.Size = new System.Drawing.Size(39, 17);
             this.labelCurrentTime.TabIndex = 6;
-            this.labelCurrentTime.Text = "Godzina";
+            this.labelCurrentTime.Text = "Time";
             // 
             // SidePanel
             // 
@@ -181,7 +181,7 @@
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(217, 55);
             this.buttonExit.TabIndex = 3;
-            this.buttonExit.Text = "          Wyjście";
+            this.buttonExit.Text = "          Exit";
             this.buttonExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
@@ -198,7 +198,7 @@
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(217, 55);
             this.buttonSettings.TabIndex = 2;
-            this.buttonSettings.Text = "          Ustawienia";
+            this.buttonSettings.Text = "          Settings";
             this.buttonSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSettings.UseVisualStyleBackColor = false;
             this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
@@ -214,7 +214,7 @@
             this.buttonHistory.Name = "buttonHistory";
             this.buttonHistory.Size = new System.Drawing.Size(217, 55);
             this.buttonHistory.TabIndex = 1;
-            this.buttonHistory.Text = "          Historia";
+            this.buttonHistory.Text = "          History";
             this.buttonHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonHistory.UseVisualStyleBackColor = true;
             // 
@@ -232,7 +232,7 @@
             this.buttonMakeCoat.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.buttonMakeCoat.Size = new System.Drawing.Size(217, 55);
             this.buttonMakeCoat.TabIndex = 0;
-            this.buttonMakeCoat.Text = "          Zrób lakier";
+            this.buttonMakeCoat.Text = "      Make Coat";
             this.buttonMakeCoat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonMakeCoat.UseVisualStyleBackColor = false;
             this.buttonMakeCoat.Click += new System.EventHandler(this.buttonMakeCoat_Click);
@@ -248,7 +248,7 @@
             this.buttonDeleteRow.Name = "buttonDeleteRow";
             this.buttonDeleteRow.Size = new System.Drawing.Size(105, 31);
             this.buttonDeleteRow.TabIndex = 10;
-            this.buttonDeleteRow.Text = "Usuń wiersz";
+            this.buttonDeleteRow.Text = "Delete row";
             this.buttonDeleteRow.UseVisualStyleBackColor = true;
             this.buttonDeleteRow.Click += new System.EventHandler(this.buttonDeleteHistory_Click);
             // 
@@ -258,7 +258,7 @@
             this.buttonDeleteLast7Days.Name = "buttonDeleteLast7Days";
             this.buttonDeleteLast7Days.Size = new System.Drawing.Size(136, 31);
             this.buttonDeleteLast7Days.TabIndex = 11;
-            this.buttonDeleteLast7Days.Text = "Usuń ostatnie 7 dni";
+            this.buttonDeleteLast7Days.Text = "Delete last 7 days";
             this.buttonDeleteLast7Days.UseVisualStyleBackColor = true;
             this.buttonDeleteLast7Days.Click += new System.EventHandler(this.buttonUsun7Dni_Click);
             // 
@@ -268,11 +268,11 @@
             this.buttonSafeAsCSV.Name = "buttonSafeAsCSV";
             this.buttonSafeAsCSV.Size = new System.Drawing.Size(136, 31);
             this.buttonSafeAsCSV.TabIndex = 12;
-            this.buttonSafeAsCSV.Text = "Zapisz do CSV";
+            this.buttonSafeAsCSV.Text = "Save as CSV";
             this.buttonSafeAsCSV.UseVisualStyleBackColor = true;
             this.buttonSafeAsCSV.Click += new System.EventHandler(this.buttonZapiszCSV_Click);
             // 
-            // HistoriaForm
+            // LackHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -284,7 +284,7 @@
             this.Controls.Add(this.toppanel2);
             this.Controls.Add(this.listViewHistory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "HistoriaForm";
+            this.Name = "LackHistoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.HistoriaForm_Load);

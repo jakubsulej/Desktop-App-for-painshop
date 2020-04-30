@@ -76,21 +76,21 @@ namespace PaintshopAppUI
             }
         }
 
-        private void MenuGlowne_Load(object sender, EventArgs e) //AKTUALNY CZAS
+        private void MainForm_Load(object sender, EventArgs e)
         {
             timer.Start();
             labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
-            SipiolCount.Hide();
-            permutexCount1.Hide();
+            CoatACount.Hide();
+            CoatBCount1.Hide();
         }
 
-        private void timer_Tick(object sender, EventArgs e) //ODLICZANIE ZEGARA
+        private void timer_Tick(object sender, EventArgs e)
         {
             labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
             timer.Start();
         }
 
-        private void ButtonWyjscie_Click(object sender, EventArgs e)
+        private void ButtonExit_Click(object sender, EventArgs e)
         {
             new ExitWindow().Show();
         }
@@ -105,18 +105,18 @@ namespace PaintshopAppUI
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void buttonPermutexQuantity_Click(object sender, EventArgs e)
+        private void buttonCoatBQuantity_Click(object sender, EventArgs e)
         {
-            permutexCount1.Show();
-            SipiolCount.Hide();
+            CoatBCount1.Show();
+            CoatACount.Hide();
             resilonCount1.Hide();
             resilonPlus1.Hide();
         }
 
-        private void buttonSipiolQuantity_Click(object sender, EventArgs e)
+        private void buttonCoatAQuantity_Click(object sender, EventArgs e)
         {
-            SipiolCount.Show();
-            permutexCount1.Hide();
+            CoatACount.Show();
+            CoatBCount1.Hide();
             resilonCount1.Hide();
             resilonPlus1.Hide();
         }
@@ -125,19 +125,19 @@ namespace PaintshopAppUI
         {
             resilonCount1.Show();
             resilonPlus1.Hide();
-            SipiolCount.Hide();
-            permutexCount1.Hide();
+            CoatACount.Hide();
+            CoatBCount1.Hide();
         }
 
         private void buttonResilonPlus_Click(object sender, EventArgs e)
         {
             resilonPlus1.Show();
             resilonCount1.Hide();
-            SipiolCount.Hide();
-            permutexCount1.Hide();
+            CoatACount.Hide();
+            CoatBCount1.Hide();
         }
 
-        private void toppanel2_MouseDown(object sender, MouseEventArgs e) //Zmiana miejsca okna dla obu paneli
+        private void toppanel2_MouseDown(object sender, MouseEventArgs e)
         {
             mov = 1;
             movX = e.X;
@@ -177,7 +177,7 @@ namespace PaintshopAppUI
             mov = 0;
         }
 
-        private void buttonSipiolQuantity_MouseHover(object sender, EventArgs e)
+        private void buttonCoatAQuantity_MouseHover(object sender, EventArgs e)
         {
             panel2.BackColor = Color.FromArgb(167, 167, 167);
             panel3.BackColor = Color.FromArgb(255, 255, 255);
@@ -185,7 +185,7 @@ namespace PaintshopAppUI
             panel6.BackColor = Color.FromArgb(255, 255, 255);
         }
 
-        private void buttonPermutexQuantity_MouseHover(object sender, EventArgs e)
+        private void buttonCoatBQuantity_MouseHover(object sender, EventArgs e)
         {
             panel2.BackColor = Color.FromArgb(255, 255, 255);
             panel3.BackColor = Color.FromArgb(167, 167, 167);
@@ -215,11 +215,6 @@ namespace PaintshopAppUI
             panel3.BackColor = Color.FromArgb(255, 255, 255);
             panel5.BackColor = Color.FromArgb(255, 255, 255);
             panel6.BackColor = Color.FromArgb(255, 255, 255);
-        }
-
-        private void buttonTest_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -35,9 +35,9 @@
             this.buttonLoadDataBase = new System.Windows.Forms.Button();
             this.buttonDeleteUser = new System.Windows.Forms.Button();
             this.listViewUsers = new System.Windows.Forms.ListView();
-            this.Uzytkownik = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Haslo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Rola = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.User = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Password = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Role = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonUpdateUserData = new System.Windows.Forms.Button();
             this.buttonAddNewUser = new System.Windows.Forms.Button();
             this.comboBoxUserAdminStatus = new System.Windows.Forms.ComboBox();
@@ -47,19 +47,14 @@
             this.labelAdminStatus = new System.Windows.Forms.Label();
             this.labelUserName = new System.Windows.Forms.Label();
             this.JigsTab = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonCount = new System.Windows.Forms.Button();
-            this.labelJig9 = new System.Windows.Forms.Label();
-            this.labelJig8 = new System.Windows.Forms.Label();
-            this.labelJig7 = new System.Windows.Forms.Label();
             this.labelJig6 = new System.Windows.Forms.Label();
             this.labelJig5 = new System.Windows.Forms.Label();
             this.labelJig4 = new System.Windows.Forms.Label();
             this.labelJig3 = new System.Windows.Forms.Label();
             this.labelJig2 = new System.Windows.Forms.Label();
             this.labelJig1 = new System.Windows.Forms.Label();
-            this.buttonJig9 = new System.Windows.Forms.Button();
-            this.buttonJig8 = new System.Windows.Forms.Button();
-            this.buttonJig7 = new System.Windows.Forms.Button();
             this.buttonJig6 = new System.Windows.Forms.Button();
             this.buttonJig5 = new System.Windows.Forms.Button();
             this.buttonJig4 = new System.Windows.Forms.Button();
@@ -77,7 +72,6 @@
             this.buttonHistory = new System.Windows.Forms.Button();
             this.buttonMakeCoat = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.tabSettings.SuspendLayout();
             this.UsersTab.SuspendLayout();
             this.JigsTab.SuspendLayout();
@@ -113,7 +107,7 @@
             this.UsersTab.Padding = new System.Windows.Forms.Padding(3);
             this.UsersTab.Size = new System.Drawing.Size(714, 443);
             this.UsersTab.TabIndex = 1;
-            this.UsersTab.Text = "Użytkownicy";
+            this.UsersTab.Text = "Users";
             this.UsersTab.UseVisualStyleBackColor = true;
             // 
             // buttonLoadDataBase
@@ -122,7 +116,7 @@
             this.buttonLoadDataBase.Name = "buttonLoadDataBase";
             this.buttonLoadDataBase.Size = new System.Drawing.Size(141, 39);
             this.buttonLoadDataBase.TabIndex = 17;
-            this.buttonLoadDataBase.Text = "Zaktualizuj bazę danych";
+            this.buttonLoadDataBase.Text = "Refresh";
             this.buttonLoadDataBase.UseVisualStyleBackColor = true;
             this.buttonLoadDataBase.Click += new System.EventHandler(this.buttonForceUpdateListView_Click);
             // 
@@ -132,16 +126,16 @@
             this.buttonDeleteUser.Name = "buttonDeleteUser";
             this.buttonDeleteUser.Size = new System.Drawing.Size(141, 40);
             this.buttonDeleteUser.TabIndex = 16;
-            this.buttonDeleteUser.Text = "Usun użytkownika";
+            this.buttonDeleteUser.Text = "Delete user";
             this.buttonDeleteUser.UseVisualStyleBackColor = true;
             this.buttonDeleteUser.Click += new System.EventHandler(this.buttonDeleteUser_Click);
             // 
             // listViewUsers
             // 
             this.listViewUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Uzytkownik,
-            this.Haslo,
-            this.Rola});
+            this.User,
+            this.Password,
+            this.Role});
             this.listViewUsers.HideSelection = false;
             this.listViewUsers.Location = new System.Drawing.Point(389, 17);
             this.listViewUsers.MultiSelect = false;
@@ -152,23 +146,23 @@
             this.listViewUsers.View = System.Windows.Forms.View.Details;
             this.listViewUsers.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewUsers_MouseClick);
             // 
-            // Uzytkownik
+            // User
             // 
-            this.Uzytkownik.Tag = "";
-            this.Uzytkownik.Text = "Użytkownik";
-            this.Uzytkownik.Width = 134;
+            this.User.Tag = "";
+            this.User.Text = "User name";
+            this.User.Width = 134;
             // 
-            // Haslo
+            // Password
             // 
-            this.Haslo.Tag = "";
-            this.Haslo.Text = "Hasło";
-            this.Haslo.Width = 132;
+            this.Password.Tag = "";
+            this.Password.Text = "Password";
+            this.Password.Width = 132;
             // 
-            // Rola
+            // Role
             // 
-            this.Rola.Tag = "";
-            this.Rola.Text = "Rola";
-            this.Rola.Width = 192;
+            this.Role.Tag = "";
+            this.Role.Text = "User role";
+            this.Role.Width = 192;
             // 
             // buttonUpdateUserData
             // 
@@ -176,7 +170,7 @@
             this.buttonUpdateUserData.Name = "buttonUpdateUserData";
             this.buttonUpdateUserData.Size = new System.Drawing.Size(137, 37);
             this.buttonUpdateUserData.TabIndex = 14;
-            this.buttonUpdateUserData.Text = "Zaktualizuj dane";
+            this.buttonUpdateUserData.Text = "Update user data";
             this.buttonUpdateUserData.UseVisualStyleBackColor = true;
             this.buttonUpdateUserData.Click += new System.EventHandler(this.buttonUpdatePerson_Click);
             // 
@@ -186,7 +180,7 @@
             this.buttonAddNewUser.Name = "buttonAddNewUser";
             this.buttonAddNewUser.Size = new System.Drawing.Size(130, 38);
             this.buttonAddNewUser.TabIndex = 13;
-            this.buttonAddNewUser.Text = "Dodaj użytkownika";
+            this.buttonAddNewUser.Text = "Add new user";
             this.buttonAddNewUser.UseVisualStyleBackColor = true;
             this.buttonAddNewUser.Click += new System.EventHandler(this.buttonAddPerson_Click);
             // 
@@ -220,44 +214,38 @@
             this.labelUserPassword.AutoSize = true;
             this.labelUserPassword.Location = new System.Drawing.Point(36, 97);
             this.labelUserPassword.Name = "labelUserPassword";
-            this.labelUserPassword.Size = new System.Drawing.Size(98, 13);
+            this.labelUserPassword.Size = new System.Drawing.Size(53, 13);
             this.labelUserPassword.TabIndex = 9;
-            this.labelUserPassword.Text = "Hasło użytkownika";
+            this.labelUserPassword.Text = "Password";
             // 
             // labelAdminStatus
             // 
             this.labelAdminStatus.AutoSize = true;
             this.labelAdminStatus.Location = new System.Drawing.Point(36, 146);
             this.labelAdminStatus.Name = "labelAdminStatus";
-            this.labelAdminStatus.Size = new System.Drawing.Size(97, 13);
+            this.labelAdminStatus.Size = new System.Drawing.Size(70, 13);
             this.labelAdminStatus.TabIndex = 8;
-            this.labelAdminStatus.Text = "Konto użytkownika";
+            this.labelAdminStatus.Text = "Account type";
             // 
             // labelUserName
             // 
             this.labelUserName.AutoSize = true;
             this.labelUserName.Location = new System.Drawing.Point(36, 45);
             this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(104, 13);
+            this.labelUserName.Size = new System.Drawing.Size(60, 13);
             this.labelUserName.TabIndex = 7;
-            this.labelUserName.Text = "Nazwa Użytkownika";
+            this.labelUserName.Text = "User Name";
             // 
             // JigsTab
             // 
             this.JigsTab.Controls.Add(this.button1);
             this.JigsTab.Controls.Add(this.buttonCount);
-            this.JigsTab.Controls.Add(this.labelJig9);
-            this.JigsTab.Controls.Add(this.labelJig8);
-            this.JigsTab.Controls.Add(this.labelJig7);
             this.JigsTab.Controls.Add(this.labelJig6);
             this.JigsTab.Controls.Add(this.labelJig5);
             this.JigsTab.Controls.Add(this.labelJig4);
             this.JigsTab.Controls.Add(this.labelJig3);
             this.JigsTab.Controls.Add(this.labelJig2);
             this.JigsTab.Controls.Add(this.labelJig1);
-            this.JigsTab.Controls.Add(this.buttonJig9);
-            this.JigsTab.Controls.Add(this.buttonJig8);
-            this.JigsTab.Controls.Add(this.buttonJig7);
             this.JigsTab.Controls.Add(this.buttonJig6);
             this.JigsTab.Controls.Add(this.buttonJig5);
             this.JigsTab.Controls.Add(this.buttonJig4);
@@ -269,8 +257,17 @@
             this.JigsTab.Padding = new System.Windows.Forms.Padding(3);
             this.JigsTab.Size = new System.Drawing.Size(714, 443);
             this.JigsTab.TabIndex = 2;
-            this.JigsTab.Text = "Wózki";
+            this.JigsTab.Text = "Jigs";
             this.JigsTab.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(145, 147);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 36);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "save as CSV";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // buttonCount
             // 
@@ -278,41 +275,14 @@
             this.buttonCount.Name = "buttonCount";
             this.buttonCount.Size = new System.Drawing.Size(106, 36);
             this.buttonCount.TabIndex = 2;
-            this.buttonCount.Text = "Odśwież";
+            this.buttonCount.Text = "Refresh";
             this.buttonCount.UseVisualStyleBackColor = true;
             this.buttonCount.Click += new System.EventHandler(this.buttonRefresh_Click);
-            // 
-            // labelJig9
-            // 
-            this.labelJig9.AutoSize = true;
-            this.labelJig9.Location = new System.Drawing.Point(645, 99);
-            this.labelJig9.Name = "labelJig9";
-            this.labelJig9.Size = new System.Drawing.Size(35, 13);
-            this.labelJig9.TabIndex = 1;
-            this.labelJig9.Text = "label1";
-            // 
-            // labelJig8
-            // 
-            this.labelJig8.AutoSize = true;
-            this.labelJig8.Location = new System.Drawing.Point(570, 99);
-            this.labelJig8.Name = "labelJig8";
-            this.labelJig8.Size = new System.Drawing.Size(35, 13);
-            this.labelJig8.TabIndex = 1;
-            this.labelJig8.Text = "label1";
-            // 
-            // labelJig7
-            // 
-            this.labelJig7.AutoSize = true;
-            this.labelJig7.Location = new System.Drawing.Point(492, 99);
-            this.labelJig7.Name = "labelJig7";
-            this.labelJig7.Size = new System.Drawing.Size(35, 13);
-            this.labelJig7.TabIndex = 1;
-            this.labelJig7.Text = "label1";
             // 
             // labelJig6
             // 
             this.labelJig6.AutoSize = true;
-            this.labelJig6.Location = new System.Drawing.Point(417, 99);
+            this.labelJig6.Location = new System.Drawing.Point(518, 99);
             this.labelJig6.Name = "labelJig6";
             this.labelJig6.Size = new System.Drawing.Size(35, 13);
             this.labelJig6.TabIndex = 1;
@@ -321,7 +291,7 @@
             // labelJig5
             // 
             this.labelJig5.AutoSize = true;
-            this.labelJig5.Location = new System.Drawing.Point(341, 99);
+            this.labelJig5.Location = new System.Drawing.Point(442, 99);
             this.labelJig5.Name = "labelJig5";
             this.labelJig5.Size = new System.Drawing.Size(35, 13);
             this.labelJig5.TabIndex = 1;
@@ -330,7 +300,7 @@
             // labelJig4
             // 
             this.labelJig4.AutoSize = true;
-            this.labelJig4.Location = new System.Drawing.Point(265, 99);
+            this.labelJig4.Location = new System.Drawing.Point(366, 99);
             this.labelJig4.Name = "labelJig4";
             this.labelJig4.Size = new System.Drawing.Size(35, 13);
             this.labelJig4.TabIndex = 1;
@@ -339,7 +309,7 @@
             // labelJig3
             // 
             this.labelJig3.AutoSize = true;
-            this.labelJig3.Location = new System.Drawing.Point(185, 99);
+            this.labelJig3.Location = new System.Drawing.Point(286, 99);
             this.labelJig3.Name = "labelJig3";
             this.labelJig3.Size = new System.Drawing.Size(35, 13);
             this.labelJig3.TabIndex = 1;
@@ -348,7 +318,7 @@
             // labelJig2
             // 
             this.labelJig2.AutoSize = true;
-            this.labelJig2.Location = new System.Drawing.Point(110, 99);
+            this.labelJig2.Location = new System.Drawing.Point(211, 99);
             this.labelJig2.Name = "labelJig2";
             this.labelJig2.Size = new System.Drawing.Size(35, 13);
             this.labelJig2.TabIndex = 1;
@@ -357,99 +327,69 @@
             // labelJig1
             // 
             this.labelJig1.AutoSize = true;
-            this.labelJig1.Location = new System.Drawing.Point(33, 99);
+            this.labelJig1.Location = new System.Drawing.Point(134, 99);
             this.labelJig1.Name = "labelJig1";
             this.labelJig1.Size = new System.Drawing.Size(35, 13);
             this.labelJig1.TabIndex = 1;
             this.labelJig1.Text = "label1";
             // 
-            // buttonJig9
-            // 
-            this.buttonJig9.Location = new System.Drawing.Point(628, 43);
-            this.buttonJig9.Name = "buttonJig9";
-            this.buttonJig9.Size = new System.Drawing.Size(70, 50);
-            this.buttonJig9.TabIndex = 0;
-            this.buttonJig9.Text = "Wózek9";
-            this.buttonJig9.UseVisualStyleBackColor = true;
-            this.buttonJig9.Click += new System.EventHandler(this.buttonJig9_Click);
-            // 
-            // buttonJig8
-            // 
-            this.buttonJig8.Location = new System.Drawing.Point(552, 43);
-            this.buttonJig8.Name = "buttonJig8";
-            this.buttonJig8.Size = new System.Drawing.Size(70, 50);
-            this.buttonJig8.TabIndex = 0;
-            this.buttonJig8.Text = "Wózek8";
-            this.buttonJig8.UseVisualStyleBackColor = true;
-            this.buttonJig8.Click += new System.EventHandler(this.buttonJig8_Click);
-            // 
-            // buttonJig7
-            // 
-            this.buttonJig7.Location = new System.Drawing.Point(476, 43);
-            this.buttonJig7.Name = "buttonJig7";
-            this.buttonJig7.Size = new System.Drawing.Size(70, 50);
-            this.buttonJig7.TabIndex = 0;
-            this.buttonJig7.Text = "Wózek7";
-            this.buttonJig7.UseVisualStyleBackColor = true;
-            this.buttonJig7.Click += new System.EventHandler(this.buttonJig7_Click);
-            // 
             // buttonJig6
             // 
-            this.buttonJig6.Location = new System.Drawing.Point(400, 43);
+            this.buttonJig6.Location = new System.Drawing.Point(501, 43);
             this.buttonJig6.Name = "buttonJig6";
             this.buttonJig6.Size = new System.Drawing.Size(70, 50);
             this.buttonJig6.TabIndex = 0;
-            this.buttonJig6.Text = "Wózek6";
+            this.buttonJig6.Text = "Jig 6";
             this.buttonJig6.UseVisualStyleBackColor = true;
             this.buttonJig6.Click += new System.EventHandler(this.buttonJig6_Click);
             // 
             // buttonJig5
             // 
-            this.buttonJig5.Location = new System.Drawing.Point(324, 43);
+            this.buttonJig5.Location = new System.Drawing.Point(425, 43);
             this.buttonJig5.Name = "buttonJig5";
             this.buttonJig5.Size = new System.Drawing.Size(70, 50);
             this.buttonJig5.TabIndex = 0;
-            this.buttonJig5.Text = "Wózek5";
+            this.buttonJig5.Text = "Jig 5";
             this.buttonJig5.UseVisualStyleBackColor = true;
             this.buttonJig5.Click += new System.EventHandler(this.buttonJig5_Click);
             // 
             // buttonJig4
             // 
-            this.buttonJig4.Location = new System.Drawing.Point(248, 43);
+            this.buttonJig4.Location = new System.Drawing.Point(349, 43);
             this.buttonJig4.Name = "buttonJig4";
             this.buttonJig4.Size = new System.Drawing.Size(70, 50);
             this.buttonJig4.TabIndex = 0;
-            this.buttonJig4.Text = "Wózek4";
+            this.buttonJig4.Text = "Jig 4";
             this.buttonJig4.UseVisualStyleBackColor = true;
             this.buttonJig4.Click += new System.EventHandler(this.buttonJig4_Click);
             // 
             // buttonJig3
             // 
-            this.buttonJig3.Location = new System.Drawing.Point(169, 43);
+            this.buttonJig3.Location = new System.Drawing.Point(270, 43);
             this.buttonJig3.Name = "buttonJig3";
             this.buttonJig3.Size = new System.Drawing.Size(70, 50);
             this.buttonJig3.TabIndex = 0;
-            this.buttonJig3.Text = "Wózek3";
+            this.buttonJig3.Text = "Jig 3";
             this.buttonJig3.UseVisualStyleBackColor = true;
             this.buttonJig3.Click += new System.EventHandler(this.buttonJig3_Click);
             // 
             // buttonJig2
             // 
-            this.buttonJig2.Location = new System.Drawing.Point(93, 43);
+            this.buttonJig2.Location = new System.Drawing.Point(194, 43);
             this.buttonJig2.Name = "buttonJig2";
             this.buttonJig2.Size = new System.Drawing.Size(70, 50);
             this.buttonJig2.TabIndex = 0;
-            this.buttonJig2.Text = "Wózek 2";
+            this.buttonJig2.Text = "Jig  2";
             this.buttonJig2.UseVisualStyleBackColor = true;
             this.buttonJig2.Click += new System.EventHandler(this.buttonJig2_Click);
             // 
             // buttonJig1
             // 
-            this.buttonJig1.Location = new System.Drawing.Point(17, 43);
+            this.buttonJig1.Location = new System.Drawing.Point(118, 43);
             this.buttonJig1.Name = "buttonJig1";
             this.buttonJig1.Size = new System.Drawing.Size(70, 50);
             this.buttonJig1.TabIndex = 0;
-            this.buttonJig1.Text = "Wózek 1";
+            this.buttonJig1.Text = "Jig 1";
             this.buttonJig1.UseVisualStyleBackColor = true;
             this.buttonJig1.Click += new System.EventHandler(this.buttonJig1_Click);
             // 
@@ -516,9 +456,9 @@
             this.labelCurrentTime.ForeColor = System.Drawing.SystemColors.Control;
             this.labelCurrentTime.Location = new System.Drawing.Point(37, 497);
             this.labelCurrentTime.Name = "labelCurrentTime";
-            this.labelCurrentTime.Size = new System.Drawing.Size(61, 17);
+            this.labelCurrentTime.Size = new System.Drawing.Size(39, 17);
             this.labelCurrentTime.TabIndex = 6;
-            this.labelCurrentTime.Text = "Godzina";
+            this.labelCurrentTime.Text = "Time";
             // 
             // SidePanel
             // 
@@ -539,7 +479,7 @@
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(217, 55);
             this.buttonExit.TabIndex = 3;
-            this.buttonExit.Text = "          Wyjście";
+            this.buttonExit.Text = "          Exit";
             this.buttonExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.ButtonExit_Click);
@@ -556,7 +496,7 @@
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(217, 55);
             this.buttonSettings.TabIndex = 2;
-            this.buttonSettings.Text = "          Ustawienia";
+            this.buttonSettings.Text = "          Settings";
             this.buttonSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSettings.UseVisualStyleBackColor = false;
             // 
@@ -571,7 +511,7 @@
             this.buttonHistory.Name = "buttonHistory";
             this.buttonHistory.Size = new System.Drawing.Size(217, 55);
             this.buttonHistory.TabIndex = 1;
-            this.buttonHistory.Text = "          Historia";
+            this.buttonHistory.Text = "          History";
             this.buttonHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonHistory.UseVisualStyleBackColor = true;
             this.buttonHistory.Click += new System.EventHandler(this.ButtonHistory_Click);
@@ -590,7 +530,7 @@
             this.buttonMakeCoat.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.buttonMakeCoat.Size = new System.Drawing.Size(217, 55);
             this.buttonMakeCoat.TabIndex = 0;
-            this.buttonMakeCoat.Text = "          Zrób lakier";
+            this.buttonMakeCoat.Text = "      Make coat";
             this.buttonMakeCoat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonMakeCoat.UseVisualStyleBackColor = false;
             this.buttonMakeCoat.Click += new System.EventHandler(this.ButtonMakeCoat_Click);
@@ -599,15 +539,6 @@
             // 
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(145, 147);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 36);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Zapisz jako CSV";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // SettingForm
             // 
@@ -649,9 +580,9 @@
         private System.Windows.Forms.Button buttonUpdateUserData;
         private System.Windows.Forms.ListView listViewUsers;
         private System.Windows.Forms.Button buttonDeleteUser;
-        private System.Windows.Forms.ColumnHeader Uzytkownik;
-        private System.Windows.Forms.ColumnHeader Haslo;
-        private System.Windows.Forms.ColumnHeader Rola;
+        private System.Windows.Forms.ColumnHeader User;
+        private System.Windows.Forms.ColumnHeader Password;
+        private System.Windows.Forms.ColumnHeader Role;
         private System.Windows.Forms.Button buttonLoadDataBase;
         private System.Windows.Forms.Panel toppanel2;
         private System.Windows.Forms.Button minimalizeButton;
@@ -665,18 +596,12 @@
         private System.Windows.Forms.Button buttonMakeCoat;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.TabPage JigsTab;
-        private System.Windows.Forms.Button buttonJig8;
-        private System.Windows.Forms.Button buttonJig7;
         private System.Windows.Forms.Button buttonJig6;
         private System.Windows.Forms.Button buttonJig5;
         private System.Windows.Forms.Button buttonJig4;
         private System.Windows.Forms.Button buttonJig3;
         private System.Windows.Forms.Button buttonJig2;
         private System.Windows.Forms.Button buttonJig1;
-        private System.Windows.Forms.Button buttonJig9;
-        private System.Windows.Forms.Label labelJig9;
-        private System.Windows.Forms.Label labelJig8;
-        private System.Windows.Forms.Label labelJig7;
         private System.Windows.Forms.Label labelJig6;
         private System.Windows.Forms.Label labelJig5;
         private System.Windows.Forms.Label labelJig4;

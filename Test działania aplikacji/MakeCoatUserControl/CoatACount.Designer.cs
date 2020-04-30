@@ -1,6 +1,6 @@
 ﻿namespace PaintshopAppUI
 {
-    partial class SipiolCount
+    partial class CoatACount
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.
@@ -60,13 +60,13 @@
             this.label1.Font = new System.Drawing.Font("Calibri Light", 14.25F);
             this.label1.Location = new System.Drawing.Point(320, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 23);
+            this.label1.Size = new System.Drawing.Size(59, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Sipiol";
+            this.label1.Text = "Coat 1";
             // 
             // numberKg
             // 
-            this.numberKg.Location = new System.Drawing.Point(55, 108);
+            this.numberKg.Location = new System.Drawing.Point(55, 107);
             this.numberKg.Maximum = new decimal(new int[] {
             10,
             0,
@@ -114,7 +114,7 @@
             // labelBasicCoatQuantity
             // 
             this.labelBasicCoatQuantity.AutoSize = true;
-            this.labelBasicCoatQuantity.Location = new System.Drawing.Point(93, 158);
+            this.labelBasicCoatQuantity.Location = new System.Drawing.Point(96, 158);
             this.labelBasicCoatQuantity.Name = "labelBasicCoatQuantity";
             this.labelBasicCoatQuantity.Size = new System.Drawing.Size(31, 13);
             this.labelBasicCoatQuantity.TabIndex = 7;
@@ -125,36 +125,36 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(56, 158);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "1. Wlej";
+            this.label2.Text = "1. Pour";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(130, 158);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 13);
+            this.label3.Size = new System.Drawing.Size(154, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "gram lakieru do metalowego wiadra.";
+            this.label3.Text = "gram of coat to a metal bucket.";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(56, 189);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
+            this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 8;
-            this.label4.Text = "2. Dodaj";
+            this.label4.Text = "2. Add";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(130, 189);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(231, 13);
+            this.label5.Size = new System.Drawing.Size(203, 13);
             this.label5.TabIndex = 9;
-            this.label5.Text = "gram składnika Sipiol VW do lakieru w wiadrze.";
+            this.label5.Text = "gram of component Y to a coat in bucket.";
             // 
             // labelQuantityOfComponentB
             // 
@@ -170,36 +170,36 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(56, 221);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 13);
+            this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 8;
-            this.label6.Text = "3. Zaczekaj jeszcze";
+            this.label6.Text = "3. Wait";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(231, 221);
+            this.label7.Location = new System.Drawing.Point(181, 221);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(182, 13);
+            this.label7.Size = new System.Drawing.Size(160, 13);
             this.label7.TabIndex = 9;
-            this.label7.Text = "aby lakier się prawidłowo rozmieszał.";
+            this.label7.Text = "to fully mix coat with component.";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(56, 251);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(155, 13);
+            this.label8.Size = new System.Drawing.Size(115, 13);
             this.label8.TabIndex = 8;
-            this.label8.Text = "4. Lakier jest gotowy do użycia.";
+            this.label8.Text = "4. Coat is ready to use.";
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(448, 157);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(63, 17);
+            this.checkBox1.Size = new System.Drawing.Size(57, 17);
             this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Gotowe";
+            this.checkBox1.Text = "Ready";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
             // 
@@ -208,9 +208,9 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(448, 188);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(63, 17);
+            this.checkBox2.Size = new System.Drawing.Size(57, 17);
             this.checkBox2.TabIndex = 10;
-            this.checkBox2.Text = "Gotowe";
+            this.checkBox2.Text = "Ready";
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckStateChanged += new System.EventHandler(this.checkBox2_CheckStateChanged);
             // 
@@ -219,9 +219,9 @@
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(448, 220);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(63, 17);
+            this.checkBox3.Size = new System.Drawing.Size(57, 17);
             this.checkBox3.TabIndex = 10;
-            this.checkBox3.Text = "Gotowe";
+            this.checkBox3.Text = "Ready";
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckStateChanged += new System.EventHandler(this.checkBox3_CheckStateChanged);
             // 
@@ -230,9 +230,9 @@
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(448, 250);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(63, 17);
+            this.checkBox4.Size = new System.Drawing.Size(57, 17);
             this.checkBox4.TabIndex = 10;
-            this.checkBox4.Text = "Gotowe";
+            this.checkBox4.Text = "Ready";
             this.checkBox4.UseVisualStyleBackColor = true;
             this.checkBox4.CheckStateChanged += new System.EventHandler(this.checkBox4_CheckStateChanged);
             // 
@@ -244,7 +244,7 @@
             // lblMin
             // 
             this.lblMin.AutoSize = true;
-            this.lblMin.Location = new System.Drawing.Point(157, 221);
+            this.lblMin.Location = new System.Drawing.Point(106, 221);
             this.lblMin.Name = "lblMin";
             this.lblMin.Size = new System.Drawing.Size(38, 13);
             this.lblMin.TabIndex = 12;
@@ -253,7 +253,7 @@
             // lblSec
             // 
             this.lblSec.AutoSize = true;
-            this.lblSec.Location = new System.Drawing.Point(199, 221);
+            this.lblSec.Location = new System.Drawing.Point(148, 221);
             this.lblSec.Name = "lblSec";
             this.lblSec.Size = new System.Drawing.Size(27, 13);
             this.lblSec.TabIndex = 12;
@@ -264,7 +264,7 @@
             this.timerCoatFinishTime.Enabled = true;
             this.timerCoatFinishTime.Tick += new System.EventHandler(this.timerGodzinaLaku_Tick);
             // 
-            // SipiolCount
+            // CoatACount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -287,9 +287,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numberKg);
             this.Controls.Add(this.numberG);
-            this.Name = "SipiolCount";
+            this.Name = "CoatACount";
             this.Size = new System.Drawing.Size(758, 468);
-            this.Load += new System.EventHandler(this.SipiolObliczanie1_Load);
+            this.Load += new System.EventHandler(this.CoatACount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numberKg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberG)).EndInit();
             this.ResumeLayout(false);

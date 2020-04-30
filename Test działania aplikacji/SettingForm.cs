@@ -18,6 +18,8 @@ namespace PaintshopAppUI
     {
         List<PersonModel> people = new List<PersonModel>();
 
+        List<JigModel> jigs = new List<JigModel>();
+
         public SettingForm()
         {
             InitializeComponent();
@@ -31,11 +33,11 @@ namespace PaintshopAppUI
 
             if(PeopleDataAccess.errorMessage == true)
             {
-                MessageBox.Show("User name: " + textBoxUserName.Text + " already exist. Please declare another user name.");
+                MessageBox.Show("User name " + textBoxUserName.Text + " already exist. Please declare another user name.");
             }
             else
             {
-                MessageBox.Show("User had been sucesfull added.");
+                MessageBox.Show("User has been sucesfully created.");
             }
         }
 
@@ -66,12 +68,10 @@ namespace PaintshopAppUI
             listViewUsers.View = View.Details;
             listViewUsers.FullRowSelect = true;
 
-            //URUCHOMIENIE TIMERA DLA GODZINY
             timer.Start();
             labelCurrentTime.Text = DateTime.Now.ToLongTimeString();
 
-            //ODCZYT Z BAZY DANYCH AKTUALNYCH WÓZKÓW
-            displayJigLabels(null, null);
+            displayJigLabel(null, null);
         }
 
         private void buttonForceUpdateListView_Click(object sender, EventArgs e)
@@ -133,134 +133,44 @@ namespace PaintshopAppUI
             PopulateListView(null, null);
         }
 
-        private void displayJigLabels(object sender, EventArgs e)
+        private void displayJigLabel(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\Documents\UzytkownicyDataBase.mdf;Integrated Security=True;Connect Timeout=30;");
+            JigsDataAccess db = new JigsDataAccess();
 
-            string jigName;
+            jigs = db.DisplayJigLabels();
 
-            connection.Open();
+            foreach (JigModel jig in jigs)
             {
-                SqlCommand cmdLabel1 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='1'", connection);
-
-                SqlDataReader read = cmdLabel1.ExecuteReader();
-
-                while (read.Read())
+                if (jig.JigNumber == 1)
                 {
-                    jigName = (read["JIGNAME"].ToString().Trim());
-                    labelJig1.Text = jigName.Trim();
+                    labelJig1.Text = jig.JigName;
                 }
-                read.Close();
-            }
-
-            {
-                SqlCommand cmdLabel2 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='2'", connection);
-
-                SqlDataReader read = cmdLabel2.ExecuteReader();
-
-                while (read.Read())
+                if (jig.JigNumber == 2)
                 {
-                    jigName = (read["JIGNAME"].ToString().Trim());
-                    labelJig2.Text = jigName.Trim();
+                    labelJig2.Text = jig.JigName;
                 }
-                read.Close();
-            }
-
-            {
-                SqlCommand cmdLabel3 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='3'", connection);
-
-                SqlDataReader read = cmdLabel3.ExecuteReader();
-
-                while (read.Read())
+                if (jig.JigNumber == 3)
                 {
-                    jigName = (read["JIGNAME"].ToString().Trim());
-                    labelJig3.Text = jigName.Trim();
+                    labelJig3.Text = jig.JigName;
                 }
-                read.Close();
-            }
-
-            {
-                SqlCommand cmdLabel4 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='4'", connection);
-
-                SqlDataReader read = cmdLabel4.ExecuteReader();
-
-                while (read.Read())
+                if (jig.JigNumber == 4)
                 {
-                    jigName = (read["JIGNAME"].ToString().Trim());
-                    labelJig4.Text = jigName.Trim();
+                    labelJig4.Text = jig.JigName;
                 }
-                read.Close();
-            }
-
-            {
-                SqlCommand cmdLabel5 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='5'", connection);
-
-                SqlDataReader read = cmdLabel5.ExecuteReader();
-
-                while (read.Read())
+                if (jig.JigNumber == 5)
                 {
-                    jigName = (read["JIGNAME"].ToString().Trim());
-                    labelJig5.Text = jigName.Trim();
+                    labelJig5.Text = jig.JigName;
                 }
-                read.Close();
-            }
-
-            {
-                SqlCommand cmdLabel6 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='6'", connection);
-
-                SqlDataReader read = cmdLabel6.ExecuteReader();
-
-                while (read.Read())
+                if (jig.JigNumber == 6)
                 {
-                    jigName = (read["JIGNAME"].ToString().Trim());
-                    labelJig6.Text = jigName.Trim();
+                    labelJig6.Text = jig.JigName;
                 }
-                read.Close();
-            }
-
-            {
-                SqlCommand cmdLabel7 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='7'", connection);
-
-                SqlDataReader read = cmdLabel7.ExecuteReader();
-
-                while (read.Read())
-                {
-                    jigName = (read["JIGNAME"].ToString().Trim());
-                    labelJig7.Text = jigName.Trim();
-                }
-                read.Close();
-            }
-
-            {
-                SqlCommand cmdLabel8 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='8'", connection);
-
-                SqlDataReader read = cmdLabel8.ExecuteReader();
-
-                while (read.Read())
-                {
-                    jigName = (read["JIGNAME"].ToString().Trim());
-                    labelJig8.Text = jigName.Trim();
-                }
-                read.Close();
-            }
-
-            {
-                SqlCommand cmdLabel9 = new SqlCommand("select JIGNAME from JIGLIST where JIGNUMBER ='9'", connection);
-
-                SqlDataReader read = cmdLabel9.ExecuteReader();
-
-                while (read.Read())
-                {
-                    jigName = (read["JIGNAME"].ToString().Trim());
-                    labelJig9.Text = jigName.Trim();
-                }
-                read.Close();
             }
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            displayJigLabels(null, null);
+            displayJigLabel(null, null);
         }
 
         private void closeButton_Click(object sender, EventArgs e) //Krzyżyk wyjście z programu
@@ -306,55 +216,31 @@ namespace PaintshopAppUI
         private void buttonJig1_Click(object sender, EventArgs e)
         {
             new JigsSelector1().Show();
-            displayJigLabels(null, null);
         }
 
         private void buttonJig2_Click(object sender, EventArgs e)
         {
             new JigsSelector2().Show();
-            displayJigLabels(null, null);
         }
 
         private void buttonJig3_Click(object sender, EventArgs e)
         {
             new JigsSelector3().Show();
-            displayJigLabels(null, null);
         }
 
         private void buttonJig4_Click(object sender, EventArgs e)
         {
             new JigsSelector4().Show();
-            displayJigLabels(null, null);
         }
 
         private void buttonJig5_Click(object sender, EventArgs e)
         {
             new JigsSelector5().Show();
-            displayJigLabels(null, null);
         }
 
         private void buttonJig6_Click(object sender, EventArgs e)
         {
             new JigsSelector6().Show();
-            displayJigLabels(null, null);
-        }
-
-        private void buttonJig7_Click(object sender, EventArgs e)
-        {
-            new JigsSelector7().Show();
-            displayJigLabels(null, null);
-        }
-
-        private void buttonJig8_Click(object sender, EventArgs e)
-        {
-            new JigsSelector8().Show();
-            displayJigLabels(null, null);
-        }
-
-        private void buttonJig9_Click(object sender, EventArgs e)
-        {
-            new JigsSelector9().Show();
-            displayJigLabels(null, null);
         }
     }
 }
