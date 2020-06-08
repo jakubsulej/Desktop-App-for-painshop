@@ -175,7 +175,6 @@
     <Compile Include="Views\SettingForm.Designer.cs">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\MainViewModel.cs" />
     <EmbeddedResource Include="Views\JigViews\JigsSelector6.resx">
       <DependentUpon>JigsSelector6.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,6 +258,16 @@
       <Name>DataAccessLibrary</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Media\Gif\coatMakeHistory.gif" />
+    <Content Include="Media\Gif\exitButton.gif" />
+    <Content Include="Media\Gif\historyForm.gif" />
+    <Content Include="Media\Gif\loginForm.gif" />
+    <Content Include="Media\Gif\makeCoat.gif" />
+    <Content Include="Media\Gif\overview.gif" />
+    <Content Include="Media\Gif\settingsFormJigs.gif" />
+    <Content Include="Media\Gif\settingsFormUsers.gif" />
+    <Content Include="Media\Gif\userpermission.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,7 +24,7 @@ namespace PaintshopAppUI.Views
             textBoxUserPassword.PasswordChar = '*';
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e) //Logowanie do menu głównego - Do ogarnięcia uporządkowanie w metody //DO ZROBIENIA == USUWANIE ISTNIEJACEJ BAZY JESLI ISTNIEJE
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
             LoginDataAccess db = new LoginDataAccess();
 

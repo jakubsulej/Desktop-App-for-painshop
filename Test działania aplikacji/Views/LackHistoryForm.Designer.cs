@@ -260,7 +260,7 @@
             this.buttonDeleteLast7Days.TabIndex = 11;
             this.buttonDeleteLast7Days.Text = "Delete last 7 days";
             this.buttonDeleteLast7Days.UseVisualStyleBackColor = true;
-            this.buttonDeleteLast7Days.Click += new System.EventHandler(this.buttonUsun7Dni_Click);
+            this.buttonDeleteLast7Days.Click += new System.EventHandler(this.buttonDelete7Days_Click);
             // 
             // buttonSafeAsCSV
             // 
@@ -270,7 +270,7 @@
             this.buttonSafeAsCSV.TabIndex = 12;
             this.buttonSafeAsCSV.Text = "Save as CSV";
             this.buttonSafeAsCSV.UseVisualStyleBackColor = true;
-            this.buttonSafeAsCSV.Click += new System.EventHandler(this.buttonZapiszCSV_Click);
+            this.buttonSafeAsCSV.Click += new System.EventHandler(this.buttonSaveCSV_Click);
             // 
             // LackHistoryForm
             // 

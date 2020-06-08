@@ -122,7 +122,7 @@ namespace PaintshopAppUI.Views
             PopulateListView(null, null);
         }
 
-        private void buttonUsun7Dni_Click(object sender, EventArgs e)
+        private void buttonDelete7Days_Click(object sender, EventArgs e)
         {
             HistoryDataAccess db = new HistoryDataAccess();
             
@@ -133,7 +133,7 @@ namespace PaintshopAppUI.Views
             PopulateListView(null, null);
         }
 
-        private void buttonZapiszCSV_Click(object sender, EventArgs e) //Zaisz jako CSV
+        private void buttonSaveCSV_Click(object sender, EventArgs e) //Zaisz jako CSV
         {
             DateTime currentDate = DateTime.Now;
             string justDate = currentDate.ToShortDateString();
