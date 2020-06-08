@@ -1,5 +1,7 @@
 <p>Paint Shop management software is a desktop application created to maintain an automatic paint shop in production environments. It allows us to save information about when and how much coat had been made by workers. It also helps workers to count component proportions to prepare a new coat from the recipe. The last part of the software is prepared for service staff or paint Shop manager, which allows him to manage user accounts and view work history.</p>
 
+![grab-landing-page](https://github.com/jakubsulej/Desktop-App-for-painshop/blob/master/Test%20dzia%C5%82ania%20aplikacji/Media/Gif/overview.gif)
+
 <h2>Software specification</h2>
 <p>The solution is a C# WinForms application because many existing IT environments in production still uses Windows XP. That is why it needs a safe solution, which is simple and robust. Data access library with models connects the database with application logic.Sql local database is enough for this type of software, because it does not need an internet connection and additional security.</p>
 
@@ -17,30 +19,38 @@
 
 <h2>User login page</h2>
 Every worker in the company has its user id, which is numeric or alphanumeric and it is used E.g. to scan when starting workday. The same number should be used in the paint shop management software and it is connected with other user information in the paint shop manager database. Successful login saves the logged-in user information - user name and user access type (login/user).
-In the backend the software checks if the database table with currently logged in users is empty. If not it deletes all the information and allows the program to write a new one with the newly logged-in user. 
+In the backend the software checks if the database table with currently logged in users is empty. If not it deletes all the information and allows the program to write a new one with the newly logged-in user.
 
 <h2>Shell View/Dashboard form</h2>
 <p>The dashboard of the paint shop management software is a WindowForm and it holds an application and its functions, which are UserContols. The main view also displays the current local time and contains window controls like exit, minimize, and move the window. It allows users to move through the functions of the application and checks for an admin/service permission to access the history and settings.</p>
+
+![grab-landing-page](https://github.com/jakubsulej/Desktop-App-for-painshop/blob/master/Test%20dzia%C5%82ania%20aplikacji/Media/Gif/coatMakeHistory.gif)
 
 <h2>Coat UserControl</h2>
 <p>Paint shop management software helps production workers avoid mistakes during preparing coats because it automatically counts all needed component proportions to make a coat. Moreover, it does not let the user skip through the process, because every step in the recipe has to be ticked as done before moving to the next one. When two components need to be mixed, it starts a countdown. Until the countdown finishes, the user can't tick it as done.
 When all tics are clicked, the software saves to the database pieces of information like currently logged user id, current local time, type of coat, and quantity of coat.</p>
 
-<h2>Coat make History form</h2>
+![grab-landing-page](https://github.com/jakubsulej/Desktop-App-for-painshop/blob/master/Test%20dzia%C5%82ania%20aplikacji/Media/Gif/makeCoat.gif)
+
+<h2>Coat History form</h2>
 <p>The history form was created to manage the crucial information about the coat, such as time, type of coat, and user name who made it. It allows managers and services to control the production process and see if something was not made properly. That eliminates possible mistakes made during the workday.
 The other useful feature is deleting data from the history database. It can be made as a single selection or deleting the last 7 days to do it more efficiently.
 Furthermore from Coat History form users with permission can also export data as a CSV file, save it in a local machine, and then E.g.  import it to Microsoft Excel.</p>
 
+![grab-landing-page](https://github.com/jakubsulej/Desktop-App-for-painshop/blob/master/Test%20dzia%C5%82ania%20aplikacji/Media/Gif/coatMakeHistory.gif)
+
 <h2>Setting form</h2>
 <p>The setting form has two tabs, each for different operations. The first one is for maintaining the users in the database and the second is for managing jig information in the paint shop.<p>
 
-<h2>User tab</h2>
+<h3>User tab</h3>
 <p>The settings form is made to allow anyone with an admin type account to add, delete, and update users' data. It displays a list of users who are in the database with their properties, then updates data if needed and save it. Creating a new user requires writing user personal id, password, and role (permission) which the user would have. All the information except username could be changed later by selecting the user row from the Listbox, changing data, and pressing the update button.
-Jig tab
+
+![grab-landing-page](https://github.com/jakubsulej/Desktop-App-for-painshop/blob/master/Test%20dzia%C5%82ania%20aplikacji/Media/Gif/settingsFormUsers.gif)
+  
+<h3>Jig tab</h3>
 It displays current positions of all 9 jigs in the paint shop. Changing them is possible by pressing the button with a jig position. Then a new window pops up with 6 types of jigs. Selecting one automatically closes the popup window and the new one is being displayed on its position. Saving the values as a CSV file requires pressing save as CSV button and a new window pops up.</p>
 
-<h2>Exit button</h2>
-<p>For safety reasons after clicking the exit button, the application asks the user if he wants to quit. It is created to avoid mistakes, caused by miss clicking during the application handling.</p>
+![grab-landing-page](https://github.com/jakubsulej/Desktop-App-for-painshop/blob/master/Test%20dzia%C5%82ania%20aplikacji/Media/Gif/settingsFormJigs.gif)
 
 <h2>What I have learned</h2>
 <p>That was my first big project made in C#. I have chosen a Winforms application because it was less complex than WPF or asp.net, but still has many useful features similar to a WPF project. I also want to have a wide technology stack in .Net. 
