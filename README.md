@@ -5,7 +5,7 @@
 <h2>Software specification</h2>
 <p>The solution is a C# WinForms application because many existing IT environments in production still uses Windows XP. That is why it needs a safe solution, which is simple and robust. Data access library with models connects the database with application logic.Sql local database is enough for this type of software, because it does not need an internet connection and additional security.</p>
 
-<h2><a href="#solutiondeployment">Solution deployment</a></h2>
+<h2><a href="#solutiondeployment" class="anchor" aria-hidden="true">Solution deployment</a></h2>
 <p>The solution is divided into three projects. The first one is the user interface - paintshopAppUI with all the business logic needed to display, work, count, and take input from the user. The next one is the SQL database - paintShopDB, with all tables needed for the working application. The last one is DataAccessLibrary, which connects the first two projects.</p>
 
 <h3>DataAccessLibrary</h2>
