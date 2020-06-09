@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using Paint_shop_app;
 using Dapper;
 using DataAccessLibrary.Models;
 using DataAccessLibrary.DataAccess;
