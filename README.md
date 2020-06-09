@@ -1,9 +1,11 @@
 <p>Paint Shop management software is a desktop application created to maintain an automatic paint shop in production environments. It allows us to save information about when and how much coat had been made by workers. It also helps workers to count component proportions to prepare a new coat from the recipe. The last part of the software is prepared for service staff or paint Shop manager, which allows him to manage user accounts and view work history.</p>
 
+<a href="#solutiondeployment">Solution deployment</a>
+
 <h2>Software specification</h2>
 <p>The solution is a C# WinForms application because many existing IT environments in production still uses Windows XP. That is why it needs a safe solution, which is simple and robust. Data access library with models connects the database with application logic.Sql local database is enough for this type of software, because it does not need an internet connection and additional security.</p>
 
-<h2>Solution deployment</h2>
+<h2><a href="#solutiondeployment">Solution deployment</a></h2>
 <p>The solution is divided into three projects. The first one is the user interface - paintshopAppUI with all the business logic needed to display, work, count, and take input from the user. The next one is the SQL database - paintShopDB, with all tables needed for the working application. The last one is DataAccessLibrary, which connects the first two projects.</p>
 
 <h3>DataAccessLibrary</h2>
