@@ -47,7 +47,6 @@
             this.labelAdminStatus = new System.Windows.Forms.Label();
             this.labelUserName = new System.Windows.Forms.Label();
             this.JigsTab = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.buttonCount = new System.Windows.Forms.Button();
             this.labelJig6 = new System.Windows.Forms.Label();
             this.labelJig5 = new System.Windows.Forms.Label();
@@ -238,7 +237,6 @@
             // 
             // JigsTab
             // 
-            this.JigsTab.Controls.Add(this.button1);
             this.JigsTab.Controls.Add(this.buttonCount);
             this.JigsTab.Controls.Add(this.labelJig6);
             this.JigsTab.Controls.Add(this.labelJig5);
@@ -259,15 +257,6 @@
             this.JigsTab.TabIndex = 2;
             this.JigsTab.Text = "Jigs";
             this.JigsTab.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(145, 147);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 36);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "save as CSV";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // buttonCount
             // 
@@ -609,6 +598,5 @@
         private System.Windows.Forms.Label labelJig2;
         private System.Windows.Forms.Label labelJig1;
         private System.Windows.Forms.Button buttonCount;
-        private System.Windows.Forms.Button button1;
     }
 }

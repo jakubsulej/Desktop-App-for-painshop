@@ -232,7 +232,7 @@
             this.buttonMakeCoat.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.buttonMakeCoat.Size = new System.Drawing.Size(217, 55);
             this.buttonMakeCoat.TabIndex = 0;
-            this.buttonMakeCoat.Text = "      Make Coat";
+            this.buttonMakeCoat.Text = "      Make coat";
             this.buttonMakeCoat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonMakeCoat.UseVisualStyleBackColor = false;
             this.buttonMakeCoat.Click += new System.EventHandler(this.buttonMakeCoat_Click);
