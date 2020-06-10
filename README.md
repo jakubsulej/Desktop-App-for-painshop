@@ -7,7 +7,7 @@
 
 <br>
 
-<h2>Solution deployment</h2>
+<h2>Projects in the solution</h2>
 <p>The solution is divided into three projects. The first one is the user interface - paintshopAppUI with all the business logic needed to display, work, count, and take input from the user. The next one is the SQL database - paintShopDB, with all tables needed for the working application. The last one is DataAccessLibrary, which connects the first two projects.</p>
 
 <br>
